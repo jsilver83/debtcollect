@@ -1,0 +1,113 @@
+{% load i18n %}
+{% load staticfiles %}
+
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="left_col scroll-view">
+	<div class="navbar nav_title" style="border: 0;">
+		<a href="{% url 'index' %}" class="site_title"><i class="fa fa-spinner"></i>
+			<span>{% trans 'Lawyer System' %}</span>
+		</a>
+	</div>
+
+	<div class="clearfix"></div>
+
+	<!-- menu profile quick info -->
+	<div class="profile clearfix">
+		<div class="profile_pic">
+			<img src="{% static user.employee.picture %}" alt="..." class="img-circle profile_img">
+		</div>
+		<div class="profile_info">
+			<span>{% trans 'Welcome' %}</span>
+			<h2>{{ user.employee.name }}</h2>
+		</div>
+	</div>
+	<!-- /menu profile quick info -->
+
+	<br/>
+
+	<!-- sidebar menu -->
+	<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+		<div class="menu_section">
+			<h3>{% trans 'Main Menu' %}</h3>
+			<ul class="nav side-menu">
+				{% if lawyer %}
+				<li><a><i class="fa fa-home"></i> {% trans 'Projects' %} <span class="fa fa-chevron-down"></span></a>
+					<ul class="nav child_menu">
+						<li><a href="{% url 'case_listing' 'Case' %}">{% trans 'Cases' %}</a></li>
+						<li><a href="{% url 'case_listing' 'Consultation' %}">{% trans 'Consultations' %}</a></li>
+						<li><a href="{% url 'case_listing' 'Paperwork' %}">{% trans 'Paperwork Projects' %}</a></li>
+					</ul>
+				</li>
+			{% endif %}
+				<li><a><i class="fa fa-edit"></i> {% trans 'Clients' %} <span class="fa fa-chevron-down"></span></a>
+					<ul class="nav child_menu">
+						<li><a href="{% url 'clients' %}">{% trans 'Individuals' %}</a></li>
+						<li><a href="{% url 'organizations' %}">{% trans 'Organizations' %}</a></li>
+						<li><a href="{% url 'courts' %}">{% trans 'Courts' %}</a></li>
+					</ul>
+				</li>
+			{% if archive %}
+				<li><a href="{% url 'archive_listing' %}">
+					<i class="fa fa-desktop"></i> {% trans 'Archive' %}
+				</a>
+				</li>
+			{% endif %}
+			{% if accounting %}
+				<li><a><i class="fa fa-bar-chart-o"></i> {% trans 'Accounting' %}
+					<span class="fa fa-chevron-down"></span></a>
+					<ul class="nav child_menu">
+						<li><a href="{% url 'transaction_listing' %}">{% trans 'Transactions' %}</a></li>
+						<li><a href="{% url 'invoice_listing' %}">{% trans 'Invoices' %}</a></li>
+						<li><a href="{% url 'fund_request_listing' %}">{% trans 'Fund Requests' %}</a></li>
+					</ul>
+				</li>
+			{% endif %}
+			{% if admin %}
+				<li>
+					<a>
+						<i class="fa fa-user"></i>{% trans 'Employees' %} <span class="fa fa-chevron-down"></span>
+					</a>
+					<ul class="nav child_menu">
+						<li><a href="{% url 'users' %}">{% trans 'Users' %}</a></li>
+						<li><a href="{% url 'employees' %}">{% trans 'Employees Listing' %}</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="{% url 'lookups' %}">
+						<i class="fa fa-clone"></i>{% trans 'Lookups Listing' %}
+					</a>
+				</li>
+			{% endif %}
+				<li>
+					{% if LANGUAGE_CODE == 'ar' %}
+						<a href="/en{{ request.get_full_path|slice:'3:' }}">
+							<i class="fa fa-language"></i> English</a>
+					{% else %}
+						<a href="/ar{{ request.get_full_path|slice:'3:' }}">
+							<i class="fa fa-language"></i> عربي</a>
+					{% endif %}
+				</li>
+				<li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i>{% trans 'Logout' %}</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- /sidebar menu -->
+
+	<!-- /menu footer buttons -->
+	<div class="sidebar-footer hidden-small">
+		<a data-toggle="tooltip" data-placement="top" title="Settings">
+			<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+		</a>
+		<a data-toggle="tooltip" data-placement="top" title="FullScreen">
+			<span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+		</a>
+		<a data-toggle="tooltip" data-placement="top" title="Lock">
+			<span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+		</a>
+		<a data-toggle="tooltip" data-placement="top" title="Logout" href="{% url 'logout' %}">
+			<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+		</a>
+	</div>
+	<!-- /menu footer buttons -->
+</div>

@@ -1,0 +1,1243 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-01 12:17+0000\n"
+"PO-Revision-Date: 2018-08-09 13:22+0300\n"
+"Last-Translator: Abdullah Joud <abd.jod2004@gmail.com>\n"
+"Language-Team: ICTC\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#: accounting/apps.py:7 accounting/models.py:163
+#: projects/templates/sidebar.html:57
+msgid "Accounting"
+msgstr "محاسبة"
+
+#: accounting/filters.py:10 accounting/filters.py:54
+msgid "Search in Name Or Description"
+msgstr "البحث باﻻسم أو الوصف"
+
+#: accounting/filters.py:52 accounting/models.py:110 accounting/tables.py:105
+#: archive/forms.py:14 archive/models.py:15 projects/models.py:309
+#: projects/models.py:445
+#: projects/templates/accounting/approve_fund_request.html:10
+#: projects/templates/accounting/new_expense.html:10
+#: projects/templates/accounting/new_payment.html:17
+msgid "Project"
+msgstr "مشروع"
+
+#: accounting/models.py:18 accounting/models.py:91 projects/models.py:300
+msgid "New"
+msgstr "جديد"
+
+#: accounting/models.py:19
+msgid "Approved"
+msgstr "تمت الموافقة"
+
+#: accounting/models.py:20
+msgid "Rejected"
+msgstr "مرفوض"
+
+#: accounting/models.py:21 accounting/models.py:93
+msgid "Closed"
+msgstr "مغلق"
+
+#: accounting/models.py:24 accounting/models.py:102 accounting/models.py:182
+#: projects/templates/accounting/approve_fund_request.html:12
+#: projects/templates/accounting/new_expense.html:12
+#: projects/templates/accounting/new_payment.html:28
+msgid "Amount"
+msgstr "المبلغ"
+
+#: accounting/models.py:28
+#: projects/templates/accounting/approve_fund_request.html:14
+#: projects/templates/accounting/new_expense.html:14
+msgid "Justification"
+msgstr "المبرر"
+
+#: accounting/models.py:29
+#: projects/templates/accounting/approve_fund_request.html:17
+#: projects/templates/accounting/new_expense.html:17
+msgid "Justification Proof"
+msgstr "إثبات المبرر"
+
+#: accounting/models.py:31
+#: projects/templates/accounting/approve_fund_request.html:22
+#: projects/templates/accounting/new_expense.html:22
+msgid "Requester"
+msgstr "الطالب"
+
+#: accounting/models.py:33
+#: projects/templates/accounting/approve_fund_request.html:24
+#: projects/templates/accounting/new_expense.html:24
+msgid "Request Date"
+msgstr "تاريخ الطلب"
+
+#: accounting/models.py:34 projects/templates/accounting/new_expense.html:26
+msgid "Approval Status"
+msgstr "حالة اﻻعتماد"
+
+#: accounting/models.py:36 projects/templates/accounting/new_expense.html:28
+msgid "Approved Amount"
+msgstr "المبلغ المعتمد"
+
+#: accounting/models.py:39 projects/templates/accounting/new_expense.html:30
+msgid "Approved By"
+msgstr "اعتمد بواسطة"
+
+#: accounting/models.py:41 projects/templates/accounting/new_expense.html:32
+msgid "Approval Comments"
+msgstr "تعليقات اﻻعتماد"
+
+#: accounting/models.py:42 projects/templates/accounting/new_expense.html:34
+msgid "Approval Date"
+msgstr "تاريخ اﻻعتماد"
+
+#: accounting/models.py:43 accounting/models.py:111 accounting/models.py:201
+#: projects/models.py:148 projects/models.py:252 projects/models.py:326
+#: projects/models.py:457 projects/tables.py:53
+#: projects/templates/snippets/audit.html:8
+msgid "Created On"
+msgstr "تم إنشائه في"
+
+#: accounting/models.py:45 accounting/models.py:113 accounting/models.py:203
+#: projects/models.py:150 projects/models.py:254 projects/models.py:328
+#: projects/tables.py:51 projects/templates/snippets/audit.html:14
+msgid "Created By"
+msgstr "أنشأت بواسطة"
+
+#: accounting/models.py:47 accounting/models.py:115 accounting/models.py:205
+#: archive/models.py:25 archive/tables.py:73 projects/models.py:152
+#: projects/models.py:256 projects/models.py:330 projects/tables.py:57
+#: projects/templates/snippets/audit.html:23
+msgid "Updated On"
+msgstr "تم التحديث في"
+
+#: accounting/models.py:49 accounting/models.py:117 accounting/models.py:207
+#: archive/models.py:28 archive/tables.py:71 projects/models.py:154
+#: projects/models.py:258 projects/models.py:332 projects/tables.py:55
+#: projects/templates/snippets/audit.html:29
+msgid "Updated By"
+msgstr "حدثت بواسطة"
+
+#: accounting/models.py:52 accounting/tables.py:129
+msgid "Fund Request"
+msgstr "طلبات التمويل"
+
+#: accounting/models.py:53 projects/templates/projects/update-project.html:163
+#: projects/templates/sidebar.html:62
+msgid "Fund Requests"
+msgstr "طلبات التمويل"
+
+#: accounting/models.py:92
+msgid "Pending"
+msgstr "معلق"
+
+#: accounting/models.py:94 projects/models.py:304
+msgid "Cancelled"
+msgstr "ملغى"
+
+#: accounting/models.py:97 projects/templates/accounting/new_payment.html:10
+msgid "Invoice Reference"
+msgstr "رقم الفاتورة"
+
+#: accounting/models.py:98 accounting/models.py:180 archive/forms.py:16
+#: archive/models.py:16 archive/models.py:50 projects/models.py:313
+#: projects/models.py:411 projects/models.py:446 projects/tables.py:95
+#: projects/tables.py:134 projects/templates/accounting/new_payment.html:12
+msgid "Title"
+msgstr "العنوان"
+
+#: accounting/models.py:99 accounting/models.py:181 archive/forms.py:18
+#: archive/models.py:17 projects/models.py:314 projects/models.py:412
+#: projects/models.py:447 projects/templates/accounting/new_payment.html:14
+msgid "Title (English)"
+msgstr "العنوان (الإنجليزية)"
+
+#: accounting/models.py:100 accounting/models.py:184 archive/forms.py:19
+#: archive/models.py:18 archive/models.py:51 archive/models.py:97
+#: projects/models.py:315 projects/models.py:413 projects/models.py:448
+#: projects/tables.py:135 projects/templates/accounting/new_payment.html:22
+#: projects/templates/tellme/tpl-overview.html:5
+msgid "Description"
+msgstr "وصف"
+
+#: accounting/models.py:101 accounting/models.py:185 archive/forms.py:20
+#: archive/models.py:19 projects/models.py:316 projects/models.py:414
+#: projects/models.py:449 projects/templates/accounting/new_payment.html:24
+msgid "Description (English)"
+msgstr "الوصف (الإنجليزية)"
+
+#: accounting/models.py:104 projects/templates/accounting/new_payment.html:30
+msgid "Invoice Date"
+msgstr "تاريخ الفاتورة"
+
+#: accounting/models.py:105 projects/models.py:317
+#: projects/templates/accounting/new_payment.html:26
+msgid "Status"
+msgstr "الحالة"
+
+#: accounting/models.py:108 accounting/models.py:162 archive/models.py:77
+#: projects/models.py:177 projects/models.py:226 projects/models.py:321
+#: projects/templates/accounting/new_payment.html:20
+msgid "Client"
+msgstr "العميل"
+
+#: accounting/models.py:120 accounting/tables.py:135
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#: accounting/models.py:121 projects/templates/sidebar.html:61
+msgid "Invoices"
+msgstr "الفواتير"
+
+#: accounting/models.py:164 archive/models.py:79 projects/models.py:169
+#: projects/models.py:202
+msgid "Employee"
+msgstr "الموظف"
+
+#: accounting/models.py:168
+msgid "Expenses"
+msgstr "مصاريف"
+
+#: accounting/models.py:169
+msgid "Salaries"
+msgstr "الرواتب"
+
+#: accounting/models.py:170
+msgid "Returns to Client"
+msgstr "العودة إلى العميل"
+
+#: accounting/models.py:171
+msgid "Revenue"
+msgstr "اﻷرباح"
+
+#: accounting/models.py:172
+msgid "Receivables"
+msgstr "حساب مدين"
+
+#: accounting/models.py:173 accounting/models.py:178 archive/models.py:85
+msgid "N/A"
+msgstr "غير متوفر"
+
+#: accounting/models.py:176
+msgid "Debit"
+msgstr "دائن"
+
+#: accounting/models.py:177
+msgid "Credit"
+msgstr "مدين"
+
+#: accounting/models.py:191 archive/models.py:102
+msgid "Handing Party"
+msgstr "الطرف المصدر"
+
+#: accounting/models.py:193 archive/models.py:104
+msgid "Handing Party Role"
+msgstr "دور الطرف المصدر"
+
+#: accounting/models.py:196 archive/models.py:107
+msgid "Receiving Party"
+msgstr "الطرف المستلم"
+
+#: accounting/models.py:198 archive/models.py:109
+msgid "Receiving Party Role"
+msgstr "دور الطرف المتلقي"
+
+#: accounting/models.py:200
+msgid "Transaction Date"
+msgstr "تاريخ العملية"
+
+#: accounting/models.py:210
+msgid "Transaction"
+msgstr "عملية مالية"
+
+#: accounting/models.py:211 projects/templates/sidebar.html:60
+msgid "Transactions"
+msgstr "العمليات المالية"
+
+#: accounting/tables.py:53
+msgid "Approve"
+msgstr "موافق"
+
+#: accounting/tables.py:63 projects/templates/accounting/new_expense.html:4
+msgid "New Expense"
+msgstr "مصروف جديد"
+
+#: accounting/tables.py:92 projects/templates/accounting/new_payment.html:4
+msgid "New Payment"
+msgstr "دفعة جديدة"
+
+#: accounting/views.py:61
+msgid "Invoice info was updated successfully"
+msgstr "تم تحديث معلومات الفاتورة بنجاح"
+
+#: accounting/views.py:68
+msgid "Invoice was added successfully"
+msgstr "تم إضافة الفاتورة بنجاح"
+
+#: accounting/views.py:107
+msgid "Fund request was updated successfully."
+msgstr "تم إضافة طلب الصرف بنجاح"
+
+#: accounting/views.py:117
+msgid "Expense was added successfully"
+msgstr "تم إضافة المصروف بنجاح"
+
+#: accounting/views.py:134
+msgid "Payment was added successfully"
+msgstr "تم إضافة الدفعة بنجاح"
+
+#: archive/apps.py:7 archive/models.py:78 projects/templates/sidebar.html:52
+msgid "Archive"
+msgstr "الأرشيف"
+
+#: archive/filters.py:10
+msgid "INBOX"
+msgstr "صندوق الوارد"
+
+#: archive/filters.py:16 archive/forms.py:21 archive/models.py:20
+#: projects/models.py:246 projects/models.py:362 projects/models.py:377
+#: projects/models.py:385 projects/models.py:420
+msgid "Type"
+msgstr "النوع"
+
+#: archive/forms.py:13 archive/models.py:13
+msgid "Document Upload"
+msgstr "تحميل المستند"
+
+#: archive/forms.py:17
+msgid "Document Title"
+msgstr "عنوان المستند"
+
+#: archive/forms.py:19
+msgid "Document Description"
+msgstr "وصف المستند"
+
+#: archive/forms.py:29 archive/forms.py:82
+msgid "Movement Description"
+msgstr "وصف الحركة"
+
+#: archive/forms.py:30 projects/models.py:66
+msgid "Document Type"
+msgstr "نوع المستند"
+
+#: archive/forms.py:34 archive/forms.py:86
+msgid "Describe the movement of the document not the document itself"
+msgstr "قم بوصف حركة المستند وليس المستند نفسه"
+
+#: archive/models.py:9
+msgid "In Archive"
+msgstr "بالأرشيف"
+
+#: archive/models.py:10
+msgid "Out With An Employee"
+msgstr "خارج اﻷرشبف مع موظف"
+
+#: archive/models.py:11
+msgid "Out With A Client"
+msgstr "خارج اﻷرشبف مع عميل"
+
+#: archive/models.py:21 archive/tables.py:69
+msgid "Uploaded On"
+msgstr "تم التحميل في"
+
+#: archive/models.py:24 archive/tables.py:67
+msgid "Uploaded By"
+msgstr "تم الرفع بواسطة"
+
+#: archive/models.py:31 archive/models.py:96
+msgid "Document"
+msgstr "المستند"
+
+#: archive/models.py:32
+msgid "Documents"
+msgstr "المستندات"
+
+#: archive/models.py:83
+msgid "Inbox"
+msgstr "وارد"
+
+#: archive/models.py:84
+msgid "Outbox"
+msgstr "صادر"
+
+#: archive/models.py:98
+msgid "Original Document?"
+msgstr "المستند اﻷصلي؟"
+
+#: archive/models.py:99
+msgid "Are you actually moving the original document or just a copy?"
+msgstr "هل تقوم بتحريك أصل المستند أم نسخة فقط؟"
+
+#: archive/models.py:111
+msgid "Movement Date"
+msgstr "تاريخ الحركة"
+
+#: archive/models.py:114
+msgid "Document Movement"
+msgstr "حركة مستند"
+
+#: archive/models.py:115
+msgid "Document Movements"
+msgstr "حركات المستندات"
+
+#: archive/tables.py:14
+msgid "Movement Type"
+msgstr "نوع حركة المستند"
+
+#: archive/tables.py:47
+msgid "Check Out"
+msgstr "إخراج"
+
+#: archive/tables.py:52
+msgid "Check In"
+msgstr "إدخال"
+
+#: archive/tables.py:75 projects/tables.py:59
+msgid "Audit"
+msgstr "معلومات متابعة"
+
+#: archive/views.py:57
+msgid "Document was added and checked in successfully"
+msgstr "المستند تم إضافته وإدخاله إالى اﻷرشيف بنجاح"
+
+#: archive/views.py:64
+msgid "Document was moved successfully"
+msgstr "تم تحريك المستند بنجاح"
+
+#: law-firm/settings.py:149
+msgid "Arabic"
+msgstr "العربية"
+
+#: law-firm/settings.py:150
+msgid "English"
+msgstr "العربية"
+
+#: projects/admin.py:88
+msgid "Law Firm"
+msgstr "محاماة"
+
+#: projects/admin.py:89
+msgid "System Administration"
+msgstr "إدارة النظام"
+
+#: projects/admin.py:90
+msgid "Administration"
+msgstr "الإدارة"
+
+#: projects/apps.py:7 projects/models.py:310 projects/templates/sidebar.html:35
+msgid "Projects"
+msgstr "مشاريع"
+
+#: projects/base_forms.py:24
+msgid "Search"
+msgstr "بحث"
+
+#: projects/base_forms.py:34 projects/forms.py:224 projects/forms.py:236
+#: projects/forms.py:246 projects/templates/tellme/tpl-overview.html:15
+msgid "Submit"
+msgstr "حفظ"
+
+#: projects/filters.py:12
+msgid "Title (Arabic or English)"
+msgstr "العنوان (بالعربي أو بالإنجليزية)"
+
+#: projects/filters.py:41 projects/models.py:361
+msgid "Case Reference"
+msgstr "رقم القضية"
+
+#: projects/filters.py:74 projects/filters.py:91 projects/filters.py:106
+#: projects/filters.py:124
+msgid "Name (Arabic or English)"
+msgstr "الاسم الكامل (بالعربي أو بالإنجليزية)"
+
+#: projects/filters.py:87 projects/templates/sidebar.html:45
+msgid "Individuals"
+msgstr "أفراد"
+
+#: projects/filters.py:107 projects/filters.py:125 projects/models.py:192
+msgid "Job Description"
+msgstr "وصف الوظيفة"
+
+#: projects/filters.py:145 projects/tables.py:233
+msgid "Lookup Value"
+msgstr "وصف النوع"
+
+#: projects/forms.py:120
+msgid ""
+"Choose from the above list if this client belongs to an organization. If the "
+"name of the organization does NOT appear in the list, you need to add it "
+"first and come back here"
+msgstr "اختر من القائمة أعلاه إذا كان هذا العميل ينتمي إلى جهة أو شركة"
+
+#: projects/forms.py:162
+msgid "Court Name (Arabic)"
+msgstr "اسم المحكمة (العربية)"
+
+#: projects/forms.py:163
+msgid "Court Name (English)"
+msgstr "اسم المحكمة (بالإنجليزية)"
+
+#: projects/forms.py:164 projects/models.py:67
+msgid "Court Type"
+msgstr "نوع المحكمة"
+
+#: projects/models.py:12
+msgid "Nationality (Arabic)"
+msgstr "الجنسية (العربية)"
+
+#: projects/models.py:13
+msgid "Nationality (English)"
+msgstr "الجنسية (الإنجليزية)"
+
+#: projects/models.py:14
+msgid "Country (Arabic)"
+msgstr "الدولة (العربية)"
+
+#: projects/models.py:15
+msgid "Country (English)"
+msgstr "الدولة (الإنجليزية)"
+
+#: projects/models.py:16 projects/models.py:75
+msgid "Show"
+msgstr "إظهار"
+
+#: projects/models.py:17 projects/models.py:76
+msgid "Display Order"
+msgstr "عرض الطلب"
+
+#: projects/models.py:45 projects/models.py:143
+msgid "Nationality"
+msgstr "الجنسية"
+
+#: projects/models.py:46
+msgid "Nationalities"
+msgstr "الجنسيات"
+
+#: projects/models.py:62
+msgid "Organization Type"
+msgstr "نوع المنشأة"
+
+#: projects/models.py:63
+msgid "Case Type"
+msgstr "نوع القضيه"
+
+#: projects/models.py:64
+msgid "Consultation Type"
+msgstr "نوع الاستشارة"
+
+#: projects/models.py:65
+msgid "Paperwork Type"
+msgstr "نوع التعقيب"
+
+#: projects/models.py:68
+msgid "Court Role"
+msgstr "دور المحكمة"
+
+#: projects/models.py:72
+msgid "Lookup Type"
+msgstr "تصنيف النوع"
+
+#: projects/models.py:79
+msgid "Look up"
+msgstr "اﻷنواع"
+
+#: projects/models.py:80
+msgid "Look ups"
+msgstr "التطلعات"
+
+#: projects/models.py:124
+msgid "Male"
+msgstr "ذكر "
+
+#: projects/models.py:125
+msgid "Female"
+msgstr "إناثا"
+
+#: projects/models.py:130
+msgid "Person"
+msgstr "الشخص"
+
+#: projects/models.py:131
+msgid "Persons"
+msgstr "الأشخاص"
+
+#: projects/models.py:133
+msgid "Full Name"
+msgstr "الاسم الكامل"
+
+#: projects/models.py:134
+msgid "Full Name (English)"
+msgstr "الاسم الكامل (بالإنجليزية)"
+
+#: projects/models.py:135
+msgid "Mobile"
+msgstr "الموبايل"
+
+#: projects/models.py:136
+msgid "Home Phone"
+msgstr "هاتف المنزل"
+
+#: projects/models.py:137
+msgid "Work Phone"
+msgstr "هاتف عمل"
+
+#: projects/models.py:138
+msgid "Personal Email"
+msgstr "البريد الإلكتروني الشخصي"
+
+#: projects/models.py:139
+msgid "Government ID"
+msgstr "معرف الحكومة"
+
+#: projects/models.py:140
+msgid "Gender"
+msgstr "جنس"
+
+#: projects/models.py:144
+msgid "Date Of Birth"
+msgstr "تاريخ الميلاد"
+
+#: projects/models.py:145 projects/models.py:251
+msgid "Address"
+msgstr "عنوان"
+
+#: projects/models.py:146
+msgid "Is Active"
+msgstr "... نشيطة."
+
+#: projects/models.py:147
+msgid "Personal Picture"
+msgstr "الصورة الشخصية"
+
+#: projects/models.py:193
+msgid "Job Description (English)"
+msgstr "الوصف الوظيفي (الإنجليزية)"
+
+#: projects/models.py:194
+msgid "Joining Date"
+msgstr "تاريخ الانضمام"
+
+#: projects/models.py:195
+msgid "Qualifications"
+msgstr "مؤهلات"
+
+#: projects/models.py:196
+msgid "Monthly Salary"
+msgstr "راتب شهري"
+
+#: projects/models.py:198
+msgid "Associated User"
+msgstr "المستخدم"
+
+#: projects/models.py:199
+msgid "The user associated with this employee holds the credentials data."
+msgstr "معلومات المستخدم تتضمن كلمة المرور وصلاحيات الموظف."
+
+#: projects/models.py:203 projects/templates/sidebar.html:69
+msgid "Employees"
+msgstr "الموظفين"
+
+#: projects/models.py:223 projects/models.py:261
+msgid "Organization"
+msgstr "المنشأة"
+
+#: projects/models.py:227 projects/templates/sidebar.html:43
+msgid "Clients"
+msgstr "العملاء"
+
+#: projects/models.py:244
+msgid "Organization Name"
+msgstr "إسم المنشأة"
+
+#: projects/models.py:245
+msgid "Organization Name (English)"
+msgstr "اسم المنشأة (بالإنجليزية)"
+
+#: projects/models.py:247
+msgid "Phone"
+msgstr "هاتف"
+
+#: projects/models.py:248
+msgid "Fax"
+msgstr "فاكس"
+
+#: projects/models.py:249
+msgid "Website"
+msgstr "موقع "
+
+#: projects/models.py:250
+msgid "City"
+msgstr "المدينة"
+
+#: projects/models.py:262 projects/templates/sidebar.html:46
+msgid "Organizations"
+msgstr "المنشئات"
+
+#: projects/models.py:284 projects/models.py:368
+msgid "Court"
+msgstr "المحكمة"
+
+#: projects/models.py:285 projects/templates/sidebar.html:47
+msgid "Courts"
+msgstr "المحكام"
+
+#: projects/models.py:301
+msgid "In Progress"
+msgstr "قيد العمل"
+
+#: projects/models.py:302
+msgid "Finished"
+msgstr "منتهي"
+
+#: projects/models.py:303
+msgid "Delayed"
+msgstr "متأخر"
+
+#: projects/models.py:319
+msgid "Status Comments"
+msgstr "تعليقات الحالة"
+
+#: projects/models.py:322
+msgid "Fees"
+msgstr "الرسوم"
+
+#: projects/models.py:325
+msgid "Main Assignee"
+msgstr "الموظف المكلف"
+
+#: projects/models.py:363
+msgid "Client Role"
+msgstr "دور العميل"
+
+#: projects/models.py:365
+msgid "Opponent"
+msgstr "الخصم"
+
+#: projects/models.py:366
+msgid "Opponent Role"
+msgstr "دور الخصم"
+
+#: projects/models.py:369
+msgid "Court Office"
+msgstr "مكتب المحكمة"
+
+#: projects/models.py:372
+msgid "Case"
+msgstr "القضيه"
+
+#: projects/models.py:373 projects/templates/sidebar.html:37
+#: projects/views.py:99
+msgid "Cases"
+msgstr "القضايا"
+
+#: projects/models.py:380
+msgid "Consultation"
+msgstr "استشارة"
+
+#: projects/models.py:381 projects/templates/sidebar.html:38
+#: projects/views.py:105
+msgid "Consultations"
+msgstr "استشارات"
+
+#: projects/models.py:388
+msgid "Paperwork"
+msgstr "تعقيب"
+
+#: projects/models.py:389 projects/templates/sidebar.html:39
+#: projects/views.py:102
+msgid "Paperwork Projects"
+msgstr "مشاريع التعقيب"
+
+#: projects/models.py:401
+msgid "SMS"
+msgstr "رسائل الجوال"
+
+#: projects/models.py:402
+msgid "Email"
+msgstr "البريد الالكتروني"
+
+#: projects/models.py:403
+msgid "Both"
+msgstr "كلاهما"
+
+#: projects/models.py:407
+msgid "Reminder"
+msgstr "تذكير"
+
+#: projects/models.py:408 projects/templates/projects/update-project.html:114
+msgid "Reminders"
+msgstr "تذكيرات"
+
+#: projects/models.py:417
+msgid "Whom To Remind"
+msgstr "التذكير لمن"
+
+#: projects/models.py:419
+msgid "Reminder Date"
+msgstr "تاريخ التذكير"
+
+#: projects/models.py:424
+msgid "Last Seen On"
+msgstr "أخر مشاهدة"
+
+#: projects/models.py:440
+msgid "Update"
+msgstr "التحديث"
+
+#: projects/models.py:441 projects/templates/projects/update-project.html:53
+msgid "Updates"
+msgstr "التحديثات"
+
+#: projects/models.py:450
+msgid "Update Date"
+msgstr "تاريخ التحديث"
+
+#: projects/models.py:451
+msgid "Attachments"
+msgstr "المرفقات"
+
+#: projects/models.py:452
+msgid "Inform The Client"
+msgstr "أخبر العميل"
+
+#: projects/models.py:455
+msgid "Creator"
+msgstr "أنشء بواسطة"
+
+#: projects/tables.py:24
+msgid "View"
+msgstr "عرض"
+
+#: projects/tables.py:30 projects/tables.py:204
+msgid "Edit"
+msgstr "تعديل"
+
+#: projects/tables.py:36
+msgid "Delete"
+msgstr "حذف"
+
+#: projects/tables.py:156 projects/tables.py:174 projects/tables.py:212
+msgid "Name"
+msgstr "الاسم"
+
+#: projects/templates/accounting/approve_fund_request.html:4
+msgid "Update Fund Request"
+msgstr "عدل طلب التمويل"
+
+#: projects/templates/accounting/approve_fund_request.html:19
+#: projects/templates/accounting/new_expense.html:19
+msgid "Download"
+msgstr "تحميل"
+
+#: projects/templates/accounting/fund_request_listing.html:4
+msgid "Fund Request Listing"
+msgstr "طلبات التمويل"
+
+#: projects/templates/accounting/fund_request_listing.html:5
+msgid "All Fund Requests"
+msgstr "جميع طلبات التمويل"
+
+#: projects/templates/accounting/invoice_listing.html:4
+msgid "Invoice Listing"
+msgstr "قائمة الفواتير"
+
+#: projects/templates/accounting/invoice_listing.html:5
+msgid "All Invoices"
+msgstr "جميع الفواتير"
+
+#: projects/templates/accounting/invoice_listing.html:8
+msgid "New Invoice"
+msgstr "فاتورة جديدة"
+
+#: projects/templates/accounting/transaction_listing.html:4
+msgid "Transaction Listing"
+msgstr "قائمة العمليات المالية"
+
+#: projects/templates/accounting/transaction_listing.html:5
+msgid "All Transactions"
+msgstr "جميع العمليات المالية"
+
+#: projects/templates/archive/document_movement_listing.html:4
+msgid "Documents Movment Listing"
+msgstr "قائمة حركات المستندات"
+
+#: projects/templates/archive/document_movement_listing.html:5
+msgid "All Documents Movments"
+msgstr "جميع حركات المستندات"
+
+#: projects/templates/archive/document_movement_listing.html:8
+#: projects/templates/archive/new_movement.html:4
+msgid "New Document"
+msgstr "مستند جديد"
+
+#: projects/templates/base_site.html:18 projects/templates/sidebar.html:9
+msgid "Lawyer System"
+msgstr "نظام المحاماة"
+
+#: projects/templates/base_site.html:47
+#: projects/templates/tellme/tpl-description.html:3
+#: projects/templates/tellme/tpl-highlighter.html:3
+#: projects/templates/tellme/tpl-overview.html:3
+#: projects/templates/tellme/tpl-submit-error.html:3
+#: projects/templates/tellme/tpl-submit-success.html:3
+msgid "Feedback"
+msgstr "مشكلة أو ملاحظة؟"
+
+#: projects/templates/projects/clients_listing.html:4
+msgid "Clients Listing"
+msgstr "قائمة العملاء"
+
+#: projects/templates/projects/clients_listing.html:5
+msgid "All Clients"
+msgstr "جميع العملاء"
+
+#: projects/templates/projects/clients_listing.html:8
+msgid "New Client"
+msgstr "عميل جديد"
+
+#: projects/templates/projects/courts_listing.html:4
+msgid "Courts Listing"
+msgstr "قائمة المحكام"
+
+#: projects/templates/projects/courts_listing.html:5
+msgid "All Courts"
+msgstr "جميع المحكام"
+
+#: projects/templates/projects/courts_listing.html:8
+msgid "New Court"
+msgstr "محكمة جديدة"
+
+#: projects/templates/projects/employees_listing.html:4
+#: projects/templates/sidebar.html:73
+msgid "Employees Listing"
+msgstr "قائمة الموظفين"
+
+#: projects/templates/projects/employees_listing.html:5
+msgid "All Employees"
+msgstr "كل الموظفين"
+
+#: projects/templates/projects/employees_listing.html:8
+msgid "New Employee"
+msgstr "موظف جديد"
+
+#: projects/templates/projects/lookups_listing.html:4
+#: projects/templates/sidebar.html:78
+msgid "Lookups Listing"
+msgstr "قوائم اﻷنواع"
+
+#: projects/templates/projects/lookups_listing.html:5
+msgid "All Lookups"
+msgstr "كل اﻷنواع"
+
+#: projects/templates/projects/lookups_listing.html:8
+msgid "New Lookup"
+msgstr "نوع جديد"
+
+#: projects/templates/projects/new-project.html:19
+#: projects/templates/projects/update-project.html:23
+msgid "Project Details"
+msgstr "تفاصيل المشروع"
+
+#: projects/templates/projects/organizations_listing.html:4
+msgid "Organizations Listing"
+msgstr "قائمة المنشئات"
+
+#: projects/templates/projects/organizations_listing.html:5
+msgid "All Organizations"
+msgstr "جميع المنشئات"
+
+#: projects/templates/projects/organizations_listing.html:8
+msgid "New Organization"
+msgstr "منشأة جديدة"
+
+#: projects/templates/projects/update-project.html:63
+msgid "New Update"
+msgstr "تحديث جديد"
+
+#: projects/templates/projects/update-project.html:87
+msgid "The client will be informed"
+msgstr "سوف يتم إخبار العميل"
+
+#: projects/templates/projects/update-project.html:102
+msgid "No updates yet!"
+msgstr "لا يوجد تحديثات بعد!"
+
+#: projects/templates/projects/update-project.html:124
+msgid "New Reminder"
+msgstr "تذكير جديد"
+
+#: projects/templates/projects/update-project.html:140
+msgid "Documents Archive"
+msgstr "أرشيف المستندات"
+
+#: projects/templates/projects/update-project.html:173
+msgid "Request Funds"
+msgstr "طلب تمويل"
+
+#: projects/templates/projects/users_listing.html:4
+msgid "Users Listing"
+msgstr "قائمة المستخدمين"
+
+#: projects/templates/projects/users_listing.html:5
+msgid "All Users"
+msgstr "المستخدمين"
+
+#: projects/templates/projects/users_listing.html:8
+msgid "New User"
+msgstr "مستخدم جديد"
+
+#: projects/templates/registration/login.html:5
+msgid "Login"
+msgstr "دخول"
+
+#: projects/templates/registration/login.html:19
+msgid "Login Form"
+msgstr "نموذج الدخول"
+
+#: projects/templates/registration/login.html:22
+msgid "Log in"
+msgstr "دخول"
+
+#: projects/templates/registration/login.html:23
+msgid "Lost your password?"
+msgstr "فقدت كلمة المرور؟"
+
+#: projects/templates/registration/login.html:30
+msgid "Fahad Habib Lawyer Office"
+msgstr "نظام مكتب فهد بن حبيب للمحاماة"
+
+#: projects/templates/sidebar.html:21
+msgid "Welcome"
+msgstr "أهلا وسهلا"
+
+#: projects/templates/sidebar.html:32
+msgid "Main Menu"
+msgstr "القائمة الرئيسية"
+
+#: projects/templates/sidebar.html:72
+msgid "Users"
+msgstr "المستخدمين"
+
+#: projects/templates/sidebar.html:91 projects/templates/top_navigation.html:23
+msgid "Logout"
+msgstr "خروج"
+
+#: projects/templates/snippets/audit.html:4
+msgid "Audit Data"
+msgstr "معلومات المتابعة"
+
+#: projects/templates/tellme/tpl-description.html:4
+msgid ""
+"Feedback lets you send us suggestions about this site. We welcome problem "
+"reports, feature ideas and general comments."
+msgstr ""
+"تتيح لك التعليقات إرسال اقتراحات لنا حول هذا الموقع. نحن نرحب بتقارير "
+"المشكلات وأفكار الميزات والتعليقات العامة."
+
+#: projects/templates/tellme/tpl-description.html:6
+msgid "If you wish to be contacted please leave us your email:"
+msgstr ""
+"إذا كنت ترغب في أن يتم الاتصال بك ، يرجى ترك لنا البريد الإلكتروني الخاص بك:"
+
+#: projects/templates/tellme/tpl-description.html:9
+msgid "Start by writing a brief description:"
+msgstr "ابدأ بكتابة وصف مختصر:"
+
+#: projects/templates/tellme/tpl-description.html:11
+msgid ""
+"Next we'll let you identify areas of the page related to your description."
+msgstr "بعد ذلك سنسمح لك بتحديد مناطق الصفحة ذات الصلة بوصفك."
+
+#: projects/templates/tellme/tpl-description.html:12
+#: projects/templates/tellme/tpl-highlighter.html:15
+msgid "Next"
+msgstr "التالي"
+
+#: projects/templates/tellme/tpl-description.html:13
+#: projects/templates/tellme/tpl-overview.html:18
+msgid "Please enter a description."
+msgstr "الرجاء إدخال وصف."
+
+#: projects/templates/tellme/tpl-highlighter.html:4
+msgid ""
+"Click and drag on the page to help us better understand your feedback. You "
+"can move this dialog if it's in the way."
+msgstr ""
+"انقر على الصفحة واسحبها لمساعدتنا على فهم تعليقاتك بشكل أفضل. يمكنك نقل مربع "
+"الحوار هذا إذا كان في الطريق."
+
+#: projects/templates/tellme/tpl-highlighter.html:7
+msgid "Highlight"
+msgstr "تحديد"
+
+#: projects/templates/tellme/tpl-highlighter.html:8
+msgid "Highlight areas relevant to your feedback."
+msgstr "أبرز المناطق ذات الصلة بتعليقاتك."
+
+#: projects/templates/tellme/tpl-highlighter.html:11
+msgid "Black out"
+msgstr "إخفاء"
+
+#: projects/templates/tellme/tpl-highlighter.html:12
+msgid "Black out any personal information."
+msgstr "احجب أي معلومات شخصية."
+
+#: projects/templates/tellme/tpl-highlighter.html:18
+#: projects/templates/tellme/tpl-overview.html:16
+msgid "Back"
+msgstr "العودة"
+
+#: projects/templates/tellme/tpl-overview.html:6
+msgid "Additional info"
+msgstr "معلومات إضافية"
+
+#: projects/templates/tellme/tpl-overview.html:7
+msgid "None"
+msgstr "لا يوجد"
+
+#: projects/templates/tellme/tpl-overview.html:8
+msgid "Browser Info"
+msgstr "معلومات المتصفح"
+
+#: projects/templates/tellme/tpl-overview.html:9
+msgid "Page Info"
+msgstr "معلومات الصفحة"
+
+#: projects/templates/tellme/tpl-overview.html:10
+msgid "Page Structure"
+msgstr "تقسيم الصفحة"
+
+#: projects/templates/tellme/tpl-overview.html:13
+msgid "Screenshot"
+msgstr "صورة"
+
+#: projects/templates/tellme/tpl-submit-error.html:4
+msgid "Sadly an error occurred while sending your feedback. Please try again."
+msgstr "للأسف حدث خطأ أثناء إرسال ملاحظاتك. حاول مرة اخرى."
+
+#: projects/templates/tellme/tpl-submit-error.html:5
+#: projects/templates/tellme/tpl-submit-success.html:6
+msgid "OK"
+msgstr "موافق"
+
+#: projects/templates/tellme/tpl-submit-success.html:4
+msgid ""
+"Thank you for your feedback. We value every piece of feedback we receive."
+msgstr "شكرا لك على ملاحظاتك. نحن نقدر كل جزء من ردود الفعل التي نتلقاها."
+
+#: projects/templates/tellme/tpl-submit-success.html:5
+msgid ""
+"We cannot respond individually to every one, but we will use your comments "
+"as we strive to improve your experience."
+msgstr ""
+"لا يمكننا الرد بشكل فردي على كل واحد ، ولكننا سنستخدم تعليقاتك ونحن نسعى "
+"جاهدين لتحسين تجربتك."
+
+#: projects/templates/top_navigation.html:20
+msgid "User Profile"
+msgstr "المعلومات الشخصية"
+
+#: projects/views.py:100
+msgid "New Case"
+msgstr "قضية جديدة"
+
+#: projects/views.py:103
+msgid "New Paperwork Project"
+msgstr "مشروع تعقيب جديد"
+
+#: projects/views.py:106
+msgid "New Consultation"
+msgstr "استشارة جديدة"
+
+#: projects/views.py:133
+msgid "Project was created successfully"
+msgstr "تم إنشاء المشروع بنجاح"
+
+#: projects/views.py:155
+msgid "Project was updated successfully"
+msgstr "تم تحديث بيانات المشروع بنجاح"
+
+#: projects/views.py:209
+msgid ""
+"Fund request was submitted successfully. Check later for approval status"
+msgstr ""
+"تم إرسال طلب الصرف بنجاح، سيتم مراجعة طلبك من قبل اﻹدارة بأسرع وقت ممكن"
+
+#: projects/views.py:223
+msgid "Update was submitted successfully."
+msgstr "تم إنشاء التحديث بنجاح"
+
+#: projects/views.py:246
+msgid "Client info was updated successfully"
+msgstr "تم تحديث بيانات العميل بنجاح"
+
+#: projects/views.py:253
+msgid "Client was added successfully"
+msgstr "تم إضافة العميل بنجاح"
+
+#: projects/views.py:275
+msgid "Organization info was updated successfully"
+msgstr "تم تحديث بيانات المنشأة بنجاح"
+
+#: projects/views.py:282 projects/views.py:289
+msgid "Organization was added successfully"
+msgstr "تم إضافة المنشأة بنجاح"
+
+#: projects/views.py:295
+msgid "Reminder was created successfully."
+msgstr "تم إضافة التذكير بنجاح"
+
+#: projects/views.py:316
+msgid "Employee was created successfully."
+msgstr "تم إضافة الموظف بنجاح"
+
+#: projects/views.py:325
+msgid "Employee info was updated successfully"
+msgstr "تم تحديث بيانات الموظف بنجاح"
+
+#: projects/views.py:340
+msgid "Lookup was added successfully"
+msgstr "تم إضافة النوع بنجاح"
+
+#: projects/views.py:348
+msgid "Lookup was updated successfully"
+msgstr "تم تحديث بيانات النوع بنجاح"
+
+#: projects/views.py:363
+msgid "User was added successfully"
+msgstr "تم إضافة المستخدم بنجاح"
+
+#: projects/views.py:371
+msgid "User was updated successfully"
+msgstr "تم تحديث بيانات المستخدم بنجاح"
+
+#~ msgid "Username"
+#~ msgstr "اسم المستخدم"
+
+#~ msgid "Password"
+#~ msgstr "كلمة المرور"
+
+#~ msgid "Create Account"
+#~ msgstr "إنشاء مستخدم"
+
+#~ msgid "Already a member ?"
+#~ msgstr "عضو مسجل؟"
+
+#~ msgid "Returns on Expenses"
+#~ msgstr "عوائد النفقات"
+
+#~ msgid "Hard Copy Received?"
+#~ msgstr "هل تم استلام نسخة مطبوعة؟"

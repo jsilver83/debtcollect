@@ -1,0 +1,32 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block top_navigation %}
+{% endblock top_navigation %}
+
+{% block sidebar %}
+{% endblock sidebar %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<div class="x_panel">
+				<div class="x_title">
+					<h2>{% block form_title %}{% endblock form_title %}</h2>
+					<div class="clearfix"></div>
+				</div>
+				<div class="x_content">
+					{% block before_form %}{% endblock before_form %}
+					{% crispy form %}
+					<div class="ln_solid"></div>
+					{% include 'snippets/audit.html' %}
+					<br>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% block javascripts %}
+		{{ block.super }}
+	{% endblock javascripts %}
+{% endblock body %}

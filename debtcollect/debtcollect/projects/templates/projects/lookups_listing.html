@@ -1,0 +1,10 @@
+{% extends "projects/base_listing.html" %}
+{% load i18n %}
+
+{% block title %}{% trans 'Lookups Listing' %}{% endblock title %}
+{% block section_title %}{% trans 'All Lookups' %}{% endblock section_title %}
+{% block new_object_link %}
+	<a href="{% url 'new-lookup' %}" class="btn btn-success">
+		<i class="fa fa-plus"></i> {% trans 'New Lookup' %}
+	</a>
+{% endblock new_object_link %}

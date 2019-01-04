@@ -1,0 +1,35 @@
+{% load i18n %}
+
+{% if object %}
+<h4>{% trans 'Audit Data' %}</h4>
+<br>
+<div class="row">
+	<div class="col-sm-6 col-md-3">
+		<b>{% trans 'Created On' %}</b>
+	</div>
+	<div class="col-sm-6 col-md-3">
+		{{ object.created_on|timesince }}
+	</div>
+	<div class="col-sm-6 col-md-3">
+		<b>{% trans 'Created By' %}</b>
+	</div>
+	<div class="col-sm-6 col-md-3">
+		{{ object.created_by }}
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-sm-6 col-md-3">
+		<b>{% trans 'Updated On' %}</b>
+	</div>
+	<div class="col-sm-6 col-md-3">
+		{{ object.updated_on|timesince }}
+	</div>
+	<div class="col-sm-6 col-md-3">
+		<b>{% trans 'Updated By' %}</b>
+	</div>
+	<div class="col-sm-6 col-md-3">
+		{{ object.updated_by }}
+	</div>
+</div>
+{% endif %}

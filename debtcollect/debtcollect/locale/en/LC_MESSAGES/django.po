@@ -1,0 +1,1215 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-01 12:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Abdullah Joud <abd.jod2004@gmail.com>\n"
+"Language-Team: ICTC \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: accounting/apps.py:7 accounting/models.py:163
+#: projects/templates/sidebar.html:57
+msgid "Accounting"
+msgstr ""
+
+#: accounting/filters.py:10 accounting/filters.py:54
+msgid "Search in Name Or Description"
+msgstr ""
+
+#: accounting/filters.py:52 accounting/models.py:110 accounting/tables.py:105
+#: archive/forms.py:14 archive/models.py:15 projects/models.py:309
+#: projects/models.py:445
+#: projects/templates/accounting/approve_fund_request.html:10
+#: projects/templates/accounting/new_expense.html:10
+#: projects/templates/accounting/new_payment.html:17
+msgid "Project"
+msgstr ""
+
+#: accounting/models.py:18 accounting/models.py:91 projects/models.py:300
+msgid "New"
+msgstr ""
+
+#: accounting/models.py:19
+msgid "Approved"
+msgstr ""
+
+#: accounting/models.py:20
+msgid "Rejected"
+msgstr ""
+
+#: accounting/models.py:21 accounting/models.py:93
+msgid "Closed"
+msgstr ""
+
+#: accounting/models.py:24 accounting/models.py:102 accounting/models.py:182
+#: projects/templates/accounting/approve_fund_request.html:12
+#: projects/templates/accounting/new_expense.html:12
+#: projects/templates/accounting/new_payment.html:28
+msgid "Amount"
+msgstr ""
+
+#: accounting/models.py:28
+#: projects/templates/accounting/approve_fund_request.html:14
+#: projects/templates/accounting/new_expense.html:14
+msgid "Justification"
+msgstr ""
+
+#: accounting/models.py:29
+#: projects/templates/accounting/approve_fund_request.html:17
+#: projects/templates/accounting/new_expense.html:17
+msgid "Justification Proof"
+msgstr ""
+
+#: accounting/models.py:31
+#: projects/templates/accounting/approve_fund_request.html:22
+#: projects/templates/accounting/new_expense.html:22
+msgid "Requester"
+msgstr ""
+
+#: accounting/models.py:33
+#: projects/templates/accounting/approve_fund_request.html:24
+#: projects/templates/accounting/new_expense.html:24
+msgid "Request Date"
+msgstr ""
+
+#: accounting/models.py:34 projects/templates/accounting/new_expense.html:26
+msgid "Approval Status"
+msgstr ""
+
+#: accounting/models.py:36 projects/templates/accounting/new_expense.html:28
+msgid "Approved Amount"
+msgstr ""
+
+#: accounting/models.py:39 projects/templates/accounting/new_expense.html:30
+msgid "Approved By"
+msgstr ""
+
+#: accounting/models.py:41 projects/templates/accounting/new_expense.html:32
+msgid "Approval Comments"
+msgstr ""
+
+#: accounting/models.py:42 projects/templates/accounting/new_expense.html:34
+msgid "Approval Date"
+msgstr ""
+
+#: accounting/models.py:43 accounting/models.py:111 accounting/models.py:201
+#: projects/models.py:148 projects/models.py:252 projects/models.py:326
+#: projects/models.py:457 projects/tables.py:53
+#: projects/templates/snippets/audit.html:8
+msgid "Created On"
+msgstr ""
+
+#: accounting/models.py:45 accounting/models.py:113 accounting/models.py:203
+#: projects/models.py:150 projects/models.py:254 projects/models.py:328
+#: projects/tables.py:51 projects/templates/snippets/audit.html:14
+msgid "Created By"
+msgstr ""
+
+#: accounting/models.py:47 accounting/models.py:115 accounting/models.py:205
+#: archive/models.py:25 archive/tables.py:73 projects/models.py:152
+#: projects/models.py:256 projects/models.py:330 projects/tables.py:57
+#: projects/templates/snippets/audit.html:23
+msgid "Updated On"
+msgstr ""
+
+#: accounting/models.py:49 accounting/models.py:117 accounting/models.py:207
+#: archive/models.py:28 archive/tables.py:71 projects/models.py:154
+#: projects/models.py:258 projects/models.py:332 projects/tables.py:55
+#: projects/templates/snippets/audit.html:29
+msgid "Updated By"
+msgstr ""
+
+#: accounting/models.py:52 accounting/tables.py:129
+msgid "Fund Request"
+msgstr ""
+
+#: accounting/models.py:53 projects/templates/projects/update-project.html:163
+#: projects/templates/sidebar.html:62
+msgid "Fund Requests"
+msgstr ""
+
+#: accounting/models.py:92
+msgid "Pending"
+msgstr ""
+
+#: accounting/models.py:94 projects/models.py:304
+msgid "Cancelled"
+msgstr ""
+
+#: accounting/models.py:97 projects/templates/accounting/new_payment.html:10
+msgid "Invoice Reference"
+msgstr ""
+
+#: accounting/models.py:98 accounting/models.py:180 archive/forms.py:16
+#: archive/models.py:16 archive/models.py:50 projects/models.py:313
+#: projects/models.py:411 projects/models.py:446 projects/tables.py:95
+#: projects/tables.py:134 projects/templates/accounting/new_payment.html:12
+msgid "Title"
+msgstr ""
+
+#: accounting/models.py:99 accounting/models.py:181 archive/forms.py:18
+#: archive/models.py:17 projects/models.py:314 projects/models.py:412
+#: projects/models.py:447 projects/templates/accounting/new_payment.html:14
+msgid "Title (English)"
+msgstr ""
+
+#: accounting/models.py:100 accounting/models.py:184 archive/forms.py:19
+#: archive/models.py:18 archive/models.py:51 archive/models.py:97
+#: projects/models.py:315 projects/models.py:413 projects/models.py:448
+#: projects/tables.py:135 projects/templates/accounting/new_payment.html:22
+#: projects/templates/tellme/tpl-overview.html:5
+msgid "Description"
+msgstr ""
+
+#: accounting/models.py:101 accounting/models.py:185 archive/forms.py:20
+#: archive/models.py:19 projects/models.py:316 projects/models.py:414
+#: projects/models.py:449 projects/templates/accounting/new_payment.html:24
+msgid "Description (English)"
+msgstr ""
+
+#: accounting/models.py:104 projects/templates/accounting/new_payment.html:30
+msgid "Invoice Date"
+msgstr ""
+
+#: accounting/models.py:105 projects/models.py:317
+#: projects/templates/accounting/new_payment.html:26
+msgid "Status"
+msgstr ""
+
+#: accounting/models.py:108 accounting/models.py:162 archive/models.py:77
+#: projects/models.py:177 projects/models.py:226 projects/models.py:321
+#: projects/templates/accounting/new_payment.html:20
+msgid "Client"
+msgstr ""
+
+#: accounting/models.py:120 accounting/tables.py:135
+msgid "Invoice"
+msgstr ""
+
+#: accounting/models.py:121 projects/templates/sidebar.html:61
+msgid "Invoices"
+msgstr ""
+
+#: accounting/models.py:164 archive/models.py:79 projects/models.py:169
+#: projects/models.py:202
+msgid "Employee"
+msgstr ""
+
+#: accounting/models.py:168
+msgid "Expenses"
+msgstr ""
+
+#: accounting/models.py:169
+msgid "Salaries"
+msgstr ""
+
+#: accounting/models.py:170
+msgid "Returns to Client"
+msgstr ""
+
+#: accounting/models.py:171
+msgid "Revenue"
+msgstr ""
+
+#: accounting/models.py:172
+msgid "Receivables"
+msgstr ""
+
+#: accounting/models.py:173 accounting/models.py:178 archive/models.py:85
+msgid "N/A"
+msgstr ""
+
+#: accounting/models.py:176
+msgid "Debit"
+msgstr ""
+
+#: accounting/models.py:177
+msgid "Credit"
+msgstr ""
+
+#: accounting/models.py:191 archive/models.py:102
+msgid "Handing Party"
+msgstr ""
+
+#: accounting/models.py:193 archive/models.py:104
+msgid "Handing Party Role"
+msgstr ""
+
+#: accounting/models.py:196 archive/models.py:107
+msgid "Receiving Party"
+msgstr ""
+
+#: accounting/models.py:198 archive/models.py:109
+msgid "Receiving Party Role"
+msgstr ""
+
+#: accounting/models.py:200
+msgid "Transaction Date"
+msgstr ""
+
+#: accounting/models.py:210
+msgid "Transaction"
+msgstr ""
+
+#: accounting/models.py:211 projects/templates/sidebar.html:60
+msgid "Transactions"
+msgstr ""
+
+#: accounting/tables.py:53
+msgid "Approve"
+msgstr ""
+
+#: accounting/tables.py:63 projects/templates/accounting/new_expense.html:4
+msgid "New Expense"
+msgstr ""
+
+#: accounting/tables.py:92 projects/templates/accounting/new_payment.html:4
+msgid "New Payment"
+msgstr ""
+
+#: accounting/views.py:61
+msgid "Invoice info was updated successfully"
+msgstr ""
+
+#: accounting/views.py:68
+msgid "Invoice was added successfully"
+msgstr ""
+
+#: accounting/views.py:107
+msgid "Fund request was updated successfully."
+msgstr ""
+
+#: accounting/views.py:117
+msgid "Expense was added successfully"
+msgstr ""
+
+#: accounting/views.py:134
+msgid "Payment was added successfully"
+msgstr ""
+
+#: archive/apps.py:7 archive/models.py:78 projects/templates/sidebar.html:52
+msgid "Archive"
+msgstr ""
+
+#: archive/filters.py:10
+msgid "INBOX"
+msgstr ""
+
+#: archive/filters.py:16 archive/forms.py:21 archive/models.py:20
+#: projects/models.py:246 projects/models.py:362 projects/models.py:377
+#: projects/models.py:385 projects/models.py:420
+msgid "Type"
+msgstr ""
+
+#: archive/forms.py:13 archive/models.py:13
+msgid "Document Upload"
+msgstr ""
+
+#: archive/forms.py:17
+msgid "Document Title"
+msgstr ""
+
+#: archive/forms.py:19
+msgid "Document Description"
+msgstr ""
+
+#: archive/forms.py:29 archive/forms.py:82
+msgid "Movement Description"
+msgstr ""
+
+#: archive/forms.py:30 projects/models.py:66
+msgid "Document Type"
+msgstr ""
+
+#: archive/forms.py:34 archive/forms.py:86
+msgid "Describe the movement of the document not the document itself"
+msgstr ""
+
+#: archive/models.py:9
+msgid "In Archive"
+msgstr ""
+
+#: archive/models.py:10
+msgid "Out With An Employee"
+msgstr ""
+
+#: archive/models.py:11
+msgid "Out With A Client"
+msgstr ""
+
+#: archive/models.py:21 archive/tables.py:69
+msgid "Uploaded On"
+msgstr ""
+
+#: archive/models.py:24 archive/tables.py:67
+msgid "Uploaded By"
+msgstr ""
+
+#: archive/models.py:31 archive/models.py:96
+msgid "Document"
+msgstr ""
+
+#: archive/models.py:32
+msgid "Documents"
+msgstr ""
+
+#: archive/models.py:83
+msgid "Inbox"
+msgstr ""
+
+#: archive/models.py:84
+msgid "Outbox"
+msgstr ""
+
+#: archive/models.py:98
+msgid "Original Document?"
+msgstr ""
+
+#: archive/models.py:99
+msgid "Are you actually moving the original document or just a copy?"
+msgstr ""
+
+#: archive/models.py:111
+msgid "Movement Date"
+msgstr ""
+
+#: archive/models.py:114
+msgid "Document Movement"
+msgstr ""
+
+#: archive/models.py:115
+msgid "Document Movements"
+msgstr ""
+
+#: archive/tables.py:14
+msgid "Movement Type"
+msgstr ""
+
+#: archive/tables.py:47
+msgid "Check Out"
+msgstr ""
+
+#: archive/tables.py:52
+msgid "Check In"
+msgstr ""
+
+#: archive/tables.py:75 projects/tables.py:59
+msgid "Audit"
+msgstr ""
+
+#: archive/views.py:57
+msgid "Document was added and checked in successfully"
+msgstr ""
+
+#: archive/views.py:64
+msgid "Document was moved successfully"
+msgstr ""
+
+#: law-firm/settings.py:149
+msgid "Arabic"
+msgstr ""
+
+#: law-firm/settings.py:150
+msgid "English"
+msgstr ""
+
+#: projects/admin.py:88
+msgid "Law Firm"
+msgstr ""
+
+#: projects/admin.py:89
+msgid "System Administration"
+msgstr ""
+
+#: projects/admin.py:90
+msgid "Administration"
+msgstr ""
+
+#: projects/apps.py:7 projects/models.py:310 projects/templates/sidebar.html:35
+msgid "Projects"
+msgstr ""
+
+#: projects/base_forms.py:24
+msgid "Search"
+msgstr ""
+
+#: projects/base_forms.py:34 projects/forms.py:224 projects/forms.py:236
+#: projects/forms.py:246 projects/templates/tellme/tpl-overview.html:15
+msgid "Submit"
+msgstr ""
+
+#: projects/filters.py:12
+msgid "Title (Arabic or English)"
+msgstr ""
+
+#: projects/filters.py:41 projects/models.py:361
+msgid "Case Reference"
+msgstr ""
+
+#: projects/filters.py:74 projects/filters.py:91 projects/filters.py:106
+#: projects/filters.py:124
+msgid "Name (Arabic or English)"
+msgstr ""
+
+#: projects/filters.py:87 projects/templates/sidebar.html:45
+msgid "Individuals"
+msgstr ""
+
+#: projects/filters.py:107 projects/filters.py:125 projects/models.py:192
+msgid "Job Description"
+msgstr ""
+
+#: projects/filters.py:145 projects/tables.py:233
+msgid "Lookup Value"
+msgstr ""
+
+#: projects/forms.py:120
+msgid ""
+"Choose from the above list if this client belongs to an organization. If the "
+"name of the organization does NOT appear in the list, you need to add it "
+"first and come back here"
+msgstr ""
+
+#: projects/forms.py:162
+msgid "Court Name (Arabic)"
+msgstr ""
+
+#: projects/forms.py:163
+msgid "Court Name (English)"
+msgstr ""
+
+#: projects/forms.py:164 projects/models.py:67
+msgid "Court Type"
+msgstr ""
+
+#: projects/models.py:12
+msgid "Nationality (Arabic)"
+msgstr ""
+
+#: projects/models.py:13
+msgid "Nationality (English)"
+msgstr ""
+
+#: projects/models.py:14
+msgid "Country (Arabic)"
+msgstr ""
+
+#: projects/models.py:15
+msgid "Country (English)"
+msgstr ""
+
+#: projects/models.py:16 projects/models.py:75
+msgid "Show"
+msgstr ""
+
+#: projects/models.py:17 projects/models.py:76
+msgid "Display Order"
+msgstr ""
+
+#: projects/models.py:45 projects/models.py:143
+msgid "Nationality"
+msgstr ""
+
+#: projects/models.py:46
+msgid "Nationalities"
+msgstr ""
+
+#: projects/models.py:62
+msgid "Organization Type"
+msgstr ""
+
+#: projects/models.py:63
+msgid "Case Type"
+msgstr ""
+
+#: projects/models.py:64
+msgid "Consultation Type"
+msgstr ""
+
+#: projects/models.py:65
+msgid "Paperwork Type"
+msgstr ""
+
+#: projects/models.py:68
+msgid "Court Role"
+msgstr ""
+
+#: projects/models.py:72
+msgid "Lookup Type"
+msgstr ""
+
+#: projects/models.py:79
+msgid "Look up"
+msgstr ""
+
+#: projects/models.py:80
+msgid "Look ups"
+msgstr ""
+
+#: projects/models.py:124
+msgid "Male"
+msgstr ""
+
+#: projects/models.py:125
+msgid "Female"
+msgstr ""
+
+#: projects/models.py:130
+msgid "Person"
+msgstr ""
+
+#: projects/models.py:131
+msgid "Persons"
+msgstr ""
+
+#: projects/models.py:133
+msgid "Full Name"
+msgstr ""
+
+#: projects/models.py:134
+msgid "Full Name (English)"
+msgstr ""
+
+#: projects/models.py:135
+msgid "Mobile"
+msgstr ""
+
+#: projects/models.py:136
+msgid "Home Phone"
+msgstr ""
+
+#: projects/models.py:137
+msgid "Work Phone"
+msgstr ""
+
+#: projects/models.py:138
+msgid "Personal Email"
+msgstr ""
+
+#: projects/models.py:139
+msgid "Government ID"
+msgstr ""
+
+#: projects/models.py:140
+msgid "Gender"
+msgstr ""
+
+#: projects/models.py:144
+msgid "Date Of Birth"
+msgstr ""
+
+#: projects/models.py:145 projects/models.py:251
+msgid "Address"
+msgstr ""
+
+#: projects/models.py:146
+msgid "Is Active"
+msgstr ""
+
+#: projects/models.py:147
+msgid "Personal Picture"
+msgstr ""
+
+#: projects/models.py:193
+msgid "Job Description (English)"
+msgstr ""
+
+#: projects/models.py:194
+msgid "Joining Date"
+msgstr ""
+
+#: projects/models.py:195
+msgid "Qualifications"
+msgstr ""
+
+#: projects/models.py:196
+msgid "Monthly Salary"
+msgstr ""
+
+#: projects/models.py:198
+msgid "Associated User"
+msgstr ""
+
+#: projects/models.py:199
+msgid "The user associated with this employee holds the credentials data."
+msgstr ""
+
+#: projects/models.py:203 projects/templates/sidebar.html:69
+msgid "Employees"
+msgstr ""
+
+#: projects/models.py:223 projects/models.py:261
+msgid "Organization"
+msgstr ""
+
+#: projects/models.py:227 projects/templates/sidebar.html:43
+msgid "Clients"
+msgstr ""
+
+#: projects/models.py:244
+msgid "Organization Name"
+msgstr ""
+
+#: projects/models.py:245
+msgid "Organization Name (English)"
+msgstr ""
+
+#: projects/models.py:247
+msgid "Phone"
+msgstr ""
+
+#: projects/models.py:248
+msgid "Fax"
+msgstr ""
+
+#: projects/models.py:249
+msgid "Website"
+msgstr ""
+
+#: projects/models.py:250
+msgid "City"
+msgstr ""
+
+#: projects/models.py:262 projects/templates/sidebar.html:46
+msgid "Organizations"
+msgstr ""
+
+#: projects/models.py:284 projects/models.py:368
+msgid "Court"
+msgstr ""
+
+#: projects/models.py:285 projects/templates/sidebar.html:47
+msgid "Courts"
+msgstr ""
+
+#: projects/models.py:301
+msgid "In Progress"
+msgstr ""
+
+#: projects/models.py:302
+msgid "Finished"
+msgstr ""
+
+#: projects/models.py:303
+msgid "Delayed"
+msgstr ""
+
+#: projects/models.py:319
+msgid "Status Comments"
+msgstr ""
+
+#: projects/models.py:322
+msgid "Fees"
+msgstr ""
+
+#: projects/models.py:325
+msgid "Main Assignee"
+msgstr ""
+
+#: projects/models.py:363
+msgid "Client Role"
+msgstr ""
+
+#: projects/models.py:365
+msgid "Opponent"
+msgstr ""
+
+#: projects/models.py:366
+msgid "Opponent Role"
+msgstr ""
+
+#: projects/models.py:369
+msgid "Court Office"
+msgstr ""
+
+#: projects/models.py:372
+msgid "Case"
+msgstr ""
+
+#: projects/models.py:373 projects/templates/sidebar.html:37
+#: projects/views.py:99
+msgid "Cases"
+msgstr ""
+
+#: projects/models.py:380
+msgid "Consultation"
+msgstr ""
+
+#: projects/models.py:381 projects/templates/sidebar.html:38
+#: projects/views.py:105
+msgid "Consultations"
+msgstr ""
+
+#: projects/models.py:388
+msgid "Paperwork"
+msgstr ""
+
+#: projects/models.py:389 projects/templates/sidebar.html:39
+#: projects/views.py:102
+msgid "Paperwork Projects"
+msgstr ""
+
+#: projects/models.py:401
+msgid "SMS"
+msgstr ""
+
+#: projects/models.py:402
+msgid "Email"
+msgstr ""
+
+#: projects/models.py:403
+msgid "Both"
+msgstr ""
+
+#: projects/models.py:407
+msgid "Reminder"
+msgstr ""
+
+#: projects/models.py:408 projects/templates/projects/update-project.html:114
+msgid "Reminders"
+msgstr ""
+
+#: projects/models.py:417
+msgid "Whom To Remind"
+msgstr ""
+
+#: projects/models.py:419
+msgid "Reminder Date"
+msgstr ""
+
+#: projects/models.py:424
+msgid "Last Seen On"
+msgstr ""
+
+#: projects/models.py:440
+msgid "Update"
+msgstr ""
+
+#: projects/models.py:441 projects/templates/projects/update-project.html:53
+msgid "Updates"
+msgstr ""
+
+#: projects/models.py:450
+msgid "Update Date"
+msgstr ""
+
+#: projects/models.py:451
+msgid "Attachments"
+msgstr ""
+
+#: projects/models.py:452
+msgid "Inform The Client"
+msgstr ""
+
+#: projects/models.py:455
+msgid "Creator"
+msgstr ""
+
+#: projects/tables.py:24
+msgid "View"
+msgstr ""
+
+#: projects/tables.py:30 projects/tables.py:204
+msgid "Edit"
+msgstr ""
+
+#: projects/tables.py:36
+msgid "Delete"
+msgstr ""
+
+#: projects/tables.py:156 projects/tables.py:174 projects/tables.py:212
+msgid "Name"
+msgstr ""
+
+#: projects/templates/accounting/approve_fund_request.html:4
+msgid "Update Fund Request"
+msgstr ""
+
+#: projects/templates/accounting/approve_fund_request.html:19
+#: projects/templates/accounting/new_expense.html:19
+msgid "Download"
+msgstr ""
+
+#: projects/templates/accounting/fund_request_listing.html:4
+msgid "Fund Request Listing"
+msgstr ""
+
+#: projects/templates/accounting/fund_request_listing.html:5
+msgid "All Fund Requests"
+msgstr ""
+
+#: projects/templates/accounting/invoice_listing.html:4
+msgid "Invoice Listing"
+msgstr ""
+
+#: projects/templates/accounting/invoice_listing.html:5
+msgid "All Invoices"
+msgstr ""
+
+#: projects/templates/accounting/invoice_listing.html:8
+msgid "New Invoice"
+msgstr ""
+
+#: projects/templates/accounting/transaction_listing.html:4
+msgid "Transaction Listing"
+msgstr ""
+
+#: projects/templates/accounting/transaction_listing.html:5
+msgid "All Transactions"
+msgstr ""
+
+#: projects/templates/archive/document_movement_listing.html:4
+msgid "Documents Movment Listing"
+msgstr ""
+
+#: projects/templates/archive/document_movement_listing.html:5
+msgid "All Documents Movments"
+msgstr ""
+
+#: projects/templates/archive/document_movement_listing.html:8
+#: projects/templates/archive/new_movement.html:4
+msgid "New Document"
+msgstr ""
+
+#: projects/templates/base_site.html:18 projects/templates/sidebar.html:9
+msgid "Lawyer System"
+msgstr ""
+
+#: projects/templates/base_site.html:47
+#: projects/templates/tellme/tpl-description.html:3
+#: projects/templates/tellme/tpl-highlighter.html:3
+#: projects/templates/tellme/tpl-overview.html:3
+#: projects/templates/tellme/tpl-submit-error.html:3
+#: projects/templates/tellme/tpl-submit-success.html:3
+msgid "Feedback"
+msgstr "Feedback"
+
+#: projects/templates/projects/clients_listing.html:4
+msgid "Clients Listing"
+msgstr ""
+
+#: projects/templates/projects/clients_listing.html:5
+msgid "All Clients"
+msgstr ""
+
+#: projects/templates/projects/clients_listing.html:8
+msgid "New Client"
+msgstr ""
+
+#: projects/templates/projects/courts_listing.html:4
+msgid "Courts Listing"
+msgstr ""
+
+#: projects/templates/projects/courts_listing.html:5
+msgid "All Courts"
+msgstr ""
+
+#: projects/templates/projects/courts_listing.html:8
+msgid "New Court"
+msgstr ""
+
+#: projects/templates/projects/employees_listing.html:4
+#: projects/templates/sidebar.html:73
+msgid "Employees Listing"
+msgstr ""
+
+#: projects/templates/projects/employees_listing.html:5
+msgid "All Employees"
+msgstr ""
+
+#: projects/templates/projects/employees_listing.html:8
+msgid "New Employee"
+msgstr ""
+
+#: projects/templates/projects/lookups_listing.html:4
+#: projects/templates/sidebar.html:78
+msgid "Lookups Listing"
+msgstr ""
+
+#: projects/templates/projects/lookups_listing.html:5
+msgid "All Lookups"
+msgstr ""
+
+#: projects/templates/projects/lookups_listing.html:8
+msgid "New Lookup"
+msgstr ""
+
+#: projects/templates/projects/new-project.html:19
+#: projects/templates/projects/update-project.html:23
+msgid "Project Details"
+msgstr ""
+
+#: projects/templates/projects/organizations_listing.html:4
+msgid "Organizations Listing"
+msgstr ""
+
+#: projects/templates/projects/organizations_listing.html:5
+msgid "All Organizations"
+msgstr ""
+
+#: projects/templates/projects/organizations_listing.html:8
+msgid "New Organization"
+msgstr ""
+
+#: projects/templates/projects/update-project.html:63
+msgid "New Update"
+msgstr ""
+
+#: projects/templates/projects/update-project.html:87
+msgid "The client will be informed"
+msgstr ""
+
+#: projects/templates/projects/update-project.html:102
+msgid "No updates yet!"
+msgstr ""
+
+#: projects/templates/projects/update-project.html:124
+msgid "New Reminder"
+msgstr ""
+
+#: projects/templates/projects/update-project.html:140
+msgid "Documents Archive"
+msgstr ""
+
+#: projects/templates/projects/update-project.html:173
+msgid "Request Funds"
+msgstr ""
+
+#: projects/templates/projects/users_listing.html:4
+msgid "Users Listing"
+msgstr ""
+
+#: projects/templates/projects/users_listing.html:5
+msgid "All Users"
+msgstr ""
+
+#: projects/templates/projects/users_listing.html:8
+msgid "New User"
+msgstr ""
+
+#: projects/templates/registration/login.html:5
+msgid "Login"
+msgstr ""
+
+#: projects/templates/registration/login.html:19
+msgid "Login Form"
+msgstr ""
+
+#: projects/templates/registration/login.html:22
+msgid "Log in"
+msgstr ""
+
+#: projects/templates/registration/login.html:23
+msgid "Lost your password?"
+msgstr ""
+
+#: projects/templates/registration/login.html:30
+msgid "Fahad Habib Lawyer Office"
+msgstr ""
+
+#: projects/templates/sidebar.html:21
+msgid "Welcome"
+msgstr ""
+
+#: projects/templates/sidebar.html:32
+msgid "Main Menu"
+msgstr ""
+
+#: projects/templates/sidebar.html:72
+msgid "Users"
+msgstr ""
+
+#: projects/templates/sidebar.html:91 projects/templates/top_navigation.html:23
+msgid "Logout"
+msgstr ""
+
+#: projects/templates/snippets/audit.html:4
+msgid "Audit Data"
+msgstr ""
+
+#: projects/templates/tellme/tpl-description.html:4
+msgid ""
+"Feedback lets you send us suggestions about this site. We welcome problem "
+"reports, feature ideas and general comments."
+msgstr ""
+
+#: projects/templates/tellme/tpl-description.html:6
+msgid "If you wish to be contacted please leave us your email:"
+msgstr ""
+
+#: projects/templates/tellme/tpl-description.html:9
+msgid "Start by writing a brief description:"
+msgstr ""
+
+#: projects/templates/tellme/tpl-description.html:11
+msgid ""
+"Next we'll let you identify areas of the page related to your description."
+msgstr ""
+
+#: projects/templates/tellme/tpl-description.html:12
+#: projects/templates/tellme/tpl-highlighter.html:15
+msgid "Next"
+msgstr ""
+
+#: projects/templates/tellme/tpl-description.html:13
+#: projects/templates/tellme/tpl-overview.html:18
+msgid "Please enter a description."
+msgstr ""
+
+#: projects/templates/tellme/tpl-highlighter.html:4
+msgid ""
+"Click and drag on the page to help us better understand your feedback. You "
+"can move this dialog if it's in the way."
+msgstr ""
+
+#: projects/templates/tellme/tpl-highlighter.html:7
+msgid "Highlight"
+msgstr ""
+
+#: projects/templates/tellme/tpl-highlighter.html:8
+msgid "Highlight areas relevant to your feedback."
+msgstr ""
+
+#: projects/templates/tellme/tpl-highlighter.html:11
+msgid "Black out"
+msgstr ""
+
+#: projects/templates/tellme/tpl-highlighter.html:12
+msgid "Black out any personal information."
+msgstr ""
+
+#: projects/templates/tellme/tpl-highlighter.html:18
+#: projects/templates/tellme/tpl-overview.html:16
+msgid "Back"
+msgstr ""
+
+#: projects/templates/tellme/tpl-overview.html:6
+msgid "Additional info"
+msgstr ""
+
+#: projects/templates/tellme/tpl-overview.html:7
+msgid "None"
+msgstr ""
+
+#: projects/templates/tellme/tpl-overview.html:8
+msgid "Browser Info"
+msgstr ""
+
+#: projects/templates/tellme/tpl-overview.html:9
+msgid "Page Info"
+msgstr ""
+
+#: projects/templates/tellme/tpl-overview.html:10
+msgid "Page Structure"
+msgstr ""
+
+#: projects/templates/tellme/tpl-overview.html:13
+msgid "Screenshot"
+msgstr ""
+
+#: projects/templates/tellme/tpl-submit-error.html:4
+msgid "Sadly an error occurred while sending your feedback. Please try again."
+msgstr ""
+
+#: projects/templates/tellme/tpl-submit-error.html:5
+#: projects/templates/tellme/tpl-submit-success.html:6
+msgid "OK"
+msgstr ""
+
+#: projects/templates/tellme/tpl-submit-success.html:4
+msgid ""
+"Thank you for your feedback. We value every piece of feedback we receive."
+msgstr ""
+
+#: projects/templates/tellme/tpl-submit-success.html:5
+msgid ""
+"We cannot respond individually to every one, but we will use your comments "
+"as we strive to improve your experience."
+msgstr ""
+
+#: projects/templates/top_navigation.html:20
+msgid "User Profile"
+msgstr ""
+
+#: projects/views.py:100
+msgid "New Case"
+msgstr ""
+
+#: projects/views.py:103
+msgid "New Paperwork Project"
+msgstr ""
+
+#: projects/views.py:106
+msgid "New Consultation"
+msgstr ""
+
+#: projects/views.py:133
+msgid "Project was created successfully"
+msgstr ""
+
+#: projects/views.py:155
+msgid "Project was updated successfully"
+msgstr ""
+
+#: projects/views.py:209
+msgid ""
+"Fund request was submitted successfully. Check later for approval status"
+msgstr ""
+
+#: projects/views.py:223
+msgid "Update was submitted successfully."
+msgstr ""
+
+#: projects/views.py:246
+msgid "Client info was updated successfully"
+msgstr ""
+
+#: projects/views.py:253
+msgid "Client was added successfully"
+msgstr ""
+
+#: projects/views.py:275
+msgid "Organization info was updated successfully"
+msgstr ""
+
+#: projects/views.py:282 projects/views.py:289
+msgid "Organization was added successfully"
+msgstr ""
+
+#: projects/views.py:295
+msgid "Reminder was created successfully."
+msgstr ""
+
+#: projects/views.py:316
+msgid "Employee was created successfully."
+msgstr ""
+
+#: projects/views.py:325
+msgid "Employee info was updated successfully"
+msgstr ""
+
+#: projects/views.py:340
+msgid "Lookup was added successfully"
+msgstr ""
+
+#: projects/views.py:348
+msgid "Lookup was updated successfully"
+msgstr ""
+
+#: projects/views.py:363
+msgid "User was added successfully"
+msgstr ""
+
+#: projects/views.py:371
+msgid "User was updated successfully"
+msgstr ""

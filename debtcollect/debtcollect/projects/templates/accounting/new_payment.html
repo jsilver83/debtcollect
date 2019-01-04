@@ -1,0 +1,38 @@
+{% extends "projects/form.html" %}
+{% load i18n %}
+
+{% block form_title %}{% trans 'New Payment' %}{% endblock form_title %}
+{% block before_form %}
+	{% if object %}
+		<div class="row">
+			<div class="col-md-8">
+				<div class="row object_details">
+					<div class="col-md-2">{% trans 'Invoice Reference' %}</div>
+					<div class="col-md-10">{{ object.reference }}</div>
+					<div class="col-md-2">{% trans 'Title' %}</div>
+					<div class="col-md-10">{{ object.title_ar }}</div>
+					<div class="col-md-2">{% trans 'Title (English)' %}</div>
+					<div class="col-md-10">{{ object.title_en }}</div>
+					{% if object.project %}
+						<div class="col-md-2">{% trans 'Project' %}</div>
+						<div class="col-md-10">{{ object.project }}</div>
+					{% endif %}
+					<div class="col-md-2">{% trans 'Client' %}</div>
+					<div class="col-md-10">{{ object.client }}</div>
+					<div class="col-md-2">{% trans 'Description' %}</div>
+					<div class="col-md-10">{{ object.description_ar }}</div>
+					<div class="col-md-2">{% trans 'Description (English)' %}</div>
+					<div class="col-md-10">{{ object.description_en }}</div>
+					<div class="col-md-2">{% trans 'Status' %}</div>
+					<div class="col-md-10">{{ object.get_status_display }}</div>
+					<div class="col-md-2">{% trans 'Amount' %}</div>
+					<div class="col-md-10">{{ object.amount }}</div>
+					<div class="col-md-2">{% trans 'Invoice Date' %}</div>
+					<div class="col-md-10">{{ object.date }}</div>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		<hr>
+	{% endif %}
+{% endblock before_form %}

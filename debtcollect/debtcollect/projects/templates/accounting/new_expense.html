@@ -1,0 +1,42 @@
+{% extends "projects/form.html" %}
+{% load i18n %}
+
+{% block form_title %}{% trans 'New Expense' %}{% endblock form_title %}
+{% block before_form %}
+	{% if object %}
+		<div class="row">
+			<div class="col-md-8">
+				<div class="row object_details">
+					<div class="col-md-2">{% trans 'Project' %}</div>
+					<div class="col-md-10">{{ object.project }}</div>
+					<div class="col-md-2">{% trans 'Amount' %}</div>
+					<div class="col-md-10">{{ object.amount }}</div>
+					<div class="col-md-2">{% trans 'Justification' %}</div>
+					<div class="col-md-10">{{ object.justification }}</div>
+					{% if object.justification_proof %}
+						<div class="col-md-2">{% trans 'Justification Proof' %}</div>
+						<div class="col-md-10"><a target="_blank" href="{{ object.justification_proof.url }}">
+							{% trans 'Download' %}</a>
+						</div>
+					{% endif %}
+					<div class="col-md-2">{% trans 'Requester' %}</div>
+					<div class="col-md-10">{{ object.requester }}</div>
+					<div class="col-md-2">{% trans 'Request Date' %}</div>
+					<div class="col-md-10">{{ object.request_date }}</div>
+					<div class="col-md-2">{% trans 'Approval Status' %}</div>
+					<div class="col-md-10">{{ object.get_approval_status_display }}</div>
+					<div class="col-md-2">{% trans 'Approved Amount' %}</div>
+					<div class="col-md-10">{{ object.approved_amount }}</div>
+					<div class="col-md-2">{% trans 'Approved By' %}</div>
+					<div class="col-md-10">{{ object.approved_by }}</div>
+					<div class="col-md-2">{% trans 'Approval Comments' %}</div>
+					<div class="col-md-10">{{ object.approval_comments }}</div>
+					<div class="col-md-2">{% trans 'Approval Date' %}</div>
+					<div class="col-md-10">{{ object.approval_date }}</div>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		<hr>
+	{% endif %}
+{% endblock before_form %}

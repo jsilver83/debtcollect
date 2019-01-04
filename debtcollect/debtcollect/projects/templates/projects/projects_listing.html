@@ -1,0 +1,72 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+{% load render_table from django_tables2 %}
+{% load crispy_forms_tags %}
+
+{% block title %} Table Dynamic {% endblock title %}
+
+{% block stylesheets %}
+	{{ block.super }}
+	<link href="/static/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+	<link href="/static/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+	<link href="/static/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+	<link href="/static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+	<link href="/static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+{% endblock stylesheets %}
+
+{% block content %}
+
+	<div class="">
+		<div class="page-title">
+			<div class="title_right">
+				<h3>{{ header_title }}</h3>
+			</div>
+		</div>
+
+		<div class="clearfix"></div>
+
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="x_panel">
+					<div class="x_content">
+						<div class="row">
+							<div class="col-md-3">
+								<a href="{% url 'new_project' p_type %}" class="btn btn-success">
+									<i class="fa fa-plus"></i> {{ new_project_text }}
+								</a>
+							</div>
+							{% if filter %}
+								<div class="col-md-6">
+									{% crispy filter.form search_form.helper %}
+								</div>
+							{% endif %}
+						</div>
+						<hr>
+						{% render_table table %}
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+{% endblock content %}
+
+{% block javascripts %}
+	{{ block.super }}
+	<!-- Datatables -->
+	<script src="/static/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script src="/static/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+	<script src="/static/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+	<script src="/static/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+	<script src="/static/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+	<script src="/static/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+	<script src="/static/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+	<script src="/static/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+	<script src="/static/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+	<script src="/static/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+	<script src="/static/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+	<script src="/static/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+	<script src="/static/vendors/jszip/dist/jszip.min.js"></script>
+	<script src="/static/vendors/pdfmake/build/pdfmake.min.js"></script>
+	<script src="/static/vendors/pdfmake/build/vfs_fonts.js"></script>
+{% endblock javascripts %}

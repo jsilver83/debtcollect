@@ -1,0 +1,83 @@
+- name: Deploy Law Firm
+  hosts: application-servers
+  become: yes
+  become_user: root
+
+  # common variables to all environments
+  # for environment-specific variables, see:
+  # environments/<env-name>/group_vars/all/vars.yml
+  vars:
+    vault_url: https://vault.itc.kfupm.edu.sa
+    django_project_name: debtcollect
+    django_project_admin_username: joud
+    django_project_admin_email: abd.jod2004@gmail.com
+    django_project_package_name: law_firm
+    #apache_authn: cas
+    #apache_authn_urls:
+    #  - /admin/
+    admins:
+      - name: Abdullah Joud
+        email: abd.jod2004@gmail.com
+    uwsgi_processes: 2
+
+  vars_prompt:
+    - name: ad_username
+      prompt: Your Active Directory username
+      private: no
+
+    - name: ad_password
+      prompt: Your Active Directory password
+      private: yes
+
+
+  # tasks to be performed before role tasks, if any
+  pre_tasks:
+
+    - name: Vault authentication
+      uri:
+        url: "{{ vault_url }}/v1/auth/ldap/login/{{ ad_username }}"
+        method: POST
+        body: {"password": "{{ ad_password }}"}
+        body_format: json
+      connection: local
+      become: no
+      register: auth
+
+    - name: Retrieve secret key from Vault
+      uri:
+        url: "{{ vault_url }}/v1/secret/{{ env }}/operations/apps/debtcollect/secret_key"
+        headers:
+          X-Vault-Token: "{{ auth.json.auth.client_token }}"
+      connection: local
+      become: no
+      register: secret_key
+
+    - name: Retrieve database password from Vault
+      uri:
+        url: "{{ vault_url }}/v1/secret/{{ env }}/database/apps/debtcollect/database_password"
+        headers:
+          X-Vault-Token: "{{ auth.json.auth.client_token }}"
+      connection: local
+      become: no
+      register: database_password
+
+    - name: Retrieve email password from Vault
+      uri:
+        url: "{{ vault_url }}/v1/secret/{{ env }}/email/apps/debtcollect/email_password"
+        headers:
+          X-Vault-Token: "{{ auth.json.auth.client_token }}"
+      connection: local
+      become: no
+      register: email_password
+
+    - name: Generate local settings
+      set_fact:
+        django_project_local_settings: "{{ lookup('template', 'local_settings.py.j2') }}"
+
+  roles:
+    - django-project
+
+  # tasks to be performed after role tasks, if any
+  # post_tasks:
+  #   - name: some task
+  #     ...

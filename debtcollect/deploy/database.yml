@@ -1,0 +1,57 @@
+- name: Deploy Law Firm database
+  hosts: database-servers
+
+  vars:
+    vault_url: https://vault.itc.kfupm.edu.sa
+
+  vars_prompt:
+    - name: ad_username
+      prompt: Your Active Directory username
+      private: no
+
+    - name: ad_password
+      prompt: Your Active Directory password
+      private: yes
+
+  tasks:
+
+    ##################################################################
+    ##  Vault
+    ##################################################################
+
+    - name: Vault authentication
+      uri:
+        url: "{{ vault_url }}/v1/auth/ldap/login/{{ ad_username }}"
+        method: POST
+        body: {"password": "{{ ad_password }}"}
+        body_format: json
+      connection: local
+      register: auth
+
+    - name: Retrieve database password from Vault
+      uri:
+        url: "{{ vault_url }}/v1/secret/{{ env }}/database/apps/debtcollect/database_password"
+        headers:
+          X-Vault-Token: "{{ auth.json.auth.client_token }}"
+      connection: local
+      register: database_password
+
+    ##################################################################
+    ##  Database
+    ##################################################################
+
+    - name: Create postgresql user
+      postgresql_user:
+        name: "{{ database_user }}"
+        password: "{{ database_password.json.data.value }}"
+        encrypted: yes
+        role_attr_flags: LOGIN
+      become: yes
+      become_user: postgres
+
+    - name: Create postgresql database
+      postgresql_db:
+        name: "{{ database_name }}"
+        owner: "{{ database_user }}"
+      become: yes
+      become_user: postgres

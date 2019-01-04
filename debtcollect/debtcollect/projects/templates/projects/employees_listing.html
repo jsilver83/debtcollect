@@ -1,0 +1,10 @@
+{% extends "projects/base_listing.html" %}
+{% load i18n %}
+
+{% block title %}{% trans 'Employees Listing' %}{% endblock title %}
+{% block section_title %}{% trans 'All Employees' %}{% endblock section_title %}
+{% block new_object_link %}
+	<a href="{% url 'new_employee' %}" class="btn btn-success">
+		<i class="fa fa-plus"></i> {% trans 'New Employee' %}
+	</a>
+{% endblock new_object_link %}

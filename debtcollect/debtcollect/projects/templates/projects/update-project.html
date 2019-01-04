@@ -1,0 +1,185 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load render_table from django_tables2 %}
+{% load staticfiles %}
+
+{% block content %}
+	<div class="">
+		{% if object.title %}
+			<div class="page-title">
+				<div class="title_right">
+					<h3>{{ object.title }}</h3>
+				</div>
+			</div>
+		{% endif %}
+
+		<div class="clearfix"></div>
+
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>{% trans 'Project Details' %}</h2>
+						<ul class="nav navbar-right panel_toolbox">
+							<li>
+								<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+							</li>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					<div class="x_content">
+						{#						<form id="demo-form2" method="post" data-parsley-validate class="form-horizontal form-label-left">#}
+						{#							{% csrf_token %}#}
+						{% crispy form %}
+						{#							{{ form|crispy }}#}
+						<div class="ln_solid"></div>
+						{#							<div class="form-group">#}
+						{#								<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">#}
+						{#									<button type="submit" class="btn btn-success">حفظ</button>#}
+						{#								</div>#}
+						{#							</div>#}
+						{#						</form>#}
+						{% include 'snippets/audit.html' %}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 col-xs-12">
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>{% trans 'Updates' %}</h2>
+						<ul class="nav navbar-right panel_toolbox">
+							<li>
+								<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+							</li>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					<div class="x_content">
+						<a href="{% url 'new_update' object.pk %}" class="btn btn-success">
+							<i class="fa fa-plus"></i> {% trans 'New Update' %}
+						</a>
+						<hr>
+						<div>
+							{% if object.updates.count %}
+								<ul class="messages">
+									{% for update in object.updates.all %}
+										<li>
+											<img src="{% static update.created_by.picture %}" class="avatar" alt="Avatar">
+											<div class="message_date">
+												<h3 class="date text-info">{{ update.date|date:"d" }}&nbsp;<small>{{ update.date|date:"D" }}</small>
+												</h3>
+												<p class="month">{{ update.date|date:"F" }}&nbsp;<small>{{ update.date.year }}</small>
+												</p>
+											</div>
+											<div class="message_wrapper">
+												<h4 class="heading">{{ update.created_by }}</h4>
+												<blockquote class="message">
+													<b>{{ update.summary }}</b><br>
+													<p>{{ update.details|linebreaksbr }}</p>
+												</blockquote>
+												<br/>
+												{% if update.inform_the_client %}
+													<p class="url">
+														<span class="glyphicon glyphicon-paste" aria-hidden="true"></span>&nbsp;{% trans 'The client will be informed' %}
+													</p>
+												{% endif %}
+												{% if update.attachments %}
+													<p class="url">
+														<span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
+														<a href="{{ update.attachments }}"><i class="fa fa-paperclip"></i> {{ update.attachments }}
+														</a>
+													</p>
+												{% endif %}
+											</div>
+										</li>
+									{% endfor %}
+								</ul>
+							{% else %}
+								<h4>{% trans 'No updates yet!' %}</h4>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 col-xs-12">
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>{% trans 'Reminders' %}</h2>
+						<ul class="nav navbar-right panel_toolbox">
+							<li>
+								<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+							</li>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					<div class="x_content">
+						<a href="{% url 'new_project_reminder' object.pk %}" class="btn btn-success">
+							<i class="fa fa-send"></i> {% trans 'New Reminder' %}
+						</a>
+						<hr>
+						{% if tables.3.rows %}
+							{% render_table tables.3 %}
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{% if tables.1.rows %}
+			<div class="row">
+				<div class="col-md-12 col-xs-12">
+					<div class="x_panel">
+						<div class="x_title">
+							<h2>{% trans 'Documents Archive' %}</h2>
+							<ul class="nav navbar-right panel_toolbox">
+								<li>
+									<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+								</li>
+							</ul>
+							<div class="clearfix"></div>
+						</div>
+						<div class="x_content">
+
+							{% render_table tables.1 %}
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		{% endif %}
+
+		<div class="row">
+			<div class="col-md-12 col-xs-12">
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>{% trans 'Fund Requests' %}</h2>
+						<ul class="nav navbar-right panel_toolbox">
+							<li>
+								<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+							</li>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					<div class="x_content">
+						<a href="{% url 'new_request_fund' object.pk %}" class="btn btn-success">
+							<i class="fa fa-send"></i> {% trans 'Request Funds' %}
+						</a>
+						<hr>
+						{% if tables.0.rows %}
+							{% render_table tables.0 %}
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+{% endblock content %}
