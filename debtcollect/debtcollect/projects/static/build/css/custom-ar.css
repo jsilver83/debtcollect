@@ -228,3 +228,9 @@ ul.messages li .message_wrapper blockquote {
 .panel_toolbox {
     float: left!important;
 }
+
+/* added by joud*/
+.vertical-right-aligned {
+    transform: rotate(90deg);
+    right: 100%;
+}
