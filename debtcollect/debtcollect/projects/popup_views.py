@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView, UpdateView
 from django_addanother.views import CreatePopupMixin, UpdatePopupMixin
 
-from .forms import MyUserCreationForm, MyUserChangeForm, OrganizationForm, NationalityForm, CourtForm, ClientPopupForm
+from .forms import MyUserCreationForm, MyUserChangeForm, OrganizationForm, CourtForm, ClientPopupForm
 from .views import BaseFormMixin, BaseAdminView, BaseLawyerMixin
 
 
@@ -28,9 +28,4 @@ class NewOrganizationPopupView(LoginRequiredMixin, CreatePopupMixin, BaseFormMix
 
 class NewCourtPopupView(BaseLawyerMixin, CreatePopupMixin, BaseFormMixin, CreateView):
     form_class = CourtForm
-    template_name = 'projects/plain-form.html'
-
-
-class NewNationalityPopupView(LoginRequiredMixin, CreatePopupMixin, BaseFormMixin, CreateView):
-    form_class = NationalityForm
     template_name = 'projects/plain-form.html'

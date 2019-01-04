@@ -41,11 +41,6 @@ class ReminderAdmin(VersionAdmin):
     list_display = ('title', 'whom_to_remind', 'date', 'type')
 
 
-class NationalityAdmin(ImportExportMixin, admin.ModelAdmin):
-    list_display = ('id', 'nationality_ar', 'nationality_en', 'show', 'display_order')
-    search_fields = ['nationality_en']
-
-
 class LookupResource(resources.ModelResource):
     class Meta:
         model = Lookup
@@ -93,7 +88,6 @@ admin.site.register(Reminder, ReminderAdmin)
 admin.site.register(Case, CaseAdmin)
 admin.site.register(Client, ClientAdmin)
 admin.site.register(Lookup, LookupAdmin)
-admin.site.register(Nationality, NationalityAdmin)
 admin.site.register(Employee, EmployeeAdmin)
 admin.site.register(Update, UpdateAdmin)
 admin.site.register(Organization, OrganizationAdmin)

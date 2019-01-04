@@ -79,20 +79,3 @@ class OrganizationAutocomplete(autocomplete.Select2QuerySetView):
 
 class CourtAutocomplete(OrganizationAutocomplete):
     org_class = Court
-
-
-class NationalityAutocomplete(autocomplete.Select2QuerySetView):
-    def get_queryset(self):
-        if not self.request.user.is_authenticated():
-            return Nationality.objects.none()
-
-        qs = Nationality.objects.filter(show=True)
-
-        if self.q:
-            lang = translation.get_language()
-            if lang == "ar":
-                qs = qs.filter(nationality_ar__icontains=self.q)
-            else:
-                qs = qs.filter(nationality_en__icontains=self.q)
-
-        return qs

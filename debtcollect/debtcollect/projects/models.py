@@ -3,47 +3,10 @@ from django.db import models
 from django.urls import reverse_lazy
 from django.utils import translation, timezone
 from django.utils.translation import ugettext_lazy as _
+from django_countries.fields import CountryField
 from djmoney.models.fields import MoneyField
 
 User = settings.AUTH_USER_MODEL
-
-
-class Nationality(models.Model):
-    nationality_ar = models.CharField(_('Nationality (Arabic)'), null=True, blank=False, max_length=100)
-    nationality_en = models.CharField(_('Nationality (English)'), null=True, blank=True, max_length=100)
-    country_ar = models.CharField(_('Country (Arabic)'), null=True, blank=True, max_length=100)
-    country_en = models.CharField(_('Country (English)'), null=True, blank=True, max_length=100)
-    show = models.BooleanField(_('Show'), default=True)
-    display_order = models.PositiveSmallIntegerField(_('Display Order'), null=True)
-
-    @staticmethod
-    def get_nationality_choices(add_dashes=True):
-        try:
-            choices = Nationality.objects.filter(show=True)
-
-            ch = [(o.id, str(o)) for o in choices]
-            if add_dashes:
-                ch.insert(0, ('', '---------'))
-
-            return ch
-        except:  # was OperationalError and happened when db doesn't exist yet but later changed it to general except to catch any weird exceptions like ProgrammingError
-            return [('--', '--')]
-
-    @property
-    def nationality(self):
-        lang = translation.get_language()
-        if lang == "ar":
-            return self.nationality_ar
-        else:
-            return self.nationality_en
-
-    def __str__(self):
-        return self.nationality
-
-    class Meta:
-        ordering = ['display_order', 'nationality_en']
-        verbose_name = _('Nationality')
-        verbose_name_plural = _('Nationalities')
 
 
 class Lookup(models.Model):
@@ -139,8 +102,7 @@ class Person(models.Model):
     government_id = models.CharField(_('Government ID'), max_length=20, null=True, blank=True)
     gender = models.CharField(_('Gender'), max_length=1, null=True, blank=True, default='M',
                               choices=Genders.choices())
-    nationality = models.ForeignKey('Nationality', null=True, blank=True, on_delete=models.SET_NULL,
-                                    limit_choices_to={'show': True}, verbose_name=_('Nationality'))
+    nationality = CountryField(null=True)
     date_of_birth = models.DateField(_('Date Of Birth'), null=True, blank=True)
     address = models.TextField(_('Address'), null=True, blank=False)
     active = models.BooleanField(_('Is Active'), blank=False, default=False)

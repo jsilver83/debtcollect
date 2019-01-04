@@ -103,12 +103,7 @@ class PersonForm(BaseUpdatedByForm, forms.ModelForm):
     class Meta:
         model = Person
         fields = '__all__'
-        widgets = {
-            'nationality': AddAnotherWidgetWrapper(
-                autocomplete.ModelSelect2(url='nationality-autocomplete', ),
-                reverse_lazy('new_nationality_popup')
-            ),
-        }
+        widgets = {}
 
 
 class ClientForm(PersonForm):
@@ -136,7 +131,6 @@ class ClientPopupForm(ClientForm):
         ClientForm.Meta.widgets.update(
             {
                 'organization': autocomplete.ModelSelect2(url='org-autocomplete', ),
-                'nationality': autocomplete.ModelSelect2(url='nationality-autocomplete', ),
             }
         )
 
@@ -168,12 +162,6 @@ class CourtForm(OrganizationForm):
         super(CourtForm, self).__init__(*args, **kwargs)
         self.fields['type'].widget = \
             forms.Select(choices=Lookup.get_lookup_choices(Lookup.LookupTypes.COURT_TYPE))
-
-
-class NationalityForm(BaseUpdatedByForm, forms.ModelForm):
-    class Meta:
-        model = Nationality
-        fields = '__all__'
 
 
 class NewReminderForm(BaseUpdatedByForm, forms.ModelForm):

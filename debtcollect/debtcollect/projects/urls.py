@@ -27,8 +27,6 @@ urlpatterns = [
     url(r'^organization/(?P<pk>\d+)/$', views.OrganizationView.as_view(), name='update_organization'),
     # url(r'^organization/(?P<pk>\d+)/$', views.OrganizationView.as_view(), name='update_organization'),
 
-    url(r'^new_nationality_popup/$', popup_views.NewNationalityPopupView.as_view(), name='new_nationality_popup'),
-
     url(r'^employees/$', views.EmployeesListingView.as_view(), name='employees'),
     url(r'^new-employee/$', views.NewEmployeeView.as_view(), name='new_employee'),
     url(r'^employee/(?P<pk>\d+)/$', views.EmployeeView.as_view(), name='update_employee'),
@@ -48,9 +46,6 @@ urlpatterns = [
     url(r'^person-autocomplete/$', auto_complete_views.PersonAutocomplete.as_view(), name='person-autocomplete', ),
     url(r'^org-autocomplete/$', auto_complete_views.OrganizationAutocomplete.as_view(), name='org-autocomplete', ),
     url(r'^court-autocomplete/$', auto_complete_views.CourtAutocomplete.as_view(), name='court-autocomplete', ),
-    url(r'^nationality-autocomplete/$',
-        auto_complete_views.NationalityAutocomplete.as_view(),
-        name='nationality-autocomplete', ),
 ]
 
 
