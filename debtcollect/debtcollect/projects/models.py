@@ -156,7 +156,10 @@ class Employee(Person):
     joining_date = models.DateTimeField(_('Joining Date'), null=True, blank=False)
     qualifications = models.TextField(_('Qualifications'), null=True, blank=True)
     monthly_salary = MoneyField(_('Monthly Salary'), null=True, blank=True,
-                                decimal_places=2, default=0, default_currency='SAR', max_digits=11,)
+                                decimal_places=2, default=0, default_currency='SAR', max_digits=11, )
+    supervisor = models.ForeignKey('self', related_name='subordinates',
+                                   on_delete=models.SET_NULL, null=True, blank=True,
+                                   verbose_name=_('Supervisor'), )
     user = models.OneToOneField(User, related_name='employee', null=True, blank=True, verbose_name=_('Associated User'),
                                 help_text=_('The user associated with this employee holds the credentials data.'))
 
