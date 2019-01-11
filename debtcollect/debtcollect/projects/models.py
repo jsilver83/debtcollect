@@ -161,6 +161,7 @@ class Employee(Person):
                                    on_delete=models.SET_NULL, null=True, blank=True,
                                    verbose_name=_('Supervisor'), )
     user = models.OneToOneField(User, related_name='employee', null=True, blank=True, verbose_name=_('Associated User'),
+                                on_delete=models.SET_NULL,
                                 help_text=_('The user associated with this employee holds the credentials data.'))
 
     class Meta:

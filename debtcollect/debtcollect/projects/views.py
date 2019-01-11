@@ -17,14 +17,12 @@ from .tables import *
 
 class BaseLawyerMixin(LoginRequiredMixin, UserPassesTestMixin):
     def test_func(self):
-        print(self.request.user.groups)
         return self.request.user.groups.filter(name__in=['Admins', 'Lawyers']).exists() \
                or self.request.user.is_superuser
 
 
 class BaseAdminView(LoginRequiredMixin, UserPassesTestMixin):
     def test_func(self):
-        print(self.request.user.groups)
         return self.request.user.groups.filter(name__in=['Admins']).exists() \
                or self.request.user.is_superuser
 
@@ -89,9 +87,9 @@ class ProjectListing(BaseLawyerMixin, BaseListingView):
         if p_type.lower() == 'case':
             return CaseTable
         elif p_type.lower() == 'paperwork':
-            return ProjectTable
+            return PaperworkTable
         else:
-            return ProjectTable
+            return ConsultationTable
 
     def get_context_data(self, **kwargs):
         context = super(ProjectListing, self).get_context_data(**kwargs)
@@ -267,7 +265,7 @@ class OrganizationListingView(BaseLawyerMixin, BaseListingView):
 
 class CourtsListing(BaseLawyerMixin, BaseListingView):
     model = Court
-    table_class = OrganizationTable
+    table_class = CourtTable
     filterset_class = OrganizationFilter
     template_name = 'projects/courts_listing.html'
 

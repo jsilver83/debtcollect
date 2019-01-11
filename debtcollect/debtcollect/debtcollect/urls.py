@@ -21,7 +21,8 @@ from django.conf.urls.static import static
 from django.contrib.auth.views import login, logout
 
 urlpatterns = i18n_patterns(
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
+    url(r'^comments/', include('django_comments.urls')),
 
     url(r'^$', login, name='login'),
     url(r'^logout/$', logout, {'next_page': 'login'}, name='logout'),

@@ -68,7 +68,7 @@ class InvoiceTable(BaseTableWithCommands):
     payment_link = tables.TemplateColumn('{{ html }}', orderable=False, verbose_name='')
 
     class Meta:
-        model = FundRequest
+        model = Invoice
         fields = ['reference', 'title', 'client', 'amount', 'date', 'status', ]
         sequence = ('reference', 'title', 'client', 'amount', 'date', 'status', 'payment_link')
         attrs = {'class': 'table table-striped table-bordered'}

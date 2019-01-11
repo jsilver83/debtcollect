@@ -130,6 +130,16 @@ class CaseTable(ProjectTable):
         fields = ProjectTable.Meta.fields + ['client_role', 'type', 'case_reference', 'court']
 
 
+class ConsultationTable(ProjectTable):
+    class Meta(ProjectTable.Meta):
+        model = Consultation
+
+
+class PaperworkTable(ProjectTable):
+    class Meta(ProjectTable.Meta):
+        model = Paperwork
+
+
 class ReminderTable(BaseTableWithCommands):
     title = tables.Column(verbose_name=_('Title'))
     description = tables.Column(verbose_name=_('Description'))
@@ -157,7 +167,7 @@ class ClientTable(BaseTableWithCommands):
     # organization = tables.RelatedLinkColumn()
 
     class Meta:
-        model = Project
+        model = Client
         fields = ['name', 'organization', 'mobile', 'work_phone', 'personal_email', 'gender', 'nationality']
         attrs = {'class': 'table table-striped table-bordered', }
 
@@ -174,7 +184,7 @@ class OrganizationTable(BaseTableWithCommands):
     name = tables.Column(verbose_name=_('Name'))
 
     class Meta:
-        model = Project
+        model = Organization
         fields = ['name', 'type', 'phone', 'website', 'city', ]
         attrs = {'class': 'table table-striped table-bordered', }
 

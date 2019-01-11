@@ -49,7 +49,9 @@ INSTALLED_APPS = [
     'django_addanother',
     'tellme',
     'django_countries',
+    'django_comments',
 
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -159,6 +161,8 @@ LOCALE_PATHS = (
 CURRENCIES = ('USD', 'EUR', 'SAR')
 CURRENCY_CHOICES = [('USD', 'USD $'), ('EUR', 'EUR €'), ('SAR', 'SAR')]
 DEFAULT_CURRENCY_CODE = 'SAR'
+MAX_DIGITS = 11
+DECIMAL_PLACES = 2
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
