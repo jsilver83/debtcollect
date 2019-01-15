@@ -27,6 +27,8 @@ urlpatterns = i18n_patterns(
     url(r'^$', login, name='login'),
     url(r'^logout/$', logout, {'next_page': 'login'}, name='logout'),
 
+    url(r'^insurance/', include('insurancedebt.urls')),
+
     url(r'^projects/', include('projects.urls')),
 
     url(r'^archive/', include('archive.urls')),
