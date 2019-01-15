@@ -18,6 +18,8 @@ debtcollect/debtcollect/settings/local.py
 
 uploaded_docs/*
 
+media/*
+
 *.pyc
 *.mo
 .idea
