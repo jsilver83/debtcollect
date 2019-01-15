@@ -7,7 +7,7 @@ from .models import *
 class ProjectAutocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):
         # Don't forget to filter out results depending on the visitor !
-        if not self.request.user.is_authenticated():
+        if not self.request.user.is_authenticated:
             return Project.objects.none()
 
         qs = Project.objects.all()
@@ -25,7 +25,7 @@ class ProjectAutocomplete(autocomplete.Select2QuerySetView):
 class ClientAutocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):
         # Don't forget to filter out results depending on the visitor !
-        if not self.request.user.is_authenticated():
+        if not self.request.user.is_authenticated:
             return Client.objects.none()
 
         qs = Client.objects.all()
@@ -43,7 +43,7 @@ class ClientAutocomplete(autocomplete.Select2QuerySetView):
 class PersonAutocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):
         # Don't forget to filter out results depending on the visitor !
-        if not self.request.user.is_authenticated():
+        if not self.request.user.is_authenticated:
             return Person.objects.none()
 
         qs = Person.objects.all()
@@ -62,7 +62,7 @@ class OrganizationAutocomplete(autocomplete.Select2QuerySetView):
     org_class = Organization
 
     def get_queryset(self):
-        if not self.request.user.is_authenticated():
+        if not self.request.user.is_authenticated:
             return self.org_class.objects.none()
 
         qs = self.org_class.objects.all()
