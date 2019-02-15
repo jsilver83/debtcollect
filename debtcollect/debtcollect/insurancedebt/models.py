@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from djmoney.models.fields import MoneyField
 
@@ -38,9 +39,8 @@ class InsuranceDebt(models.Model):
         verbose_name_plural = _('Insurance Debts')
         ordering = ('-updated_on', 'created_on',)
 
-    title = models.CharField(_('Title'), max_length=100, blank=False, null=True)
-    description = models.TextField(_('Description'), blank=True, null=True)
-    type = models.CharField(_('Type'), max_length=100, null=True, blank=False, )
+    type = models.CharField(_('Type'), max_length=100, null=True, blank=False,
+                            choices=Types.choices(), default=Types.TRAFFIC)
     type_justification = models.TextField(_('Type Justification'), blank=True, null=True)
     status = models.CharField(_('Status'), max_length=20, null=True, blank=False,
                               choices=Statuses.choices(), default=Statuses.NEW)
@@ -60,13 +60,19 @@ class InsuranceDebt(models.Model):
     notes = models.TextField(_('Notes'), blank=True, null=True)
 
     created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
-    created_by = models.ForeignKey('projects.Employee', on_delete=models.SET_NULL, null=True, blank=False,
+    created_by = models.ForeignKey('projects.Employee', on_delete=models.SET_NULL, null=True, blank=True,
                                    verbose_name=_('Created By'),
                                    related_name="created_debts", )
     updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
-    updated_by = models.ForeignKey('projects.Employee', on_delete=models.SET_NULL, null=True, blank=False,
+    updated_by = models.ForeignKey('projects.Employee', on_delete=models.SET_NULL, null=True, blank=True,
                                    verbose_name=_('Updated By'),
                                    related_name="updated_debts", )
+
+    def get_absolute_url(self):
+        return reverse_lazy('update_insurance_debt', args=(self.pk,))
+
+    def get_update_url(self):
+        return self.get_absolute_url()
 
 
 class InsuranceDocument(models.Model):

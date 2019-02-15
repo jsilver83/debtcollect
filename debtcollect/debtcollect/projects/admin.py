@@ -80,7 +80,7 @@ class CourtAdmin(ImportExportMixin, admin.ModelAdmin):
     list_filter = ('type', 'city',)
 
 
-admin.site.site_header = _('Law Firm')
+admin.site.site_header = _('Gulf Debt')
 admin.site.index_title = _('System Administration')
 admin.site.site_title = _('Administration')
 

@@ -44,6 +44,7 @@ class BaseListingView(SingleTableMixin, FilterView):
     }
     filterset_class = None
     template_name = ''
+    strict = False
 
     def get_queryset(self):
         return self.model.objects.all()

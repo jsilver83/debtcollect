@@ -7,7 +7,7 @@
       <a id="menu_toggle"><i class="fa fa-bars"></i></a>
     </div>
 
-    <ul class="nav navbar-nav navbar-left">
+    <ul class="nav navbar-nav navbar-{% if LANGUAGE_CODE == 'ar' %}left{% else %}right{% endif %}">
       <li class="">
         <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
           <img src="{% static user.employee.picture %}" alt="">{{ user.employee.name }}

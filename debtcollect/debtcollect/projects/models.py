@@ -18,6 +18,7 @@ class Lookup(models.Model):
         DOCUMENT_TYPE = 'DOCUMENT_TYPE'
         COURT_TYPE = 'COURT_TYPE'
         COURT_ROLE = 'COURT_ROLE'
+        INSURANCE_DOCUMENT_TYPE = 'INSURANCE_DOCUMENT_TYPE'
 
         @classmethod
         def choices(cls):
@@ -29,6 +30,7 @@ class Lookup(models.Model):
                 (cls.DOCUMENT_TYPE, _('Document Type')),
                 (cls.COURT_TYPE, _('Court Type')),
                 (cls.COURT_ROLE, _('Court Role')),
+                (cls.INSURANCE_DOCUMENT_TYPE, _('Insurance Document Type')),
             )
 
     lookup_type = models.CharField(max_length=30, null=True, blank=False, db_index=True,
@@ -185,7 +187,7 @@ class Employee(Person):
     @staticmethod
     def get_employee(user):
         employee, created = Employee.objects.get_or_create(user=user)
-        return employee if created else None
+        return employee
 
 
 class Client(Person):

@@ -1,0 +1,24 @@
+{% load comments humanize i18n %}
+{% load staticfiles %}
+
+
+<ul id="comments" class="list-unstyled msg_list">
+	{% for comment in comment_list %}
+		<li id="c{{ comment.id }}">
+			<a>
+				{% if comment.user %}
+					<span class="image"><img src="{% static 'images/user.png' %}" alt="img"/></span>
+				{% else %}
+					<span class="image"><img src="{% static 'images/avatar.png' %}" alt="img"/></span>
+				{% endif %}
+				<span>
+									<b class="c_name">{{ comment.name }}</b>
+									<span class="time">{{ comment.submit_date|naturaltime }}</span>
+								</span>
+				<div class="message">
+					{{ comment.comment }}
+				</div>
+			</a>
+		</li>
+	{% endfor %}
+</ul>

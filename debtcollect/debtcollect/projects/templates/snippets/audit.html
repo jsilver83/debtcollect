@@ -1,4 +1,5 @@
-{% load i18n %}
+{% load i18n humanize %}
+
 
 {% if object %}
 <h4>{% trans 'Audit Data' %}</h4>
@@ -8,7 +9,7 @@
 		<b>{% trans 'Created On' %}</b>
 	</div>
 	<div class="col-sm-6 col-md-3">
-		{{ object.created_on|timesince }}
+		{{ object.created_on|naturaltime }}
 	</div>
 	<div class="col-sm-6 col-md-3">
 		<b>{% trans 'Created By' %}</b>
@@ -23,7 +24,7 @@
 		<b>{% trans 'Updated On' %}</b>
 	</div>
 	<div class="col-sm-6 col-md-3">
-		{{ object.updated_on|timesince }}
+		{{ object.updated_on|naturaltime }}
 	</div>
 	<div class="col-sm-6 col-md-3">
 		<b>{% trans 'Updated By' %}</b>

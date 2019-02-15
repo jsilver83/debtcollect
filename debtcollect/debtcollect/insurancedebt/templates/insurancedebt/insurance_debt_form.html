@@ -1,0 +1,85 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load render_table from django_tables2 %}
+{% load comments %}
+
+{% block content %}
+	<div class="">
+		<div class="clearfix"></div>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>{% trans 'Insurance Debt Details' %}</h2>
+						<div class="clearfix"></div>
+					</div>
+					<div class="x_content">
+						{% crispy form %}
+						<div class="ln_solid"></div>
+						{% include 'snippets/audit.html' %}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{% if object %}
+			<div class="row">
+				<div class="col-md-12 col-xs-12">
+					<div class="x_panel">
+						<div class="x_title">
+							<h2>{% trans 'Attachments' %}</h2>
+							<ul class="nav navbar-right panel_toolbox">
+								<li>
+									<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+								</li>
+							</ul>
+							<div class="clearfix"></div>
+						</div>
+						<div class="x_content">
+							<a href="{% url 'new_insurance_document' object.pk %}" class="btn btn-success">
+								<i class="fa fa-send"></i> {% trans 'New Attachment' %}
+							</a>
+							<hr>
+							{% if tables.0.rows %}
+								{% render_table tables.0 %}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+
+		{% if object %}
+			<div class="row">
+				<div class="col-md-7">
+					<div class="x_panel">
+						<div class="x_title">
+							<h2>
+								{% trans "Comments" %}
+							</h2>
+							<div class="clearfix"></div>
+						</div>
+						<div class="x_content">
+							{% render_comment_list for object %}
+						</div>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="x_panel">
+						<div class="x_title">
+							<h2>
+								{% trans "New Comment" %}
+							</h2>
+							<div class="clearfix"></div>
+						</div>
+						<div class="x_content">
+							{% render_comment_form for object %}
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+
+	</div>
+{% endblock content %}

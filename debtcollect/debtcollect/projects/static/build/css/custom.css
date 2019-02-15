@@ -1,4 +1,13 @@
 /* added by joud*/
+.c_name {
+    padding-bottom: 15px;
+    display: inline-block;
+}
+
+.no-display {
+    display: none;
+}
+
 .vertical-right-aligned {
     transform: rotate(-90deg);
     transform-origin: 100% 100%;
@@ -8,11 +17,11 @@
     z-index: 100;
 }
 
-.object_details{
+.object_details {
     font-size: 115%;
 }
 
-.object_details .col-md-2{
+.object_details .col-md-2 {
     font-weight: bold;
 }
 
@@ -717,7 +726,7 @@ a:focus {
 }
 .top_nav .navbar-right {
     margin: 0;
-    width: 70%;
+    /*width: 70%;*/
     float: right
 }
 .top_nav .navbar-right li {
@@ -1521,15 +1530,15 @@ ul.msg_list li a .image img {
     border-radius: 2px 2px 2px 2px;
     -webkit-border-radius: 2px 2px 2px 2px;
     float: left;
-    margin-right: 10px;
-    width: 11%
+    margin-right: 20px;
+    width: 75px;
 }
 ul.msg_list li a .time {
     font-size: 11px;
     font-style: italic;
     font-weight: bold;
     position: absolute;
-    right: 35px
+    right: 125px;
 }
 ul.msg_list li a .message {
     display: block !important;

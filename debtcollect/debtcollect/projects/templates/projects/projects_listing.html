@@ -37,7 +37,14 @@
 							</div>
 							{% if filter %}
 								<div class="col-md-6">
-									{% crispy filter.form search_form.helper %}
+									<form class="form-horizontal form-label-left" method="get">
+										{% crispy filter.form search_form.helper %}
+										<div class="controls col-lg-7 col-md-8 col-xs-7 text-left">
+											<button type="submit" name="submit" value="submit" class="btn btn-primary" id="submit-id-submit">
+												<span class="glyphicon glyphicon-search"></span> Send
+											</button>
+										</div>
+									</form>
 								</div>
 							{% endif %}
 						</div>

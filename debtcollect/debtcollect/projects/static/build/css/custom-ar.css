@@ -19,7 +19,11 @@ body {
 }
 .nav {
     padding-right: 0;
-    padding-left: inherit!important;
+    padding-left: 20px!important;
+}
+
+.navbar-left {
+    float: left!important;
 }
 
 .profile_pic {
@@ -129,12 +133,12 @@ footer {
 ul.msg_list li a .image img {
     float: right;
     margin-right: inherit!important;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 ul.msg_list li a .time {
     right: inherit!important;
-    left: 35px!important;
+    left: 125px!important;
 }
 
 .user-profile img {
