@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^new-insurance-document/(?P<insurance_debt_pk>\d+)/$', views.NewInsuranceDocumentView.as_view(),
         name='new_insurance_document'),
     url(r'^comment-success/$', views.CommentPostedSuccessfully.as_view(), name='comment_success'),
-    url(r'^client-login/$', views.ClientLogin.as_view(), name='client_login'),
+    url(r'^client-login/$', views.ClientLoginView.as_view(), name='client_login'),
+    url(r'^client-area/$', views.ClientAreaView.as_view(), name='client_area'),
 ]

@@ -1,0 +1,52 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block top_navigation %}
+{% endblock top_navigation %}
+
+{% block sidebar %}
+{% endblock sidebar %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<div class="x_panel">
+				<div class="row">
+					<div class="col-md-offset-2 col-sm-offset-1 col-xs-offset-0"></div>
+					<div class="col-md-10 col-sm-11 col-xs-12">
+						{% if messages %}
+							<div class="clearfix"></div>
+							<div class="messages">
+								{% for message in messages %}
+									<div
+											{% if message.tags %} class="alert alert-{{ message.level_tag }}"{% endif %}>{{ message }}</div>
+								{% endfor %}
+							</div>
+						{% endif %}
+					</div>
+				</div>
+				<div class="x_title">
+					<h2>{% block form_title %}{% endblock form_title %}</h2>
+					<div class="clearfix"></div>
+				</div>
+				<div class="x_content">
+					{% block before_form %}{% endblock before_form %}
+					{% if form %}
+					<form class="form-horizontal form-label-left" method="post" enctype="multipart/form-data">
+						{% crispy form %}
+						<div class="controls col-lg-10 col-md-10 col-xs-10 text-left">
+							<button type="submit" name="submit" value="submit" class="btn btn-primary" id="submit-id-submit">
+								<span class="glyphicon glyphicon-ok"></span> {% trans 'Submit' %}
+							</button>
+						</div>
+					</form>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+	{% block javascripts %}
+		{{ block.super }}
+	{% endblock javascripts %}
+{% endblock body %}

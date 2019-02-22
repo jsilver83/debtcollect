@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'tellme',
     'django_countries',
     'django_comments',
+    'simplemathcaptcha',
 
     'django.contrib.humanize',
     'django.contrib.sites',

@@ -6,7 +6,8 @@
 <form action="{% comment_form_target %}" method="POST">
 	{% csrf_token %}
 	{% if not user.is_authenticated %}
-	<input class="no-display" type="text" value="{% trans 'The Client' %}" />
+	<input name="{{ form.name.name }}" class="no-display" type="text" value="{% trans 'The Client' %}" />
+	<input name="{{ form.email.name }}" class="no-display" type="text" value="a@b.com" />
 	{% endif %}
 	{{ form.comment|as_crispy_field }}
 	<div class="no-display">{{ form.honeypot }}</div>

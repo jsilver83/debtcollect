@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core.validators import RegexValidator
 from django.db import models
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -51,12 +52,25 @@ class InsuranceDebt(models.Model):
     assignee = models.ForeignKey('projects.Employee', on_delete=models.SET_NULL, null=True, blank=False,
                                  related_name='assigned_insurance_debts',
                                  verbose_name=_('Assignee'))
-    driver_government_id = models.CharField(_('Driver Government ID'), max_length=20, null=True, blank=False, )
+    driver_government_id = models.CharField(_('Driver Government ID'), max_length=20, null=True, blank=False,
+                                            validators=[
+                                                RegexValidator(
+                                                    '^\d{9,11}$',
+                                                    message=_("You have entered an invalid Government ID")
+                                                ), ])
     driver_full_name = models.CharField(_('Driver Full Name'), max_length=200, null=True, blank=True, )
     insurer_full_name = models.CharField(_('Driver Full Name'), max_length=200, null=True, blank=True, )
-    driver_mobile = models.CharField(_('Driver Mobile'), max_length=20, null=True, blank=False, )
+    driver_mobile = models.CharField(_('Driver Mobile'), max_length=20, null=True, blank=False,
+                                     help_text=_('format: 05XXXXXXXX'),
+                                     validators=[
+                                         RegexValidator(
+                                             '^(05|٠٥)\d{8}$',
+                                             message=_('You have entered an invalid mobile number')
+                                         ),
+                                     ], )
     accident_location = models.CharField(_('Accident Location'), max_length=200, null=True, blank=True, )
     accident_date = models.DateTimeField(_('Accident Date'), null=True, blank=True, )
+    client_notes = models.TextField(_('Client Notes'), blank=True, null=True)
     notes = models.TextField(_('Notes'), blank=True, null=True)
 
     created_on = models.DateTimeField(_('Created On'), auto_now_add=True)

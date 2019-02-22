@@ -40,6 +40,15 @@
     display: inline-block!important;
 }
 
+ul.msg_list .row, ul.msg_list img  {
+    width: 100%!important;
+}
+
+ul.msg_list h4{
+    font-size: 130%;
+    font-weight: bold;
+}
+
 /*.related-widget-wrapper a{*/
     /*float: left!important;*/
 /*}*/

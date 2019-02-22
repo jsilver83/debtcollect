@@ -5,20 +5,24 @@
 <ul id="comments" class="list-unstyled msg_list">
 	{% for comment in comment_list %}
 		<li id="c{{ comment.id }}">
-			<a>
-				{% if comment.user %}
-					<span class="image"><img src="{% static 'images/user.png' %}" alt="img"/></span>
-				{% else %}
-					<span class="image"><img src="{% static 'images/avatar.png' %}" alt="img"/></span>
-				{% endif %}
-				<span>
-									<b class="c_name">{{ comment.name }}</b>
-									<span class="time">{{ comment.submit_date|naturaltime }}</span>
-								</span>
-				<div class="message">
-					{{ comment.comment }}
+			<div class="row">
+				<div class="col-xs-3">
+					{% if comment.user %}
+						<img src="{% static 'images/user.png' %}" alt="img"/>
+					{% else %}
+						<img src="{% static 'images/avatar.png' %}" alt="img"/>
+					{% endif %}
 				</div>
-			</a>
+				<div class="col-xs-9">
+					<div class="row">
+						<div class="col-xs-4"><h4 class="c_name">{{ comment.name }}</h4></div>
+						<div class="col-xs-8 text-left"><span class="time">{{ comment.submit_date|naturaltime }}</span></div>
+					</div>
+					<div>
+						{{ comment.comment|linebreaksbr }}
+					</div>
+				</div>
+			</div>
 		</li>
 	{% endfor %}
 </ul>

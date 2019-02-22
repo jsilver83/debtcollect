@@ -3,19 +3,16 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
-from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.views import View
-from django.views.generic import CreateView, UpdateView, TemplateView
+from django.views.generic import CreateView, UpdateView, FormView
 from django_tables2 import MultiTableMixin
 
-from debtcollect.utils import UserGroups
-from projects.views import BaseListingView, BaseCrispySearchForm, BaseFormMixin
-from projects.models import Employee
-from .models import *
-from .tables import *
-from .forms import *
+from debtcollect.utils import get_model_details
+from projects.views import BaseListingView, BaseFormMixin
 from .filters import *
+from .forms import *
+from .tables import *
 
 
 class DebtCollectorMixin(LoginRequiredMixin, UserPassesTestMixin):
@@ -101,13 +98,19 @@ class NewInsuranceDocumentView(SuccessMessageMixin, DebtCollectorMixin, BaseForm
     success_message = _('Insurance Document was created successfully')
     form_class = InsuranceDocumentForm
 
+    def get_success_url(self):
+        return reverse_lazy('update_insurance_debt', args=(self.kwargs['insurance_debt_pk']))
+
     def form_valid(self, form):
         employee, created = Employee.objects.get_or_create(user=self.request.user)
         instance = form.save(commit=False)
         instance.uploaded_by = employee
         instance.insurance_debt = get_object_or_404(InsuranceDebt, pk=self.kwargs['insurance_debt_pk'])
-        self.success_url = reverse_lazy('insurance_debt_listing')
         return super(NewInsuranceDocumentView, self).form_valid(form)
+
+    def form_invalid(self, form):
+        print(form.errors)
+        return super().form_invalid(form)
 
 
 class CommentPostedSuccessfully(View):
@@ -116,5 +119,51 @@ class CommentPostedSuccessfully(View):
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 
-class ClientLogin(TemplateView):
+class ClientLoginView(SuccessMessageMixin, FormView):
     template_name = 'insurancedebt/client_login.html'
+    form_class = ClientLoginForm
+    success_url = reverse_lazy('client_area')
+    success_message = _('Successful login')
+
+    def form_valid(self, form):
+        debt = InsuranceDebt.objects.filter(pk=form.cleaned_data.get('request_id'),
+                                            driver_mobile=form.cleaned_data['mobile'], )
+
+        if debt:
+            self.request.session['debt_pk'] = debt.first().pk
+        return super().form_valid(form)
+
+
+class ClientAreaView(SuccessMessageMixin, UserPassesTestMixin, FormView):
+    template_name = 'insurancedebt/client_area.html'
+    form_class = ClientAreaForm
+    success_message = _('You submitted your action/choice successfully')
+    success_url = reverse_lazy('client_area')
+    debt = None
+    login_url = reverse_lazy('client_login')
+
+    def test_func(self):
+        return self.request.session.get('debt_pk', 0)
+
+    def dispatch(self, request, *args, **kwargs):
+        self.debt = get_object_or_404(InsuranceDebt, pk=self.request.session.get('debt_pk', 0))
+        return super(ClientAreaView, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(ClientAreaView, self).get_context_data(**kwargs)
+        context['object'] = self.debt
+        context['docs'] = self.debt.documents.all()
+        context['debt_details'] = get_model_details(self.debt,
+                                                    ['id', 'status', 'status_comments', 'insurancedocument',
+                                                     'debt_currency', 'assignee', 'created_on', 'created_by',
+                                                     'updated_on', 'updated_by'])
+        context['title'] = _('Insurance Debt Details')
+
+        if self.debt.status != InsuranceDebt.Statuses.NEW:
+            context['form'] = None
+
+        return context
+
+    def form_valid(self, form):
+
+        return super(ClientAreaView, self).form_valid(form)

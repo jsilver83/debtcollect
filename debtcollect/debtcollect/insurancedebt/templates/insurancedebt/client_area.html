@@ -1,0 +1,68 @@
+{% extends 'insurancedebt/plain-form.html' %}
+
+{% load i18n comments %}
+
+{% block form_title %}{{ title }}{% endblock form_title %}
+
+{% block before_form %}
+	{% for detail in debt_details %}
+		<div class="row">
+			<div class="col-lg-4 col-md-5 col-xs-5"><b>{{ detail.field }}</b></div>
+			<div class="col-lg-8 col-md-7 col-xs-7">{{ detail.value }}</div>
+		</div><br>
+	{% endfor %}
+
+	{% if docs %}
+		<div class="well">
+			<h2>{% trans 'Attached Documents' %}</h2><br>
+			{% for doc in docs %}
+				<a href="{{ doc.document }}" target="_blank">
+					<h4 style="display: inline-block; margin: 0 35px">
+						<i class="fa fa-file-text"></i>&nbsp;&nbsp;{{ doc }} - ({{ doc.type }})</h4>
+				</a>
+			{% endfor %}</div>
+	{% endif %}
+	<hr>
+	{% if form %}
+		<div class="row">
+			<div class="alert alert-dismissable alert-info">
+				{% blocktrans %}
+					<h2><b>Important Note</b></h2><br>
+					<p>Kindly carefully choose your response to the claimed debt above. If you choose NOT to pay the
+						debt, you will most probable face some escalated measures that we will take against you with
+						the help of the SAUDI Laws</p>
+				{% endblocktrans %}
+			</div>
+		</div>
+		<br>
+	{% else %}
+		<div class="row">
+			<div class="col-md-7">
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>
+							{% trans "Comments" %}
+						</h2>
+						<div class="clearfix"></div>
+					</div>
+					<div class="x_content">
+						{% render_comment_list for object %}
+					</div>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>
+							{% trans "New Comment" %}
+						</h2>
+						<div class="clearfix"></div>
+					</div>
+					<div class="x_content">
+						{% render_comment_form for object %}
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+{% endblock before_form %}

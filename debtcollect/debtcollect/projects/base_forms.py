@@ -12,7 +12,8 @@ class BaseCrispyForm:
     def __init__(self, *args, **kwargs):
         super(BaseCrispyForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.form_class = 'form-horizontal form-label-left'
+        self.helper.form_tag = False
+        # self.helper.form_class = 'form-horizontal form-label-left'
         self.helper.label_class = 'col-lg-4 col-md-5 col-xs-5'
         self.helper.field_class = 'col-lg-7 col-md-7 col-xs-7'
 
@@ -22,15 +23,18 @@ class BaseCrispySearchForm(BaseCrispyForm):
     def __init__(self, *args, **kwargs):
         super(BaseCrispySearchForm, self).__init__(*args, **kwargs)
         # self.helper.add_input(Submit('search', _('Search'), css_class='btn btn-primary'))
-        self.helper.form_tag = False
         self.helper.form_method = 'get'
 
 
 class BaseUpdatedByForm(BaseCrispyForm):
 
     def __init__(self, *args, **kwargs):
-        self.user = kwargs.pop('user')
-        self.employee = Employee.get_employee(self.user)
+        self.user = None
+        self.employee = None
+
+        if kwargs.get('user'):
+            self.user = kwargs.pop('user')
+            self.employee = Employee.get_employee(self.user)
         super(BaseUpdatedByForm, self).__init__(*args, **kwargs)
         self.helper.add_input(Submit('submit', _('Submit')))
 
