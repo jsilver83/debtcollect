@@ -49,6 +49,17 @@ ul.msg_list h4{
     font-weight: bold;
 }
 
+.ca-login{
+    float: right;
+    margin: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.ca-login a{
+    margin-left: 20px;
+}
+
 /*.related-widget-wrapper a{*/
     /*float: left!important;*/
 /*}*/

@@ -1043,9 +1043,9 @@ function init_TagsInput() {
 
 function init_select2() {
 
-    if (typeof(select2) === 'undefined') {
-        return;
-    }
+    // if (typeof(select2) === 'undefined') {
+    //     return;
+    // }
     console.log('init_toolbox');
 
     $(".select2_single").select2({
@@ -1053,6 +1053,9 @@ function init_select2() {
         allowClear: true
     });
     $(".select2_group").select2({});
+    $(".lazyselect, .select2").select2({
+        allowClear: true
+    });
     $(".select2_multiple").select2({
         maximumSelectionLength: 4,
         placeholder: "With Max Selection limit 4",
@@ -5124,17 +5127,42 @@ $(document).ready(function() {
 
 //Added by joud
 $(function(){
+    $('.dateinput').daterangepicker({
+        "singleDatePicker": true,
+        "showDropdowns": true,
+        "timePicker": false,
+        "autoUpdateInput": false,
+        "autoApply": true,
+        locale: {
+            format: 'YYYY-MM-DD',
+            cancelLabel: 'Clear',
+        },
+        "opens": "center"});
+
+    $('.dateinput').on('apply.daterangepicker', function(ev, picker) {
+      $(this).val(picker.startDate.format('YYYY-MM-DD'));
+    });
+
     $('.datetimeinput').daterangepicker({
         "singleDatePicker": true,
         "showDropdowns": true,
         "timePicker": true,
         "autoApply": true,
-        "autoUpdateInput": true,
+        "autoUpdateInput": false,
         "timePickerIncrement": 5,
         locale: {
-            format: 'YYYY-MM-DD HH:mm'
+            format: 'YYYY-MM-DD HH:mm',
+            cancelLabel: 'Clear',
         },
         "opens": "center"});
+
+    $('.datetimeinput').on('apply.daterangepicker', function(ev, picker) {
+      $(this).val(picker.startDate.format('YYYY-MM-DD HH:mm'));
+    });
+
+    $('.datetimeinput').on('cancel.daterangepicker', function(ev, picker) {
+      $(this).val('');
+  });
 
     $('#id_date_range_0, #id_date_range_1').daterangepicker({
         "singleDatePicker": true,

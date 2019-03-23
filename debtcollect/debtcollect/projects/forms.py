@@ -192,9 +192,10 @@ class NewEmployeeForm(PersonForm):
         PersonForm.Meta.widgets.update(
             {
                 'user': AddAnotherWidgetWrapper(
-                    forms.Select,
+                    forms.Select(attrs={'class': 'select2'}),
                     reverse_lazy('new-user-popup'),
                 ),
+                'supervisor': forms.Select(attrs={'class': 'select2'}),
             }
         )
 

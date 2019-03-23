@@ -1,6 +1,24 @@
 {% extends 'insurancedebt/plain-form.html' %}
 
-{% load i18n comments %}
+{% load i18n comments humanize %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-md-12">
+			<span class="ca-login">
+				{% trans 'Welcome' %}  [ {{ debt_user }} ]<a href="{% url 'client_logout' %}" class="btn btn-danger"><i class="fa fa-sign-out"></i>{% trans 'Logout' %}</a>
+				{% if LANGUAGE_CODE == 'ar' %}
+					<a class="btn btn-warning" href="/en{{ request.get_full_path|slice:'3:' }}">
+							<i class="fa fa-language"></i> English</a>
+				{% else %}
+					<a class="btn btn-warning" href="/ar{{ request.get_full_path|slice:'3:' }}">
+							<i class="fa fa-language"></i> عربي</a>
+				{% endif %}
+			</span>
+		</div>
+	</div>
+	{{ block.super }}
+{% endblock %}
 
 {% block form_title %}{{ title }}{% endblock form_title %}
 
@@ -18,7 +36,7 @@
 			{% for doc in docs %}
 				<a href="{{ doc.document }}" target="_blank">
 					<h4 style="display: inline-block; margin: 0 35px">
-						<i class="fa fa-file-text"></i>&nbsp;&nbsp;{{ doc }} - ({{ doc.type }})</h4>
+						<i class="fa fa-file-text"></i>&nbsp;&nbsp;{{ doc.title }} - ({{ doc.type }})</h4>
 				</a>
 			{% endfor %}</div>
 	{% endif %}
@@ -29,13 +47,51 @@
 				{% blocktrans %}
 					<h2><b>Important Note</b></h2><br>
 					<p>Kindly carefully choose your response to the claimed debt above. If you choose NOT to pay the
-						debt, you will most probable face some escalated measures that we will take against you with
+						debt, you will most probably face some escalated measures that we will take against you with
 						the help of the SAUDI Laws</p>
 				{% endblocktrans %}
 			</div>
 		</div>
 		<br>
 	{% else %}
+		<div class="row">
+			<div class="col-md-12">
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>
+							{% trans "Scheduled Payments" %}
+						</h2>
+						<div class="clearfix"></div>
+					</div>
+					<div class="x_content">
+						<table class="table table-striped">
+							<thead>
+							<tr>
+								<th>#</th>
+								<th>{% trans 'Amount' %}</th>
+								<th>{% trans 'Scheduled Date' %}</th>
+								<th>{% trans 'Payment Method' %}</th>
+								<th>{% trans 'Received On' %}</th>
+							</tr>
+							</thead>
+							<tbody>
+							{% for payment in object.scheduled_payments.all %}
+								<tr class="{% if payment.is_late %}danger{% elif payment.received_on %}success{% else %}warning{% endif %}">
+									<td>{{ forloop.counter }}</td>
+									<td>{{ payment.amount }}</td>
+									<td>{{ payment.scheduled_date }}</td>
+									<td>{{ payment.get_payment_method_display|default:"-" }}</td>
+									<td>{{ payment.received_on|naturaltime|default:"-" }}</td>
+								</tr>
+							{% endfor %}
+							</tbody>
+						</table>
+						<hr>
+						<h4>{% trans 'Remaining Unpaid Amount' %}: {{ object.get_remaining_unpaid_debt }}</h4>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-md-7">
 				<div class="x_panel">

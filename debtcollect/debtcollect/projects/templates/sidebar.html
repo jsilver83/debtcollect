@@ -31,21 +31,30 @@
 		<div class="menu_section">
 			<h3>{% trans 'Main Menu' %}</h3>
 			<ul class="nav side-menu">
+				{% if debt_admin or debt_supervisor or debt_user %}
 				<li>
 					<a href="{% url 'insurance_debt_listing' %}">
-						<i class="fa fa-clone"></i>{% trans 'Insurance Debts Listing' %}
+						<i class="fa fa-table"></i>{% trans 'Insurance Debts Listing' %}
 					</a>
 				</li>
-{#				{% if lawyer %}#}
-{#					<li><a><i class="fa fa-home"></i> {% trans 'Projects' %}#}
-{#						<span class="fa fa-chevron-down"></span></a>#}
-{#						<ul class="nav child_menu">#}
-{#							<li><a href="{% url 'case_listing' 'Case' %}">{% trans 'Cases' %}</a></li>#}
-{#							<li><a href="{% url 'case_listing' 'Consultation' %}">{% trans 'Consultations' %}</a></li>#}
-{#							<li><a href="{% url 'case_listing' 'Paperwork' %}">{% trans 'Paperwork Projects' %}</a></li>#}
-{#						</ul>#}
-{#					</li>#}
-{#				{% endif %}#}
+				{% endif %}
+				{% if lawyer %}
+					<li><a><i class="fa fa-home"></i> {% trans 'Projects' %}
+						<span class="fa fa-chevron-down"></span></a>
+						<ul class="nav child_menu">
+							<li><a href="{% url 'case_listing' 'Case' %}">{% trans 'Cases' %}</a></li>
+							<li><a href="{% url 'case_listing' 'Consultation' %}">{% trans 'Consultations' %}</a></li>
+							<li><a href="{% url 'case_listing' 'Paperwork' %}">{% trans 'Paperwork Projects' %}</a></li>
+						</ul>
+					</li>
+				{% endif %}
+				{% if debt_admin %}
+				<li>
+					<a href="{% url 'organizations' %}">
+						<i class="fa fa-compass"></i>{% trans 'Organizations' %}
+					</a>
+				</li>
+				{% else %}
 				<li><a><i class="fa fa-edit"></i> {% trans 'Clients' %} <span class="fa fa-chevron-down"></span></a>
 					<ul class="nav child_menu">
 						<li><a href="{% url 'clients' %}">{% trans 'Individuals' %}</a></li>
@@ -53,23 +62,24 @@
 						<li><a href="{% url 'courts' %}">{% trans 'Courts' %}</a></li>
 					</ul>
 				</li>
-{#				{% if archive %}#}
-{#					<li><a href="{% url 'archive_listing' %}">#}
-{#						<i class="fa fa-desktop"></i> {% trans 'Archive' %}#}
-{#					</a>#}
-{#					</li>#}
-{#				{% endif %}#}
-{#				{% if accounting %}#}
-{#					<li><a><i class="fa fa-bar-chart-o"></i> {% trans 'Accounting' %}#}
-{#						<span class="fa fa-chevron-down"></span></a>#}
-{#						<ul class="nav child_menu">#}
-{#							<li><a href="{% url 'transaction_listing' %}">{% trans 'Transactions' %}</a></li>#}
-{#							<li><a href="{% url 'invoice_listing' %}">{% trans 'Invoices' %}</a></li>#}
-{#							<li><a href="{% url 'fund_request_listing' %}">{% trans 'Fund Requests' %}</a></li>#}
-{#						</ul>#}
-{#					</li>#}
-{#				{% endif %}#}
-				{% if admin %}
+				{% endif %}
+				{% if archive %}
+					<li><a href="{% url 'archive_listing' %}">
+						<i class="fa fa-desktop"></i> {% trans 'Archive' %}
+					</a>
+					</li>
+				{% endif %}
+				{% if accounting %}
+					<li><a><i class="fa fa-bar-chart-o"></i> {% trans 'Accounting' %}
+						<span class="fa fa-chevron-down"></span></a>
+						<ul class="nav child_menu">
+							<li><a href="{% url 'transaction_listing' %}">{% trans 'Transactions' %}</a></li>
+							<li><a href="{% url 'invoice_listing' %}">{% trans 'Invoices' %}</a></li>
+							<li><a href="{% url 'fund_request_listing' %}">{% trans 'Fund Requests' %}</a></li>
+						</ul>
+					</li>
+				{% endif %}
+				{% if admin or debt_admin %}
 					<li>
 						<a>
 							<i class="fa fa-user"></i>{% trans 'Employees' %} <span class="fa fa-chevron-down"></span>
@@ -84,6 +94,13 @@
 							<i class="fa fa-clone"></i>{% trans 'Lookups Listing' %}
 						</a>
 					</li>
+				{% endif %}
+				{% if debt_admin %}
+				<li>
+					<a href="{% url 'admin:index' %}">
+						<i class="fa fa-area-chart"></i>{% trans 'Admin Panel' %}
+					</a>
+				</li>
 				{% endif %}
 				<li>
 					{% if LANGUAGE_CODE == 'ar' %}

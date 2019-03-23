@@ -1,6 +1,7 @@
 from django import template
 from django.core.exceptions import ObjectDoesNotExist
 
+from debtcollect.utils import UserGroups
 
 register = template.Library()
 
@@ -9,10 +10,13 @@ register = template.Library()
 def sidebar_navigation_menu(context):
     user = context['request'].user
 
-    admin = user.groups.filter(name__in=['Admins']).exists() or user.is_superuser
-    lawyer = user.groups.filter(name__in=['Admins', 'Lawyers']).exists() or user.is_superuser
-    accounting = user.groups.filter(name__in=['Admins', 'Accounting']).exists() or user.is_superuser
-    archive = user.groups.filter(name__in=['Admins', 'Archive']).exists() or user.is_superuser
+    admin = user.groups.filter(name=UserGroups.ADMINS_GROUP).exists() or user.is_superuser
+    lawyer = user.groups.filter(name__in=[UserGroups.ADMINS_GROUP, UserGroups.LAWYERS_GROUP]).exists() or user.is_superuser
+    accounting = user.groups.filter(name__in=[UserGroups.ADMINS_GROUP, UserGroups.ACCOUNTING_GROUP]).exists() or user.is_superuser
+    archive = user.groups.filter(name__in=[UserGroups.ADMINS_GROUP, UserGroups.ARCHIVE_GROUP]).exists() or user.is_superuser
+    debt_admin = user.groups.filter(name__in=[UserGroups.ADMINS_GROUP, UserGroups.DEBT_COLLECTING_ADMINS_GROUP]).exists() or user.is_superuser
+    debt_supervisor = user.groups.filter(name__in=[UserGroups.ADMINS_GROUP, UserGroups.DEBT_COLLECTING_ADMINS_GROUP]).exists() or user.is_superuser
+    debt_user = user.groups.filter(name__in=[UserGroups.ADMINS_GROUP, UserGroups.DEBT_COLLECTING_ADMINS_GROUP]).exists() or user.is_superuser
 
     return {
         'request': context['request'],
@@ -21,4 +25,7 @@ def sidebar_navigation_menu(context):
         'lawyer': lawyer,
         'accounting': accounting,
         'archive': archive,
+        'debt_admin': debt_admin,
+        'debt_supervisor': debt_supervisor,
+        'debt_user': debt_user,
     }

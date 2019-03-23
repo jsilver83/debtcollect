@@ -14,6 +14,15 @@
 		<div class="login_wrapper">
 			<div class="animate form login_form">
 				<section class="login_content">
+					{% if messages %}
+						<div class="clearfix"></div>
+						<div class="messages">
+							{% for message in messages %}
+								<div
+										{% if message.tags %} class="alert alert-{{ message.level_tag }}"{% endif %}>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{% endif %}
 					<form method="post">
 						{% csrf_token %}
 						<h1>{% trans 'Login Form' %}</h1>

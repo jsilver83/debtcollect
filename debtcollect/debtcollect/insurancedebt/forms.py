@@ -37,6 +37,39 @@ class InsuranceDocumentForm(BaseUpdatedByForm, forms.ModelForm):
             forms.Select(choices=Lookup.get_lookup_choices(Lookup.LookupTypes.INSURANCE_DOCUMENT_TYPE))
 
 
+class ScheduledPaymentForm(BaseUpdatedByForm, forms.ModelForm):
+    class Meta:
+        model = ScheduledPayment
+        fields = ['amount', 'scheduled_date']
+
+    def __init__(self, *args, **kwargs):
+        self.insurance_debt = None
+        if kwargs.get('insurance_debt'):
+            self.insurance_debt = kwargs.pop('insurance_debt')
+
+        super(ScheduledPaymentForm, self).__init__(*args, **kwargs)
+
+        if self.instance.pk:
+            self.insurance_debt = self.instance.insurance_debt
+
+    def clean_amount(self):
+        amount = self.cleaned_data.get('amount')
+
+        if amount > self.insurance_debt.get_remaining_unscheduled_debt():
+            raise ValidationError(_('Entered amount is higher than the remaining amount of the debt'))
+
+        return amount
+
+
+class ScheduledPaymentReceiveForm(BaseUpdatedByForm, forms.ModelForm):
+    class Meta:
+        model = ScheduledPayment
+        fields = ['payment_method', 'received_on', ]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+
 class ClientLoginForm(BaseCrispyForm, forms.Form):
     mobile = forms.CharField(label=_('Your Mobile'), required=True, max_length=20, help_text=_('format: 05XXXXXXXX'),
                              validators=[
@@ -89,7 +122,8 @@ class ClientAreaForm(BaseCrispyForm, forms.Form):
         cleaned_data = super(ClientAreaForm, self).clean()
         client_choice = cleaned_data.get('client_choice')
         justification = cleaned_data.get('justification')
-        if client_choice in [ClientAreaForm.ClientChoices.WONT_PAY, ClientAreaForm.ClientChoices.WRONG_PERSON] and not justification:
+        if (client_choice in [ClientAreaForm.ClientChoices.WONT_PAY,
+                              ClientAreaForm.ClientChoices.WRONG_PERSON] and not justification):
             raise ValidationError(_('Kindly enter justification for your action/choice'))
 
         return cleaned_data

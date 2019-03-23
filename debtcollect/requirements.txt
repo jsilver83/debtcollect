@@ -11,3 +11,4 @@ django-money==0.14.4
 django-reversion==2.0.10
 django-tables2==2.0.3
 django-tellme==0.6.5
+django-admin-numeric-filter=0.1.3

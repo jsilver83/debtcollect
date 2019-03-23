@@ -1,3 +1,4 @@
+from admin_numeric_filter.admin import SliderNumericFilter, NumericFilterModelAdmin
 from django.contrib import admin
 
 from .forms import InsuranceDocumentForm
@@ -8,17 +9,49 @@ class InsuranceDocumentInline(admin.TabularInline):
     model = InsuranceDocument
     form = InsuranceDocumentForm
     fields = ('document', 'title', 'type')
+    readonly_fields = ('created_on', )
 
 
-class InsuranceDebtAdmin(admin.ModelAdmin):
-    list_display = ('type', 'status', 'debt', 'assignee', 'driver_government_id', 'driver_full_name',
-                    'insurer_full_name', 'driver_mobile', 'accident_location', 'accident_date', 'updated_by')
+class ScheduledPaymentInline(admin.TabularInline):
+    model = ScheduledPayment
+    fields = ('amount', 'scheduled_date', 'created_on', 'created_by', 'received_on', 'received_by')
+    readonly_fields = ('created_on', )
+
+
+class InsuranceDebtAdmin(NumericFilterModelAdmin):
+    list_display = ('pk', 'type', 'status', 'debt', 'assignee', 'driver_government_id', 'insurer_full_name',
+                    'driver_full_name', 'driver_mobile', 'created_on', 'updated_on', 'updated_by')
+    list_editable = ('type', 'status', 'assignee')
     date_hierarchy = 'created_on'
     readonly_fields = ['created_on', 'created_by', 'updated_on', 'updated_by', ]
+    search_fields = ('driver_government_id', 'driver_full_name',
+                     'insurer_full_name', 'driver_mobile', 'accident_location')
+    list_filter = ('type', 'status', 'assignee', ('debt', SliderNumericFilter), )
 
     inlines = [
         InsuranceDocumentInline,
+        ScheduledPaymentInline,
     ]
 
 
+class InsuranceContractAdmin(NumericFilterModelAdmin):
+    list_display = ('insurance_company', 'employee_name', 'start_date', 'end_date',
+                    'contract_soft_copy', 'agreed_cut', 'signed_on', 'signed_by', 'created_on', 'created_by')
+    date_hierarchy = 'created_on'
+    search_fields = ('insurance_company__name_ar', 'insurance_company__name_en', 'employee_name',
+                     'employee_contact_details', 'details', 'agreed_cut', )
+    list_filter = ('insurance_company', 'agreed_cut', )
+
+
+class InsuranceSubContractAdmin(NumericFilterModelAdmin):
+    list_display = ('contract', 'employee_name', 'sub_contract_soft_copy', 'agreed_cut', 'signed_on', 'signed_by',
+                    'created_on', 'created_by')
+    date_hierarchy = 'created_on'
+    search_fields = ('contract__insurance_company__name_ar', 'contract__insurance_company__name_en', 'employee_name',
+                     'employee_contact_details', 'details', 'agreed_cut', )
+    list_filter = ('contract__insurance_company', 'agreed_cut', )
+
+
+admin.site.register(InsuranceContract, InsuranceContractAdmin)
+admin.site.register(InsuranceSubContract, InsuranceSubContractAdmin)
 admin.site.register(InsuranceDebt, InsuranceDebtAdmin)

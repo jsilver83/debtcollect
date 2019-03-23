@@ -16,7 +16,7 @@
 					</div>
 					<div class="x_content">
 						<form class="form-horizontal form-label-left" method="post">
-						{% crispy form %}
+							{% crispy form %}
 						</form>
 						<div class="ln_solid"></div>
 						{% include 'snippets/audit.html' %}
@@ -42,7 +42,6 @@
 							<a href="{% url 'new_insurance_document' object.pk %}" class="btn btn-success">
 								<i class="fa fa-send"></i> {% trans 'New Attachment' %}
 							</a>
-							<hr>
 							{% if tables.0.rows %}
 								{% render_table tables.0 %}
 							{% endif %}
@@ -50,9 +49,33 @@
 					</div>
 				</div>
 			</div>
-		{% endif %}
 
-		{% if object %}
+			<div class="row">
+				<div class="col-md-12 col-xs-12">
+					<div class="x_panel">
+						<div class="x_title">
+							<h2>{% trans 'Scheduled Payments' %}</h2>
+							<ul class="nav navbar-right panel_toolbox">
+								<li>
+									<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+								</li>
+							</ul>
+							<div class="clearfix"></div>
+						</div>
+						<div class="x_content">
+							<a href="{% url 'new_scheduled_payment' object.pk %}" class="btn btn-success">
+								<i class="fa fa-send"></i> {% trans 'New Scheduled Payment' %}
+							</a>
+							{% if tables.0.rows %}
+								{% render_table tables.1 %}
+							{% endif %}
+							<hr>
+							<h4>{% trans 'Remaining Unpaid Amount' %}: {{ object.get_remaining_unpaid_debt }}</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<div class="row">
 				<div class="col-md-7">
 					<div class="x_panel">

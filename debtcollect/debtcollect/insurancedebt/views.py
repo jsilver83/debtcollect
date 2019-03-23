@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.utils.translation import ugettext_lazy as _
 from django.views import View
 from django.views.generic import CreateView, UpdateView, FormView
@@ -44,9 +44,13 @@ class InsuranceDebtListing(DebtCollectorMixin, BaseListingView):
         employee, s = Employee.objects.get_or_create(user=self.request.user)
 
         if self.request.user.groups.filter(name=UserGroups.DEBT_COLLECTING_SUPERVISORS_GROUP).exists():
-            return self.model.objects.filter(assignee__supervisor=employee)
+            return self.model.objects.filter(Q(assignee__supervisor=employee) | Q(assignee=employee))
         elif self.request.user.groups.filter(name=UserGroups.DEBT_COLLECTORS_GROUP).exists():
-            return self.model.objects.filter(assignee=employee)
+            return self.model.objects.filter(assignee=employee).exclude(
+                status__in=[InsuranceDebt.Statuses.FINISHED,
+                            InsuranceDebt.Statuses.CANCELLED_WONT_PAY,
+                            InsuranceDebt.Statuses.CANCELLED,
+                            InsuranceDebt.Statuses.CANCELLED_WRONG_PERSON, ])
         else:
             return self.model.objects.all()
 
@@ -86,10 +90,12 @@ class UpdateInsuranceDebtView(SuccessMessageMixin, DebtCollectorMixin, BaseFormM
     model = InsuranceDebt
 
     def get_tables(self):
-        print(self.get_object())
-        docs = InsuranceDocument.objects.filter(insurance_debt=self.object)
+        docs = self.object.documents.all()
+        payments = self.object.scheduled_payments.all()
+
         return [
             InsuranceDocumentTable(docs, user=self.request.user),
+            ScheduledPaymentTable(payments, user=self.request.user),
         ]
 
 
@@ -108,9 +114,61 @@ class NewInsuranceDocumentView(SuccessMessageMixin, DebtCollectorMixin, BaseForm
         instance.insurance_debt = get_object_or_404(InsuranceDebt, pk=self.kwargs['insurance_debt_pk'])
         return super(NewInsuranceDocumentView, self).form_valid(form)
 
-    def form_invalid(self, form):
-        print(form.errors)
-        return super().form_invalid(form)
+
+class NewScheduledPaymentView(SuccessMessageMixin, DebtCollectorMixin, BaseFormMixin, CreateView):
+    template_name = 'insurancedebt/form.html'
+    success_message = _('Scheduled payment was created successfully')
+    form_class = ScheduledPaymentForm
+
+    insurance_debt = None
+
+    def dispatch(self, request, *args, **kwargs):
+        self.insurance_debt = get_object_or_404(InsuranceDebt, pk=self.kwargs['insurance_debt_pk'])
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse_lazy('update_insurance_debt', args=(self.kwargs['insurance_debt_pk']))
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['insurance_debt'] = self.insurance_debt
+
+        return kwargs
+
+    def form_valid(self, form):
+        employee, created = Employee.objects.get_or_create(user=self.request.user)
+        instance = form.save(commit=False)
+        instance.insurance_debt = self.insurance_debt
+        instance.created_by = employee
+
+        return super(NewScheduledPaymentView, self).form_valid(form)
+
+
+class UpdateScheduledPaymentView(SuccessMessageMixin, DebtCollectorMixin, BaseFormMixin, UpdateView):
+    template_name = 'insurancedebt/form.html'
+    success_message = _('Scheduled payment was updated successfully')
+    model = ScheduledPayment
+    form_class = ScheduledPaymentForm
+
+    def get_success_url(self):
+        return reverse_lazy('update_insurance_debt', args=(self.object.insurance_debt.pk,))
+
+
+class ReceiveScheduledPaymentView(SuccessMessageMixin, DebtCollectorMixin, BaseFormMixin, UpdateView):
+    template_name = 'insurancedebt/form.html'
+    success_message = _('Scheduled payment was received successfully')
+    model = ScheduledPayment
+    form_class = ScheduledPaymentReceiveForm
+
+    def get_success_url(self):
+        return reverse_lazy('update_insurance_debt', args=(self.object.insurance_debt.pk,))
+
+    def form_valid(self, form):
+        employee, created = Employee.objects.get_or_create(user=self.request.user)
+        instance = form.save(commit=False)
+        instance.received_by = employee
+
+        return super().form_valid(form)
 
 
 class CommentPostedSuccessfully(View):
@@ -146,7 +204,11 @@ class ClientAreaView(SuccessMessageMixin, UserPassesTestMixin, FormView):
         return self.request.session.get('debt_pk', 0)
 
     def dispatch(self, request, *args, **kwargs):
-        self.debt = get_object_or_404(InsuranceDebt, pk=self.request.session.get('debt_pk', 0))
+        try:
+            self.debt = InsuranceDebt.objects.get(pk=self.request.session.get('debt_pk', 0))
+        except:
+            messages.error(request, _('Login first please'))
+            return redirect('client_login')
         return super(ClientAreaView, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
@@ -156,8 +218,9 @@ class ClientAreaView(SuccessMessageMixin, UserPassesTestMixin, FormView):
         context['debt_details'] = get_model_details(self.debt,
                                                     ['id', 'status', 'status_comments', 'insurancedocument',
                                                      'debt_currency', 'assignee', 'created_on', 'created_by',
-                                                     'updated_on', 'updated_by'])
+                                                     'updated_on', 'updated_by', 'sub_contract', ])
         context['title'] = _('Insurance Debt Details')
+        context['debt_user'] = self.debt.insurer_full_name
 
         if self.debt.status != InsuranceDebt.Statuses.NEW:
             context['form'] = None
@@ -165,5 +228,34 @@ class ClientAreaView(SuccessMessageMixin, UserPassesTestMixin, FormView):
         return context
 
     def form_valid(self, form):
+        client_choice = form.cleaned_data.get('client_choice')
+
+        if client_choice in [ClientAreaForm.ClientChoices.WRONG_PERSON]:
+            self.debt.status = InsuranceDebt.Statuses.CANCELLED_WRONG_PERSON
+        elif client_choice in [ClientAreaForm.ClientChoices.WONT_PAY]:
+            self.debt.status = InsuranceDebt.Statuses.CANCELLED_WONT_PAY
+        elif client_choice in [ClientAreaForm.ClientChoices.WANT_TO_PAY]:
+            self.debt.status = InsuranceDebt.Statuses.IN_PROGRESS
+        elif client_choice in [ClientAreaForm.ClientChoices.WANT_TO_PAY_INSTALLMENTS]:
+            self.debt.status = InsuranceDebt.Statuses.IN_PROGRESS_INSTALLMENTS
+
+        self.debt.status_comments = _('The client chose this: [%s]' % client_choice)
+        if form.cleaned_data.get('justification'):
+            self.debt.client_notes = form.cleaned_data.get('justification')
+
+        self.debt.updated_by = None
+
+        self.debt.save()
 
         return super(ClientAreaView, self).form_valid(form)
+
+
+class ClientLogout(View):
+    def dispatch(self, request, *args, **kwargs):
+        try:
+            del self.request.session['debt_pk']
+        except KeyError:
+            pass
+
+        messages.success(request, _('Logged out successfully'))
+        return redirect('client_login')

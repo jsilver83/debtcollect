@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django_countries',
     'django_comments',
     'simplemathcaptcha',
+    'admin_numeric_filter',
 
     'django.contrib.humanize',
     'django.contrib.sites',

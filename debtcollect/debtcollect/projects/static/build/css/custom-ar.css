@@ -3,6 +3,18 @@ body {
     text-align: right;
 }
 
+.ca-login{
+    float: left;
+}
+
+.ca-login a{
+    margin-right: 20px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__clear {
+    float: left;
+}
+
 .nav-md .container.body .right_col {
     margin-left: inherit!important;
     margin-right: 230px!important;

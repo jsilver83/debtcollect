@@ -192,7 +192,7 @@ class Transaction(models.Model):
                                       on_delete=models.SET_NULL, null=True, blank=False)
     handing_party_role = models.CharField(_('Handing Party Role'), max_length=20, null=True, blank=True,
                                           choices=AccountingRoles.choices())
-    receiving_party = models.ForeignKey('projects.Person', related_name='received_payments',
+    receiving_party = models.ForeignKey('projects.Person', related_name='received_transactions',
                                         verbose_name=_('Receiving Party'),
                                         on_delete=models.SET_NULL, null=True, blank=False)
     receiving_party_role = models.CharField(_('Receiving Party Role'), max_length=20, null=True, blank=False,
