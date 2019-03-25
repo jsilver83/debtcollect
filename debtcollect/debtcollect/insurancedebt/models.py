@@ -165,17 +165,18 @@ class InsuranceDebt(models.Model):
         return self.get_absolute_url()
 
     def get_remaining_unpaid_debt(self):
-        if self.scheduled_payments.all():
+        received_payments = self.scheduled_payments.filter(received_on__isnull=False)
+        if received_payments:
             return self.debt - \
-                   Money(self.scheduled_payments.filter(received_on__isnull=False).aggregate(Sum('amount')).get(
-                       'amount__sum'), self.debt.currency)
+                   Money(received_payments.aggregate(Sum('amount')).get('amount__sum'), self.debt.currency)
         else:
             return self.debt
 
     def get_remaining_unscheduled_debt(self):
-        if self.scheduled_payments.all():
+        scheduled_payments = self.scheduled_payments.all()
+        if scheduled_payments:
             return self.debt - \
-                   Money(self.scheduled_payments.all().aggregate(Sum('amount')).get('amount__sum'), self.debt.currency)
+                   Money(scheduled_payments.aggregate(Sum('amount')).get('amount__sum'), self.debt.currency)
         else:
             return self.debt
 
