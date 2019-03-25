@@ -1,7 +1,8 @@
+from captcha.fields import CaptchaField
+
 from django import forms
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
-from simplemathcaptcha.fields import MathCaptchaField
 
 from debtcollect.utils import UserGroups, parse_non_standard_numerals
 from projects.base_forms import *
@@ -79,7 +80,7 @@ class ClientLoginForm(BaseCrispyForm, forms.Form):
                                  ),
                              ], )
     request_id = forms.IntegerField(label=_('Request ID'), required=True, )
-    captcha = MathCaptchaField()
+    captcha = CaptchaField(label=_('Confirmation Code'))
 
     def clean(self):
         cleaned_data = super(ClientLoginForm, self).clean()

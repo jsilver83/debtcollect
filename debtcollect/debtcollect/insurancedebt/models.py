@@ -31,6 +31,11 @@ class InsuranceContract(models.Model):
                                    verbose_name=_('Created By'),
                                    related_name="created_contracts", )
 
+    class Meta:
+        verbose_name = _('Insurance Contract')
+        verbose_name_plural = _('Insurance Contracts')
+        ordering = ('-signed_on', 'created_on',)
+
     def __str__(self):
         return '%s %%%s' % (self.insurance_company, str(self.agreed_cut))
 
@@ -55,6 +60,11 @@ class InsuranceSubContract(models.Model):
     created_by = models.ForeignKey('projects.Employee', on_delete=models.SET_NULL, null=True, blank=True,
                                    verbose_name=_('Created By'),
                                    related_name="created_subcontracts", )
+
+    class Meta:
+        verbose_name = _('Insurance Sub-Contract')
+        verbose_name_plural = _('Insurance Sub-Contracts')
+        ordering = ('-signed_on', 'created_on',)
 
     def __str__(self):
         if self.contract:

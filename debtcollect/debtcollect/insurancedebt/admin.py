@@ -1,5 +1,7 @@
 from admin_numeric_filter.admin import SliderNumericFilter, NumericFilterModelAdmin
 from django.contrib import admin
+from import_export import resources
+from import_export.admin import ImportExportMixin
 
 from .forms import InsuranceDocumentForm
 from .models import *
@@ -18,7 +20,21 @@ class ScheduledPaymentInline(admin.TabularInline):
     readonly_fields = ('created_on', )
 
 
-class InsuranceDebtAdmin(NumericFilterModelAdmin):
+class InsuranceDebtResource(resources.ModelResource):
+    class Meta:
+        model = InsuranceDebt
+        # import_id_fields = ('id',)
+        fields = ('id', 'sub_contract', 'type', 'type_justification', 'status', 'status_comments', 'debt',
+                  'assignee', 'driver_government_id', 'driver_full_name', 'insurer_full_name', 'driver_mobile',
+                  'accident_location', 'accident_date', 'client_notes', 'notes', )
+        skip_unchanged = True
+        report_skipped = True
+
+    def dehydrate_debt(self, insurance_debt):
+        return insurance_debt.debt.amount
+
+
+class InsuranceDebtAdmin(ImportExportMixin, NumericFilterModelAdmin):
     list_display = ('pk', 'type', 'status', 'debt', 'assignee', 'driver_government_id', 'insurer_full_name',
                     'driver_full_name', 'driver_mobile', 'created_on', 'updated_on', 'updated_by')
     list_editable = ('type', 'status', 'assignee')
@@ -26,7 +42,8 @@ class InsuranceDebtAdmin(NumericFilterModelAdmin):
     readonly_fields = ['created_on', 'created_by', 'updated_on', 'updated_by', ]
     search_fields = ('driver_government_id', 'driver_full_name',
                      'insurer_full_name', 'driver_mobile', 'accident_location')
-    list_filter = ('type', 'status', 'assignee', ('debt', SliderNumericFilter), )
+    list_filter = ('type', 'status', 'assignee', 'sub_contract', ('debt', SliderNumericFilter), )
+    resource_class = InsuranceDebtResource
 
     inlines = [
         InsuranceDocumentInline,
