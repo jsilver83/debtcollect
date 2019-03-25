@@ -9,6 +9,7 @@ from accounting.forms import NewFundRequestForm
 from accounting.tables import *
 from archive.models import DocumentMovement
 from archive.tables import DocumentMovementTable
+from insurancedebt.mixins import DebtCollectingAdminMixin
 from .filters import ProjectFilter, CaseFilter, ClientFilter, OrganizationFilter, EmployeeFilter, LookupFilter, \
     UserFilter, ConsultationFilter, PaperworkFilter
 from .forms import *
@@ -257,7 +258,7 @@ class NewClientView(BaseLawyerMixin, BaseFormMixin, CreateView):
     success_message = _('Client was added successfully')
 
 
-class OrganizationListingView(BaseLawyerMixin, BaseListingView):
+class OrganizationListingView(DebtCollectingAdminMixin, BaseLawyerMixin, BaseListingView):
     model = Organization
     table_class = OrganizationTable
     filterset_class = OrganizationFilter
@@ -271,7 +272,7 @@ class CourtsListing(BaseLawyerMixin, BaseListingView):
     template_name = 'projects/courts_listing.html'
 
 
-class OrganizationView(SuccessMessageMixin, BaseLawyerMixin, BaseFormMixin, UpdateView):
+class OrganizationView(SuccessMessageMixin, DebtCollectingAdminMixin, BaseLawyerMixin, BaseFormMixin, UpdateView):
     model = Organization
     form_class = OrganizationForm
     template_name = 'projects/form.html'
@@ -279,7 +280,7 @@ class OrganizationView(SuccessMessageMixin, BaseLawyerMixin, BaseFormMixin, Upda
     success_message = _('Organization info was updated successfully')
 
 
-class NewOrganizationView(BaseLawyerMixin, BaseFormMixin, CreateView):
+class NewOrganizationView(DebtCollectingAdminMixin, BaseLawyerMixin, BaseFormMixin, CreateView):
     form_class = OrganizationForm
     template_name = 'projects/form.html'
     success_url = reverse_lazy('organizations')
@@ -307,21 +308,21 @@ class NewReminderView(SuccessMessageMixin, BaseLawyerMixin, BaseFormMixin, Creat
         return reverse_lazy('update_project', args=(self.kwargs['pk'], ))
 
 
-class EmployeesListingView(BaseLawyerMixin, BaseListingView):
+class EmployeesListingView(DebtCollectingAdminMixin, BaseAdminView, BaseListingView):
     model = Employee
     table_class = EmployeeTable
     filterset_class = EmployeeFilter
     template_name = 'projects/employees_listing.html'
 
 
-class NewEmployeeView(SuccessMessageMixin, BaseAdminView, BaseFormMixin, CreateView):
+class NewEmployeeView(SuccessMessageMixin, DebtCollectingAdminMixin, BaseAdminView, BaseFormMixin, CreateView):
     form_class = NewEmployeeForm
     template_name = 'projects/form.html'
     success_message = _('Employee was created successfully.')
     success_url = reverse_lazy('employees')
 
 
-class EmployeeView(SuccessMessageMixin, BaseAdminView, BaseFormMixin, UpdateView):
+class EmployeeView(SuccessMessageMixin, DebtCollectingAdminMixin, BaseAdminView, BaseFormMixin, UpdateView):
     model = Employee
     form_class = NewEmployeeForm
     template_name = 'projects/form.html'
@@ -329,14 +330,14 @@ class EmployeeView(SuccessMessageMixin, BaseAdminView, BaseFormMixin, UpdateView
     success_message = _('Employee info was updated successfully')
 
 
-class LookupsListingView(BaseAdminView, BaseListingView):
+class LookupsListingView(DebtCollectingAdminMixin, BaseAdminView, BaseListingView):
     model = Lookup
     table_class = LookupTable
     filterset_class = LookupFilter
     template_name = 'projects/lookups_listing.html'
 
 
-class NewLookupView(SuccessMessageMixin, BaseAdminView, CreateView):
+class NewLookupView(SuccessMessageMixin, DebtCollectingAdminMixin, BaseAdminView, CreateView):
     model = Lookup
     form_class = LookupForm
     template_name = 'projects/form.html'
@@ -344,7 +345,7 @@ class NewLookupView(SuccessMessageMixin, BaseAdminView, CreateView):
     success_message = _('Lookup was added successfully')
 
 
-class UpdateLookupView(SuccessMessageMixin, BaseAdminView, UpdateView):
+class UpdateLookupView(SuccessMessageMixin, DebtCollectingAdminMixin, BaseAdminView, UpdateView):
     model = Lookup
     form_class = LookupForm
     template_name = 'projects/form.html'
@@ -352,14 +353,14 @@ class UpdateLookupView(SuccessMessageMixin, BaseAdminView, UpdateView):
     success_message = _('Lookup was updated successfully')
 
 
-class UsersListingView(BaseAdminView, BaseListingView):
+class UsersListingView(DebtCollectingAdminMixin, BaseAdminView, BaseListingView):
     model = MyUser
     table_class = UserTable
     filterset_class = UserFilter
     template_name = 'projects/users_listing.html'
 
 
-class NewUserView(SuccessMessageMixin, BaseAdminView, CreateView):
+class NewUserView(DebtCollectingAdminMixin, SuccessMessageMixin, BaseAdminView, CreateView):
     model = MyUser
     form_class = MyUserCreationForm
     template_name = 'projects/form.html'
@@ -367,7 +368,7 @@ class NewUserView(SuccessMessageMixin, BaseAdminView, CreateView):
     success_message = _('User was added successfully')
 
 
-class UpdateUserView(SuccessMessageMixin, BaseAdminView, UpdateView):
+class UpdateUserView(DebtCollectingAdminMixin, SuccessMessageMixin, BaseAdminView, UpdateView):
     model = MyUser
     form_class = MyUserChangeForm
     template_name = 'projects/form.html'

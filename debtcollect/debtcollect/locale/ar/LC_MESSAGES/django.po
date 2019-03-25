@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-25 10:25+0000\n"
-"PO-Revision-Date: 2019-03-25 13:26+0300\n"
+"POT-Creation-Date: 2019-03-25 20:48+0000\n"
+"PO-Revision-Date: 2019-03-25 23:48+0300\n"
 "Last-Translator: Abdullah Joud <abd.jod2004@gmail.com>\n"
 "Language-Team: ICTC\n"
 "Language: ar\n"
@@ -63,7 +63,7 @@ msgstr "مغلق"
 msgid "Amount"
 msgstr "المبلغ"
 
-#: accounting/models.py:28 insurancedebt/forms.py:118
+#: accounting/models.py:28 insurancedebt/forms.py:119
 #: projects/templates/accounting/approve_fund_request.html:14
 #: projects/templates/accounting/new_expense.html:14
 msgid "Justification"
@@ -449,56 +449,60 @@ msgstr "يحتوي"
 msgid "Insurance Debt"
 msgstr "المطالبة"
 
-#: insurancedebt/forms.py:59
+#: insurancedebt/forms.py:60
 msgid "Entered amount is higher than the remaining amount of the debt"
 msgstr "المبلغ المدخل سيتجاوز إجمالي الدين"
 
-#: insurancedebt/forms.py:74
+#: insurancedebt/forms.py:75
 msgid "Your Mobile"
 msgstr "الجوال"
 
-#: insurancedebt/forms.py:74 insurancedebt/models.py:132
+#: insurancedebt/forms.py:75 insurancedebt/models.py:132
 msgid "format: 05XXXXXXXX"
 msgstr "الصيغة: 05xxxxxxxx"
 
-#: insurancedebt/forms.py:78 insurancedebt/models.py:136
+#: insurancedebt/forms.py:79 insurancedebt/models.py:136
 msgid "You have entered an invalid mobile number"
 msgstr "رقم الجوال الذي أدخلته غير صالح"
 
-#: insurancedebt/forms.py:81
+#: insurancedebt/forms.py:82
 msgid "Request ID"
 msgstr "رقم المطالبة"
 
-#: insurancedebt/forms.py:92
+#: insurancedebt/forms.py:83
+msgid "Confirmation Code"
+msgstr "رمز التحقق"
+
+#: insurancedebt/forms.py:93
 msgid "Entered login data do NOT match with our records. Kindly try again!"
 msgstr ""
 "البيانات المدخلة غير صحيحة، حاول مرة أخرى أو تواصل مع الإدارة لحل المشكلة"
 
-#: insurancedebt/forms.py:110
+#: insurancedebt/forms.py:111
 msgid "I want to pay"
 msgstr "مستعد للدفغ"
 
-#: insurancedebt/forms.py:111
+#: insurancedebt/forms.py:112
 msgid "I want to pay with installments"
 msgstr "مستعد للدفع، لكن بالأقساط"
 
-#: insurancedebt/forms.py:112
+#: insurancedebt/forms.py:113
 msgid "I wont pay"
 msgstr "غير مستعد للدفع"
 
-#: insurancedebt/forms.py:113
+#: insurancedebt/forms.py:114
 msgid "This is the wrong person"
 msgstr "أنا لست الشخص المعني بهذه المطالبة"
 
-#: insurancedebt/forms.py:116
+#: insurancedebt/forms.py:117
 msgid "Your Action/Response"
 msgstr "ردك على المطالبة"
 
-#: insurancedebt/forms.py:119
+#: insurancedebt/forms.py:120
 msgid "Enter any justifications you think is appropriate for your choice"
 msgstr "الرجاء إدخال أى مبررات لخيارك أعلاه"
 
-#: insurancedebt/forms.py:127
+#: insurancedebt/forms.py:128
 msgid "Kindly enter justification for your action/choice"
 msgstr "يجب إدخال المبرر لخيارك"
 
@@ -801,7 +805,7 @@ msgid "Gulf Debt Client Login"
 msgstr "دخول العميل | شركة الخليج للتحصيل"
 
 #: insurancedebt/templates/insurancedebt/insurance_debt_form.html:14
-#: insurancedebt/views.py:222
+#: insurancedebt/views.py:202
 msgid "Insurance Debt Details"
 msgstr "تفاصيل المطالبة"
 
@@ -820,12 +824,12 @@ msgstr "جدولة دفعة جديدة"
 
 #: insurancedebt/templates/insurancedebt/insurance_debt_listing.html:4
 #: insurancedebt/templates/insurancedebt/insurance_debt_listing.html:5
-#: insurancedebt/views.py:63 projects/templates/sidebar.html:37
+#: insurancedebt/views.py:43 projects/templates/sidebar.html:37
 msgid "Insurance Debts Listing"
 msgstr "قائمة المطالبات"
 
 #: insurancedebt/templates/insurancedebt/insurance_debt_listing.html:8
-#: insurancedebt/views.py:64
+#: insurancedebt/views.py:44
 msgid "New Insurance Debt"
 msgstr "مطالبة جديدة"
 
@@ -835,52 +839,52 @@ msgstr "مطالبة جديدة"
 msgid "Submit"
 msgstr "حفظ"
 
-#: insurancedebt/views.py:75
+#: insurancedebt/views.py:55
 msgid "Insurance Debt was created successfully"
 msgstr "تم إنشاء المطالبة بنجاح"
 
-#: insurancedebt/views.py:88
+#: insurancedebt/views.py:68
 msgid "Insurance Debt was updated successfully"
 msgstr "تم تعديل المطالبة بنجاح"
 
-#: insurancedebt/views.py:104
+#: insurancedebt/views.py:84
 msgid "Insurance Document was created successfully"
 msgstr "تم إنشاء مستند جديد للمطالبة بنجاح"
 
-#: insurancedebt/views.py:120
+#: insurancedebt/views.py:100
 msgid "Scheduled payment was created successfully"
 msgstr "تم جدولة دفعة جديدة بنجاح"
 
-#: insurancedebt/views.py:149
+#: insurancedebt/views.py:129
 msgid "Scheduled payment was updated successfully"
 msgstr "تم تعديل الدفعة المجدولة بنجاح"
 
-#: insurancedebt/views.py:159
+#: insurancedebt/views.py:139
 msgid "Scheduled payment was received successfully"
 msgstr "تم استلام الدفعة المجدولة بنجاح"
 
-#: insurancedebt/views.py:176
+#: insurancedebt/views.py:156
 msgid "Comment was posted successfully"
 msgstr "تم إرسال التعليق بنجاح"
 
-#: insurancedebt/views.py:184
+#: insurancedebt/views.py:164
 msgid "Successful login"
 msgstr "دخول ناجح للنظام"
 
-#: insurancedebt/views.py:198
+#: insurancedebt/views.py:178
 msgid "You submitted your action/choice successfully"
 msgstr "تم استلام ردكم بنجاح"
 
-#: insurancedebt/views.py:210
+#: insurancedebt/views.py:190
 msgid "Login first please"
 msgstr "الرجاء تسجيل الدخول "
 
-#: insurancedebt/views.py:242
+#: insurancedebt/views.py:222
 #, python-format
 msgid "The client chose this: [%s]"
 msgstr "رد العميل: [%s]"
 
-#: insurancedebt/views.py:260
+#: insurancedebt/views.py:240
 msgid "Logged out successfully"
 msgstr "تم تسجيل الخروج بنجاح"
 
@@ -1116,8 +1120,7 @@ msgstr "موقع "
 msgid "City"
 msgstr "المدينة"
 
-#: projects/models.py:235 projects/templates/sidebar.html:54
-#: projects/templates/sidebar.html:61
+#: projects/models.py:235 projects/templates/sidebar.html:61
 msgid "Organizations"
 msgstr "المنشئات"
 
@@ -1158,7 +1161,7 @@ msgid "Case"
 msgstr "القضيه"
 
 #: projects/models.py:346 projects/templates/sidebar.html:45
-#: projects/views.py:103
+#: projects/views.py:104
 msgid "Cases"
 msgstr "القضايا"
 
@@ -1167,7 +1170,7 @@ msgid "Consultation"
 msgstr "استشارة"
 
 #: projects/models.py:354 projects/templates/sidebar.html:46
-#: projects/views.py:109
+#: projects/views.py:110
 msgid "Consultations"
 msgstr "استشارات"
 
@@ -1176,7 +1179,7 @@ msgid "Paperwork"
 msgstr "تعقيب"
 
 #: projects/models.py:362 projects/templates/sidebar.html:47
-#: projects/views.py:106
+#: projects/views.py:107
 msgid "Paperwork Projects"
 msgstr "مشاريع التعقيب"
 
@@ -1434,6 +1437,10 @@ msgstr "دخول الموظفين | شركة الخليج للتحصيل"
 msgid "Main Menu"
 msgstr "القائمة الرئيسية"
 
+#: projects/templates/sidebar.html:54
+msgid "Insurance Companies"
+msgstr "شركات التأمين"
+
 #: projects/templates/sidebar.html:88
 msgid "Users"
 msgstr "المستخدمين"
@@ -1557,77 +1564,77 @@ msgstr ""
 msgid "User Profile"
 msgstr "المعلومات الشخصية"
 
-#: projects/views.py:104
+#: projects/views.py:105
 msgid "New Case"
 msgstr "قضية جديدة"
 
-#: projects/views.py:107
+#: projects/views.py:108
 msgid "New Paperwork Project"
 msgstr "مشروع تعقيب جديد"
 
-#: projects/views.py:110
+#: projects/views.py:111
 msgid "New Consultation"
 msgstr "استشارة جديدة"
 
-#: projects/views.py:137
+#: projects/views.py:138
 msgid "Project was created successfully"
 msgstr "تم إنشاء المشروع بنجاح"
 
-#: projects/views.py:159
+#: projects/views.py:160
 msgid "Project was updated successfully"
 msgstr "تم تحديث بيانات المشروع بنجاح"
 
-#: projects/views.py:213
+#: projects/views.py:214
 msgid ""
 "Fund request was submitted successfully. Check later for approval status"
 msgstr ""
 "تم إرسال طلب الصرف بنجاح، سيتم مراجعة طلبك من قبل اﻹدارة بأسرع وقت ممكن"
 
-#: projects/views.py:227
+#: projects/views.py:228
 msgid "Update was submitted successfully."
 msgstr "تم إنشاء التحديث بنجاح"
 
-#: projects/views.py:250
+#: projects/views.py:251
 msgid "Client info was updated successfully"
 msgstr "تم تحديث بيانات العميل بنجاح"
 
-#: projects/views.py:257
+#: projects/views.py:258
 msgid "Client was added successfully"
 msgstr "تم إضافة العميل بنجاح"
 
-#: projects/views.py:279
+#: projects/views.py:280
 msgid "Organization info was updated successfully"
 msgstr "تم تحديث بيانات المنشأة بنجاح"
 
-#: projects/views.py:286 projects/views.py:293
+#: projects/views.py:287 projects/views.py:294
 msgid "Organization was added successfully"
 msgstr "تم إضافة المنشأة بنجاح"
 
-#: projects/views.py:299
+#: projects/views.py:300
 msgid "Reminder was created successfully."
 msgstr "تم إضافة التذكير بنجاح"
 
-#: projects/views.py:320
+#: projects/views.py:321
 msgid "Employee was created successfully."
 msgstr "تم إضافة الموظف بنجاح"
 
-#: projects/views.py:329
+#: projects/views.py:330
 msgid "Employee info was updated successfully"
 msgstr "تم تحديث بيانات الموظف بنجاح"
 
-#: projects/views.py:344
+#: projects/views.py:345
 msgid "Lookup was added successfully"
 msgstr "تم إضافة النوع بنجاح"
 
-#: projects/views.py:352
+#: projects/views.py:353
 msgid "Lookup was updated successfully"
 msgstr "تم تحديث بيانات النوع بنجاح"
 
-#: projects/views.py:367
+#: projects/views.py:368
 msgid "User was added successfully"
 msgstr "تم إضافة المستخدم بنجاح"
 
-#: projects/views.py:375
+#: projects/views.py:376
 msgid "User was updated successfully"
 msgstr "تم تحديث بيانات المستخدم بنجاح"
 
