@@ -30,7 +30,7 @@ class InsuranceDocumentForm(BaseUpdatedByForm, forms.ModelForm):
     class Meta:
         model = InsuranceDocument
         fields = '__all__'
-        exclude = ['insurance_debt', 'uploaded_by', 'updated_by', ]
+        exclude = ['insurance_debt', 'created_by', 'updated_by', ]
 
     def __init__(self, *args, **kwargs):
         super(InsuranceDocumentForm, self).__init__(*args, **kwargs)

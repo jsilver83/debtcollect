@@ -45,7 +45,7 @@ class ScheduledPaymentTable(BaseTableWithCommands):
 class InsuranceDocumentTable(BaseTableWithCommands):
     class Meta:
         model = InsuranceDocument
-        fields = ['document', 'title', 'type', 'uploaded_on', 'uploaded_by', ]
+        fields = ['document', 'title', 'type', 'created_on', 'created_by', ]
         attrs = {'class': 'table table-striped table-bordered',
                  'id': 'datatable'}
 

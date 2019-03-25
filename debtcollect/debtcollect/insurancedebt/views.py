@@ -90,7 +90,7 @@ class NewInsuranceDocumentView(SuccessMessageMixin, DebtCollectorMixin, BaseForm
     def form_valid(self, form):
         employee, created = Employee.objects.get_or_create(user=self.request.user)
         instance = form.save(commit=False)
-        instance.uploaded_by = employee
+        instance.created_by = employee
         instance.insurance_debt = get_object_or_404(InsuranceDebt, pk=self.kwargs['insurance_debt_pk'])
         return super(NewInsuranceDocumentView, self).form_valid(form)
 
