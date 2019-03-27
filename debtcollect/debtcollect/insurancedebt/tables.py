@@ -24,8 +24,7 @@ class ScheduledPaymentTable(BaseTableWithCommands):
 
     class Meta:
         model = ScheduledPayment
-        fields = ['pk', 'amount', 'scheduled_date', 'scheduled_on', 'scheduled_by', 'payment_method', 'received_on',
-                  'received_by', ]
+        fields = ['pk', 'amount', 'scheduled_date', 'payment_method', 'received_on', 'received_by', ]
         attrs = {'class': 'table table-striped table-bordered',
                  'id': 'datatable'}
 
