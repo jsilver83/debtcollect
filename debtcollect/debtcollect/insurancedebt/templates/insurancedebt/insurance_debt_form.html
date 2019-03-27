@@ -15,6 +15,12 @@
 						<div class="clearfix"></div>
 					</div>
 					<div class="x_content">
+						{% if object %}
+						<div class="row">
+							<label class="control-label col-lg-4 col-md-5 col-xs-5">{% trans 'Debt No' %}</label>
+							<div class="controls col-lg-7 col-md-7 col-xs-7">{{ object.pk }}</div>
+						</div>
+						{% endif %}
 						<form class="form-horizontal form-label-left" method="post">
 							{% crispy form %}
 						</form>
