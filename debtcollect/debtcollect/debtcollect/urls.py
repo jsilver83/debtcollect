@@ -13,14 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-import captcha
 from django.conf.urls import url, include
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from django.contrib.auth.views import login, logout
+from django.contrib.auth.views import login, logout, LoginView
 from insurancedebt import views
+from insurancedebt.forms import MyAuthenticationForm
 
 
 urlpatterns = i18n_patterns(
@@ -28,7 +28,7 @@ urlpatterns = i18n_patterns(
     url(r'^comments/', include('django_comments.urls')),
 
     url(r'^$', views.InsuranceDebtListing.as_view(), name='home'),
-    url(r'^employee-login/$', login, name='login'),
+    url(r'^employee-login/$', LoginView.as_view(form_class=MyAuthenticationForm), name='login'),
     url(r'^employee-logout/$', logout, {'next_page': 'login'}, name='logout'),
 
     url(r'^login/$', views.ClientLoginView.as_view(), name='client_login'),
@@ -48,7 +48,3 @@ urlpatterns = i18n_patterns(
     url(r'^app/', include('app.urls')),
     url(r'^temp/', include('app.urls')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-urlpatterns += [
-    url(r'^captcha/', include('captcha.urls')),
-]

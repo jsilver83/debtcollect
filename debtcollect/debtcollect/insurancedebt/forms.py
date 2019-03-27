@@ -1,6 +1,7 @@
-from captcha.fields import CaptchaField
-
+from captcha.fields import ReCaptchaField
+from captcha.widgets import ReCaptchaV2Checkbox
 from django import forms
+from django.contrib.auth.forms import AuthenticationForm
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
@@ -71,6 +72,14 @@ class ScheduledPaymentReceiveForm(BaseUpdatedByForm, forms.ModelForm):
         super().__init__(*args, **kwargs)
 
 
+class MyAuthenticationForm(AuthenticationForm):
+
+    def __init__(self, *args, **kwargs):
+        super(MyAuthenticationForm, self).__init__(*args, **kwargs)
+        if not settings.DISABLE_CAPTCHA:
+            self.fields['captcha'] = ReCaptchaField(widget=ReCaptchaV2Checkbox, label=_('Confirmation Code'))
+
+
 class ClientLoginForm(BaseCrispyForm, forms.Form):
     mobile = forms.CharField(label=_('Your Mobile'), required=True, max_length=20, help_text=_('format: 05XXXXXXXX'),
                              validators=[
@@ -80,7 +89,11 @@ class ClientLoginForm(BaseCrispyForm, forms.Form):
                                  ),
                              ], )
     request_id = forms.IntegerField(label=_('Request ID'), required=True, )
-    captcha = CaptchaField(label=_('Confirmation Code'))
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if not settings.DISABLE_CAPTCHA:
+            self.fields['captcha'] = ReCaptchaField(widget=ReCaptchaV2Checkbox, label=_('Confirmation Code'))
 
     def clean(self):
         cleaned_data = super(ClientLoginForm, self).clean()
