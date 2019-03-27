@@ -68,7 +68,7 @@ class InsuranceSubContract(models.Model):
 
     def __str__(self):
         if self.contract:
-            return '%s %%%s' % (self.contract.insurance_company, str(self.agreed_cut), )
+            return '%s %%%s' % (self.contract.insurance_company, str(self.agreed_cut),)
 
 
 class InsuranceDebt(models.Model):
@@ -136,6 +136,7 @@ class InsuranceDebt(models.Model):
                                              message=_('You have entered an invalid mobile number')
                                          ),
                                      ], )
+    vehicle_plate_no = models.CharField(_('Vehicle Plate NO'), null=True, blank=True, max_length=20)
     accident_location = models.CharField(_('Accident Location'), max_length=200, null=True, blank=True, )
     accident_date = models.DateTimeField(_('Accident Date'), null=True, blank=True, )
     client_notes = models.TextField(_('Client Notes'), blank=True, null=True)
@@ -204,7 +205,7 @@ class InsuranceDocument(models.Model):
     class Meta:
         verbose_name = _('Insurance Document')
         verbose_name_plural = _('Insurance Documents')
-        ordering = ('created_on', 'type', )
+        ordering = ('created_on', 'type',)
 
     def __str__(self):
         return '%s (%s) %s' % (self.title, self.type, str(self.insurance_debt))
