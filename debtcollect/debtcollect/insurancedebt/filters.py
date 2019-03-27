@@ -19,6 +19,6 @@ class InsuranceDebtFilter(filters.FilterSet):
     # def custom_title_filter(self, queryset, name, value):
     #     return queryset.filter(Q(title_ar__icontains=value) | Q(title_en__icontains=value))
 
-    def __init__(self, *args, **kwargs):
-        super(InsuranceDebtFilter, self).__init__(*args, **kwargs)
-        self.filters['id'].label = _('Insurance Debt No')
+    # def __init__(self, *args, **kwargs):
+    #     super(InsuranceDebtFilter, self).__init__(*args, **kwargs)
+    #     self.filters['id'].label = _('Insurance Debt No')

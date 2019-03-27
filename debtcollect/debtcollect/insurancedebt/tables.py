@@ -11,7 +11,7 @@ from .models import *
 class InsuranceDebtTable(BaseTableWithCommands):
     class Meta:
         model = InsuranceDebt
-        fields = ['pk', 'type', 'status', 'debt', 'driver_government_id', 'driver_mobile', 'accident_date', ]
+        fields = ['id', 'type', 'status', 'debt', 'driver_government_id', 'driver_mobile', 'accident_date', ]
         attrs = {'class': 'table table-striped table-bordered',
                  'id': 'datatable'}
 

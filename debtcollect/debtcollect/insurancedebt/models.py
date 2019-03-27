@@ -181,6 +181,9 @@ class InsuranceDebt(models.Model):
             return self.debt
 
 
+InsuranceDebt._meta.get_field('id').verbose_name = _('Debt No')
+
+
 class InsuranceDocument(models.Model):
     insurance_debt = models.ForeignKey('InsuranceDebt', related_name='documents',
                                        on_delete=models.SET_NULL, null=True, blank=True,
