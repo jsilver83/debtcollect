@@ -80,8 +80,7 @@ class ProjectListing(BaseLawyerMixin, BaseListingView):
         if self.request.user.groups.filter(name='Admins').exists() or self.request.user.is_superuser:
             return self.model.objects.all()
         else:
-            employee, s = Employee.objects.get_or_create(user=self.request.user)
-            return self.model.objects.filter(main_assignee=employee)
+            return self.model.objects.filter(main_assignee=self.employee)
 
     def get_table_class(self):
         p_type = self.kwargs['p_type']

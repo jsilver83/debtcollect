@@ -77,6 +77,9 @@
 							{% endif %}
 							<hr>
 							<h4>{% trans 'Remaining Unpaid Amount' %}: {{ object.get_remaining_unpaid_debt }}</h4>
+							{% if object.get_remaining_unscheduled_debt %}
+								<div class="alert alert-warning"><h5>{% trans 'Remaining Unscheduled Amount' %}: {{ object.get_remaining_unscheduled_debt }}</h5></div>
+							{% endif %}
 						</div>
 					</div>
 				</div>

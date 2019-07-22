@@ -108,6 +108,7 @@ class InsuranceDebt(models.Model):
 
     sub_contract = models.ForeignKey('InsuranceSubContract', null=True, blank=False, on_delete=models.SET_NULL,
                                      related_name='insurance_debts', verbose_name=_('Sub-Contract'))
+    ref_no = models.CharField(_('Insurance Company Reference No'), max_length=200, null=True, blank=True)
     type = models.CharField(_('Type'), max_length=100, null=True, blank=False,
                             choices=Types.choices(), default=Types.TRAFFIC)
     type_justification = models.TextField(_('Type Justification'), blank=True, null=True)
@@ -181,6 +182,14 @@ class InsuranceDebt(models.Model):
         else:
             return self.debt
 
+    def can_change_scheduled_payment(self, payment, new_amount):
+        scheduled_payments = self.scheduled_payments.exclude(pk=payment.pk)
+        if scheduled_payments:
+            return (self.debt -
+                    Money(scheduled_payments.aggregate(Sum('amount')).get('amount__sum'), self.debt.currency)) < new_amount
+        else:
+            return self.debt
+
 
 InsuranceDebt._meta.get_field('id').verbose_name = _('Debt No')
 
@@ -189,6 +198,7 @@ class InsuranceDocument(models.Model):
     insurance_debt = models.ForeignKey('InsuranceDebt', related_name='documents',
                                        on_delete=models.SET_NULL, null=True, blank=True,
                                        verbose_name=_('Insurance Debt'))
+    # TODO: apply restriction of file types and size
     document = models.FileField(_('Document Upload'), null=True, blank=False)
     title = models.CharField(_('Title'), max_length=100, blank=False, null=True)
     description = models.TextField(_('Description'), blank=True, null=True)
@@ -242,6 +252,8 @@ class ScheduledPayment(models.Model):
                                     related_name='received_payments', )
     payment_method = models.CharField(_('Payment Methods'), null=True, blank=True, max_length=100,
                                       choices=PaymentMethods.choices())
+    # TODO: apply restriction of file types and size
+    proof_of_payment = models.FileField(_('Proof Of Payment'), null=True, blank=True)
 
     updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
     updated_by = models.ForeignKey('projects.Employee', on_delete=models.SET_NULL, null=True, blank=True,

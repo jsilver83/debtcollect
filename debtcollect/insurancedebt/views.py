@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect
 from django.utils.translation import ugettext_lazy as _
@@ -8,7 +9,7 @@ from django.views import View
 from django.views.generic import CreateView, UpdateView, FormView
 from django_tables2 import MultiTableMixin
 
-from debtcollect.utils import get_model_details
+from debtcollect.utils import get_model_object_details
 from .mixins import DebtCollectorMixin
 from projects.views import BaseListingView, BaseFormMixin
 from .filters import *
@@ -21,12 +22,10 @@ class InsuranceDebtListing(DebtCollectorMixin, BaseListingView):
     template_name = "insurancedebt/insurance_debt_listing.html"
 
     def get_queryset(self):
-        employee, s = Employee.objects.get_or_create(user=self.request.user)
-
         if self.request.user.groups.filter(name=UserGroups.DEBT_COLLECTING_SUPERVISORS_GROUP).exists():
-            return self.model.objects.filter(Q(assignee__supervisor=employee) | Q(assignee=employee))
+            return self.model.objects.filter(Q(assignee__supervisor=self.employee) | Q(assignee=self.employee))
         elif self.request.user.groups.filter(name=UserGroups.DEBT_COLLECTORS_GROUP).exists():
-            return self.model.objects.filter(assignee=employee).exclude(
+            return self.model.objects.filter(assignee=self.employee).exclude(
                 status__in=[InsuranceDebt.Statuses.FINISHED,
                             InsuranceDebt.Statuses.CANCELLED_WONT_PAY,
                             InsuranceDebt.Statuses.CANCELLED,
@@ -56,9 +55,8 @@ class NewInsuranceDebtView(SuccessMessageMixin, DebtCollectorMixin, BaseFormMixi
     form_class = InsuranceDebtForm
 
     def form_valid(self, form):
-        employee, created = Employee.objects.get_or_create(user=self.request.user)
         instance = form.save(commit=False)
-        instance.created_by = employee
+        instance.created_by = self.employee
         self.success_url = reverse_lazy('insurance_debt_listing')
         return super(NewInsuranceDebtView, self).form_valid(form)
 
@@ -88,9 +86,8 @@ class NewInsuranceDocumentView(SuccessMessageMixin, DebtCollectorMixin, BaseForm
         return reverse_lazy('update_insurance_debt', args=(self.kwargs['insurance_debt_pk']))
 
     def form_valid(self, form):
-        employee, created = Employee.objects.get_or_create(user=self.request.user)
         instance = form.save(commit=False)
-        instance.created_by = employee
+        instance.created_by = self.employee
         instance.insurance_debt = get_object_or_404(InsuranceDebt, pk=self.kwargs['insurance_debt_pk'])
         return super(NewInsuranceDocumentView, self).form_valid(form)
 
@@ -116,10 +113,9 @@ class NewScheduledPaymentView(SuccessMessageMixin, DebtCollectorMixin, BaseFormM
         return kwargs
 
     def form_valid(self, form):
-        employee, created = Employee.objects.get_or_create(user=self.request.user)
         instance = form.save(commit=False)
         instance.insurance_debt = self.insurance_debt
-        instance.created_by = employee
+        instance.created_by = self.employee
 
         return super(NewScheduledPaymentView, self).form_valid(form)
 
@@ -140,13 +136,15 @@ class ReceiveScheduledPaymentView(SuccessMessageMixin, DebtCollectorMixin, BaseF
     model = ScheduledPayment
     form_class = ScheduledPaymentReceiveForm
 
+    def get_object(self, queryset=None):
+        get_object_or_404(self.model, received_on__isnull=True, pk=self.kwargs.get('pk'))
+
     def get_success_url(self):
         return reverse_lazy('update_insurance_debt', args=(self.object.insurance_debt.pk,))
 
     def form_valid(self, form):
-        employee, created = Employee.objects.get_or_create(user=self.request.user)
         instance = form.save(commit=False)
-        instance.received_by = employee
+        instance.received_by = self.employee
 
         return super().form_valid(form)
 
@@ -195,8 +193,8 @@ class ClientAreaView(SuccessMessageMixin, UserPassesTestMixin, FormView):
         context = super(ClientAreaView, self).get_context_data(**kwargs)
         context['object'] = self.debt
         context['docs'] = self.debt.documents.all()
-        context['debt_details'] = get_model_details(self.debt,
-                                                    ['id', 'status', 'status_comments', 'insurancedocument',
+        context['debt_details'] = get_model_object_details(self.debt,
+                                                           ['id', 'status', 'status_comments', 'insurancedocument',
                                                      'debt_currency', 'assignee', 'created_on', 'created_by',
                                                      'updated_on', 'updated_by', 'sub_contract', ])
         context['title'] = _('Insurance Debt Details')

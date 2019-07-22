@@ -53,12 +53,19 @@ class ScheduledPaymentForm(BaseUpdatedByForm, forms.ModelForm):
 
         if self.instance.pk:
             self.insurance_debt = self.instance.insurance_debt
+            if self.instance.received_on:
+                self.fields['amount'].widget.attrs.update({'disabled': True})
+                self.fields['scheduled_date'].widget.attrs.update({'disabled': True})
 
     def clean_amount(self):
         amount = self.cleaned_data.get('amount')
 
-        if amount > self.insurance_debt.get_remaining_unscheduled_debt():
-            raise ValidationError(_('Entered amount is higher than the remaining amount of the debt'))
+        if self.instance.pk:
+            if self.insurance_debt.can_change_scheduled_payment(self.instance, amount):
+                raise ValidationError(_('Entered amount is higher than the remaining amount of the debt'))
+        else:
+            if amount > self.insurance_debt.get_remaining_unscheduled_debt():
+                raise ValidationError(_('Entered amount is higher than the remaining amount of the debt'))
 
         return amount
 
@@ -66,10 +73,12 @@ class ScheduledPaymentForm(BaseUpdatedByForm, forms.ModelForm):
 class ScheduledPaymentReceiveForm(BaseUpdatedByForm, forms.ModelForm):
     class Meta:
         model = ScheduledPayment
-        fields = ['payment_method', 'received_on', ]
+        fields = ['payment_method', 'received_on', 'proof_of_payment', ]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields['payment_method'].required = True
+        self.fields['received_on'].required = True
 
 
 class MyAuthenticationForm(AuthenticationForm):

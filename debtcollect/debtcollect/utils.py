@@ -1,4 +1,6 @@
+import requests
 from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
 
 
 class UserGroups:
@@ -38,7 +40,7 @@ def parse_non_standard_numerals(str_numerals):
         return ''
 
 
-def get_model_details(model_obj, excluded_fields):
+def get_model_object_details(model_obj, excluded_fields):
     details = []
     for x in model_obj._meta.get_fields():
         if x.name not in excluded_fields and hasattr(x, 'verbose_name') and getattr(model_obj, x.name, ''):
@@ -47,3 +49,32 @@ def get_model_details(model_obj, excluded_fields):
             else:
                 details.append({'field': x.verbose_name, 'value': getattr(model_obj, x.name, '')})
     return details
+
+
+class SMS(object):
+    sms_messages = {
+        'new_debt': _('You are obliged to settle an insurance debt (No: %(debt_id)'
+                      'for more details visit: http://sys.fhol.com.sa'),
+        'new_notifications': _('You have new notifications for insurance debt (No: %(debt_id)'
+                               'for more details visit: http://sys.fhol.com.sa'),
+    }
+
+    # using UNIFONIC gateway to send SMS
+    @staticmethod
+    def send_sms(mobile, body):
+        if settings.DISABLE_SMS:
+            return None
+
+        try:
+            r = requests.post('http://api.unifonic.com/rest/Messages/Send',
+                              data={'AppSid': settings.UNIFONIC_APP_SID,
+                                    'Recipient': mobile,
+                                    'Body': body,
+                                    'SenderID': 'KFUPMQabool'})  # It was KFUPM-ADM
+            return r
+        except:  # usually TimeoutError but made it general so it will never raise an exception
+            pass
+
+    @staticmethod
+    def send_sms_registration_success(mobile):
+        SMS.send_sms(mobile, '%s' % (SMS.sms_messages['registration_success']))

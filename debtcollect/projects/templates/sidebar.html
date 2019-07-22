@@ -5,7 +5,7 @@
 
 <div class="left_col scroll-view">
 	<div class="navbar nav_title" style="border: 0;">
-		<a href="{% url 'index' %}" class="site_title"><i class="fa fa-spinner"></i>
+		<a href="{% url 'insurance_debt_listing' %}" class="site_title"><i class="fa fa-spinner"></i>
 			<span>{% trans 'Gulf Debt System' %}</span>
 		</a>
 	</div>
@@ -54,7 +54,7 @@
 						<i class="fa fa-compass"></i>{% trans 'Insurance Companies' %}
 					</a>
 				</li>
-				{% else %}
+				{% elif admin %}
 				<li><a><i class="fa fa-edit"></i> {% trans 'Clients' %} <span class="fa fa-chevron-down"></span></a>
 					<ul class="nav child_menu">
 						<li><a href="{% url 'clients' %}">{% trans 'Individuals' %}</a></li>

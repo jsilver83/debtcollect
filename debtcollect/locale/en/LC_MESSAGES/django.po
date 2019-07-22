@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-27 04:41+0000\n"
+"POT-Creation-Date: 2019-07-22 16:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Abdullah Joud <abd.jod2004@gmail.com>\n"
 "Language-Team: ICTC \n"
@@ -53,7 +53,7 @@ msgid "Closed"
 msgstr ""
 
 #: accounting/models.py:24 accounting/models.py:102 accounting/models.py:182
-#: insurancedebt/models.py:229
+#: insurancedebt/models.py:239
 #: insurancedebt/templates/insurancedebt/client_area.html:71
 #: projects/templates/accounting/approve_fund_request.html:12
 #: projects/templates/accounting/new_expense.html:12
@@ -61,7 +61,7 @@ msgstr ""
 msgid "Amount"
 msgstr ""
 
-#: accounting/models.py:28 insurancedebt/forms.py:132
+#: accounting/models.py:28 insurancedebt/forms.py:138
 #: projects/templates/accounting/approve_fund_request.html:14
 #: projects/templates/accounting/new_expense.html:14
 msgid "Justification"
@@ -107,7 +107,7 @@ msgstr ""
 
 #: accounting/models.py:43 accounting/models.py:111 accounting/models.py:201
 #: insurancedebt/models.py:29 insurancedebt/models.py:59
-#: insurancedebt/models.py:145 projects/models.py:112 projects/models.py:225
+#: insurancedebt/models.py:146 projects/models.py:112 projects/models.py:225
 #: projects/models.py:299 projects/models.py:443 projects/tables.py:53
 #: projects/templates/snippets/audit.html:9
 msgid "Created On"
@@ -115,23 +115,23 @@ msgstr ""
 
 #: accounting/models.py:45 accounting/models.py:113 accounting/models.py:203
 #: insurancedebt/models.py:31 insurancedebt/models.py:61
-#: insurancedebt/models.py:147 projects/models.py:114 projects/models.py:227
+#: insurancedebt/models.py:148 projects/models.py:114 projects/models.py:227
 #: projects/models.py:301 projects/tables.py:51
 #: projects/templates/snippets/audit.html:15
 msgid "Created By"
 msgstr ""
 
 #: accounting/models.py:47 accounting/models.py:115 accounting/models.py:205
-#: archive/models.py:25 archive/tables.py:72 insurancedebt/models.py:149
-#: insurancedebt/models.py:200 insurancedebt/models.py:246
+#: archive/models.py:25 archive/tables.py:72 insurancedebt/models.py:150
+#: insurancedebt/models.py:210 insurancedebt/models.py:258
 #: projects/models.py:116 projects/models.py:229 projects/models.py:303
 #: projects/tables.py:57 projects/templates/snippets/audit.html:24
 msgid "Updated On"
 msgstr ""
 
 #: accounting/models.py:49 accounting/models.py:117 accounting/models.py:207
-#: archive/models.py:28 archive/tables.py:70 insurancedebt/models.py:151
-#: insurancedebt/models.py:203 insurancedebt/models.py:248
+#: archive/models.py:28 archive/tables.py:70 insurancedebt/models.py:152
+#: insurancedebt/models.py:213 insurancedebt/models.py:260
 #: projects/models.py:118 projects/models.py:231 projects/models.py:305
 #: projects/tables.py:55 projects/templates/snippets/audit.html:30
 msgid "Updated By"
@@ -159,7 +159,7 @@ msgid "Invoice Reference"
 msgstr ""
 
 #: accounting/models.py:98 accounting/models.py:180 archive/forms.py:16
-#: archive/models.py:16 archive/models.py:50 insurancedebt/models.py:193
+#: archive/models.py:16 archive/models.py:50 insurancedebt/models.py:203
 #: projects/models.py:286 projects/models.py:384 projects/models.py:432
 #: projects/tables.py:95 projects/tables.py:144
 #: projects/templates/accounting/new_payment.html:12
@@ -174,7 +174,7 @@ msgstr ""
 
 #: accounting/models.py:100 accounting/models.py:184 archive/forms.py:19
 #: archive/models.py:18 archive/models.py:51 archive/models.py:97
-#: insurancedebt/models.py:194 projects/models.py:288 projects/models.py:386
+#: insurancedebt/models.py:204 projects/models.py:288 projects/models.py:386
 #: projects/models.py:434 projects/tables.py:145
 #: projects/templates/accounting/new_payment.html:22
 #: projects/templates/tellme/tpl-overview.html:5
@@ -191,7 +191,7 @@ msgstr ""
 msgid "Invoice Date"
 msgstr ""
 
-#: accounting/models.py:105 insurancedebt/models.py:114 projects/models.py:290
+#: accounting/models.py:105 insurancedebt/models.py:115 projects/models.py:290
 #: projects/templates/accounting/new_payment.html:26
 msgid "Status"
 msgstr ""
@@ -316,13 +316,13 @@ msgid "INBOX"
 msgstr ""
 
 #: archive/filters.py:16 archive/forms.py:21 archive/models.py:20
-#: insurancedebt/models.py:111 insurancedebt/models.py:195
+#: insurancedebt/models.py:112 insurancedebt/models.py:205
 #: projects/models.py:219 projects/models.py:335 projects/models.py:350
 #: projects/models.py:358 projects/models.py:393
 msgid "Type"
 msgstr ""
 
-#: archive/forms.py:13 archive/models.py:13 insurancedebt/models.py:192
+#: archive/forms.py:13 archive/models.py:13 insurancedebt/models.py:202
 msgid "Document Upload"
 msgstr ""
 
@@ -358,11 +358,11 @@ msgstr ""
 msgid "Out With A Client"
 msgstr ""
 
-#: archive/models.py:21 archive/tables.py:68 insurancedebt/models.py:196
+#: archive/models.py:21 archive/tables.py:68 insurancedebt/models.py:206
 msgid "Uploaded On"
 msgstr ""
 
-#: archive/models.py:24 archive/tables.py:66 insurancedebt/models.py:199
+#: archive/models.py:24 archive/tables.py:66 insurancedebt/models.py:209
 msgid "Uploaded By"
 msgstr ""
 
@@ -426,80 +426,94 @@ msgstr ""
 msgid "Document was moved successfully"
 msgstr ""
 
-#: debtcollect/settings.py:155
+#: debtcollect/settings.py:156
 msgid "Arabic"
 msgstr ""
 
-#: debtcollect/settings.py:156
+#: debtcollect/settings.py:157
 msgid "English"
 msgstr ""
 
-#: debtcollect/settings.py:165
+#: debtcollect/settings.py:166
 msgid "SAR"
 msgstr ""
 
-#: debtcollect/utils.py:16
+#: debtcollect/utils.py:18
 msgid "contains"
 msgstr ""
 
-#: insurancedebt/apps.py:7 insurancedebt/models.py:155
-#: insurancedebt/models.py:191 insurancedebt/models.py:228
+#: debtcollect/utils.py:56
+#, python-format
+msgid ""
+"You are obliged to settle an insurance debt (No: %(debt_id)for more details "
+"visit: http://sys.fhol.com.sa"
+msgstr ""
+
+#: debtcollect/utils.py:58
+#, python-format
+msgid ""
+"You have new notifications for insurance debt (No: %(debt_id)for more "
+"details visit: http://sys.fhol.com.sa"
+msgstr ""
+
+#: insurancedebt/apps.py:7 insurancedebt/models.py:156
+#: insurancedebt/models.py:200 insurancedebt/models.py:238
 msgid "Insurance Debt"
 msgstr ""
 
-#: insurancedebt/forms.py:61
+#: insurancedebt/forms.py:62 insurancedebt/forms.py:65
 msgid "Entered amount is higher than the remaining amount of the debt"
 msgstr ""
 
-#: insurancedebt/forms.py:80 insurancedebt/forms.py:96
+#: insurancedebt/forms.py:86 insurancedebt/forms.py:102
 msgid "Confirmation Code"
 msgstr ""
 
-#: insurancedebt/forms.py:84
+#: insurancedebt/forms.py:90
 msgid "Your Mobile"
 msgstr ""
 
-#: insurancedebt/forms.py:84 insurancedebt/models.py:132
+#: insurancedebt/forms.py:90 insurancedebt/models.py:133
 msgid "format: 05XXXXXXXX"
 msgstr ""
 
-#: insurancedebt/forms.py:88 insurancedebt/models.py:136
+#: insurancedebt/forms.py:94 insurancedebt/models.py:137
 msgid "You have entered an invalid mobile number"
 msgstr ""
 
-#: insurancedebt/forms.py:91
+#: insurancedebt/forms.py:97
 msgid "Request ID"
 msgstr ""
 
-#: insurancedebt/forms.py:106
+#: insurancedebt/forms.py:112
 msgid "Entered login data do NOT match with our records. Kindly try again!"
 msgstr ""
 
-#: insurancedebt/forms.py:124
+#: insurancedebt/forms.py:130
 msgid "I want to pay"
 msgstr ""
 
-#: insurancedebt/forms.py:125
+#: insurancedebt/forms.py:131
 msgid "I want to pay with installments"
 msgstr ""
 
-#: insurancedebt/forms.py:126
+#: insurancedebt/forms.py:132
 msgid "I wont pay"
 msgstr ""
 
-#: insurancedebt/forms.py:127
+#: insurancedebt/forms.py:133
 msgid "This is the wrong person"
 msgstr ""
 
-#: insurancedebt/forms.py:130
+#: insurancedebt/forms.py:136
 msgid "Your Action/Response"
 msgstr ""
 
-#: insurancedebt/forms.py:133
+#: insurancedebt/forms.py:139
 msgid "Enter any justifications you think is appropriate for your choice"
 msgstr ""
 
-#: insurancedebt/forms.py:141
+#: insurancedebt/forms.py:147
 msgid "Kindly enter justification for your action/choice"
 msgstr ""
 
@@ -607,118 +621,126 @@ msgstr ""
 msgid "Sub-Contract"
 msgstr ""
 
-#: insurancedebt/models.py:113
+#: insurancedebt/models.py:111
+msgid "Insurance Company Reference No"
+msgstr ""
+
+#: insurancedebt/models.py:114
 msgid "Type Justification"
 msgstr ""
 
-#: insurancedebt/models.py:116 projects/models.py:292
+#: insurancedebt/models.py:117 projects/models.py:292
 msgid "Status Comments"
 msgstr ""
 
-#: insurancedebt/models.py:117
+#: insurancedebt/models.py:118
 msgid "Debt Amount"
 msgstr ""
 
-#: insurancedebt/models.py:122
+#: insurancedebt/models.py:123
 msgid "Assignee"
 msgstr ""
 
-#: insurancedebt/models.py:123
+#: insurancedebt/models.py:124
 msgid "Driver Government ID"
 msgstr ""
 
-#: insurancedebt/models.py:127
+#: insurancedebt/models.py:128
 msgid "You have entered an invalid Government ID"
 msgstr ""
 
-#: insurancedebt/models.py:129
+#: insurancedebt/models.py:130
 msgid "Driver Full Name"
 msgstr ""
 
-#: insurancedebt/models.py:130
+#: insurancedebt/models.py:131
 msgid "Insurer Full Name"
 msgstr ""
 
-#: insurancedebt/models.py:131
+#: insurancedebt/models.py:132
 msgid "Driver Mobile"
 msgstr ""
 
-#: insurancedebt/models.py:139
+#: insurancedebt/models.py:140
 msgid "Vehicle Plate NO"
 msgstr ""
 
-#: insurancedebt/models.py:140
+#: insurancedebt/models.py:141
 msgid "Accident Location"
 msgstr ""
 
-#: insurancedebt/models.py:141
+#: insurancedebt/models.py:142
 msgid "Accident Date"
 msgstr ""
 
-#: insurancedebt/models.py:142
+#: insurancedebt/models.py:143
 msgid "Client Notes"
 msgstr ""
 
-#: insurancedebt/models.py:143
+#: insurancedebt/models.py:144
 msgid "Notes"
 msgstr ""
 
-#: insurancedebt/models.py:156
+#: insurancedebt/models.py:157
 msgid "Insurance Debts"
 msgstr ""
 
-#: insurancedebt/models.py:185
+#: insurancedebt/models.py:194
 #: insurancedebt/templates/insurancedebt/insurance_debt_form.html:20
 msgid "Debt No"
 msgstr ""
 
-#: insurancedebt/models.py:206
+#: insurancedebt/models.py:216
 msgid "Insurance Document"
 msgstr ""
 
-#: insurancedebt/models.py:207
+#: insurancedebt/models.py:217
 msgid "Insurance Documents"
 msgstr ""
 
-#: insurancedebt/models.py:222
+#: insurancedebt/models.py:232
 msgid "Bank transfer to Gulf Debt account"
 msgstr ""
 
-#: insurancedebt/models.py:223
+#: insurancedebt/models.py:233
 msgid "Bank transfer to the insurance company account"
 msgstr ""
 
-#: insurancedebt/models.py:232
+#: insurancedebt/models.py:242
 #: insurancedebt/templates/insurancedebt/client_area.html:72
 msgid "Scheduled Date"
 msgstr ""
 
-#: insurancedebt/models.py:234
+#: insurancedebt/models.py:244
 msgid "Scheduled On"
 msgstr ""
 
-#: insurancedebt/models.py:236
+#: insurancedebt/models.py:246
 msgid "Scheduled By"
 msgstr ""
 
-#: insurancedebt/models.py:239
+#: insurancedebt/models.py:249
 #: insurancedebt/templates/insurancedebt/client_area.html:74
 msgid "Received On"
 msgstr ""
 
-#: insurancedebt/models.py:241
+#: insurancedebt/models.py:251
 msgid "Received By"
 msgstr ""
 
-#: insurancedebt/models.py:243
+#: insurancedebt/models.py:253
 msgid "Payment Methods"
 msgstr ""
 
-#: insurancedebt/models.py:252
+#: insurancedebt/models.py:256
+msgid "Proof Of Payment"
+msgstr ""
+
+#: insurancedebt/models.py:264
 msgid "Scheduled Payment"
 msgstr ""
 
-#: insurancedebt/models.py:253
+#: insurancedebt/models.py:265
 #: insurancedebt/templates/insurancedebt/client_area.html:62
 #: insurancedebt/templates/insurancedebt/insurance_debt_form.html:63
 msgid "Scheduled Payments"
@@ -777,12 +799,12 @@ msgid "Remaining Unpaid Amount"
 msgstr ""
 
 #: insurancedebt/templates/insurancedebt/client_area.html:100
-#: insurancedebt/templates/insurancedebt/insurance_debt_form.html:90
+#: insurancedebt/templates/insurancedebt/insurance_debt_form.html:93
 msgid "Comments"
 msgstr ""
 
 #: insurancedebt/templates/insurancedebt/client_area.html:113
-#: insurancedebt/templates/insurancedebt/insurance_debt_form.html:103
+#: insurancedebt/templates/insurancedebt/insurance_debt_form.html:106
 msgid "New Comment"
 msgstr ""
 
@@ -805,7 +827,7 @@ msgid "Gulf Debt Client Login"
 msgstr ""
 
 #: insurancedebt/templates/insurancedebt/insurance_debt_form.html:14
-#: insurancedebt/views.py:202
+#: insurancedebt/views.py:197
 msgid "Insurance Debt Details"
 msgstr ""
 
@@ -822,14 +844,18 @@ msgstr ""
 msgid "New Scheduled Payment"
 msgstr ""
 
+#: insurancedebt/templates/insurancedebt/insurance_debt_form.html:81
+msgid "Remaining Unscheduled Amount"
+msgstr ""
+
 #: insurancedebt/templates/insurancedebt/insurance_debt_listing.html:4
 #: insurancedebt/templates/insurancedebt/insurance_debt_listing.html:5
-#: insurancedebt/views.py:43 projects/templates/sidebar.html:37
+#: insurancedebt/views.py:42 projects/templates/sidebar.html:37
 msgid "Insurance Debts Listing"
 msgstr ""
 
 #: insurancedebt/templates/insurancedebt/insurance_debt_listing.html:8
-#: insurancedebt/views.py:44
+#: insurancedebt/views.py:43
 msgid "New Insurance Debt"
 msgstr ""
 
@@ -839,52 +865,52 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: insurancedebt/views.py:55
+#: insurancedebt/views.py:54
 msgid "Insurance Debt was created successfully"
 msgstr ""
 
-#: insurancedebt/views.py:68
+#: insurancedebt/views.py:66
 msgid "Insurance Debt was updated successfully"
 msgstr ""
 
-#: insurancedebt/views.py:84
+#: insurancedebt/views.py:82
 msgid "Insurance Document was created successfully"
 msgstr ""
 
-#: insurancedebt/views.py:100
+#: insurancedebt/views.py:97
 msgid "Scheduled payment was created successfully"
 msgstr ""
 
-#: insurancedebt/views.py:129
+#: insurancedebt/views.py:125
 msgid "Scheduled payment was updated successfully"
 msgstr ""
 
-#: insurancedebt/views.py:139
+#: insurancedebt/views.py:135
 msgid "Scheduled payment was received successfully"
 msgstr ""
 
-#: insurancedebt/views.py:156
+#: insurancedebt/views.py:151
 msgid "Comment was posted successfully"
 msgstr ""
 
-#: insurancedebt/views.py:164
+#: insurancedebt/views.py:159
 msgid "Successful login"
 msgstr ""
 
-#: insurancedebt/views.py:178
+#: insurancedebt/views.py:173
 msgid "You submitted your action/choice successfully"
 msgstr ""
 
-#: insurancedebt/views.py:190
+#: insurancedebt/views.py:185
 msgid "Login first please"
 msgstr ""
 
-#: insurancedebt/views.py:222
+#: insurancedebt/views.py:217
 #, python-format
 msgid "The client chose this: [%s]"
 msgstr ""
 
-#: insurancedebt/views.py:240
+#: insurancedebt/views.py:235
 msgid "Logged out successfully"
 msgstr ""
 
@@ -1161,7 +1187,7 @@ msgid "Case"
 msgstr ""
 
 #: projects/models.py:346 projects/templates/sidebar.html:45
-#: projects/views.py:104
+#: projects/views.py:103
 msgid "Cases"
 msgstr ""
 
@@ -1170,7 +1196,7 @@ msgid "Consultation"
 msgstr ""
 
 #: projects/models.py:354 projects/templates/sidebar.html:46
-#: projects/views.py:110
+#: projects/views.py:109
 msgid "Consultations"
 msgstr ""
 
@@ -1179,7 +1205,7 @@ msgid "Paperwork"
 msgstr ""
 
 #: projects/models.py:362 projects/templates/sidebar.html:47
-#: projects/views.py:107
+#: projects/views.py:106
 msgid "Paperwork Projects"
 msgstr ""
 
@@ -1557,75 +1583,75 @@ msgstr ""
 msgid "User Profile"
 msgstr ""
 
-#: projects/views.py:105
+#: projects/views.py:104
 msgid "New Case"
 msgstr ""
 
-#: projects/views.py:108
+#: projects/views.py:107
 msgid "New Paperwork Project"
 msgstr ""
 
-#: projects/views.py:111
+#: projects/views.py:110
 msgid "New Consultation"
 msgstr ""
 
-#: projects/views.py:138
+#: projects/views.py:137
 msgid "Project was created successfully"
 msgstr ""
 
-#: projects/views.py:160
+#: projects/views.py:159
 msgid "Project was updated successfully"
 msgstr ""
 
-#: projects/views.py:214
+#: projects/views.py:213
 msgid ""
 "Fund request was submitted successfully. Check later for approval status"
 msgstr ""
 
-#: projects/views.py:228
+#: projects/views.py:227
 msgid "Update was submitted successfully."
 msgstr ""
 
-#: projects/views.py:251
+#: projects/views.py:250
 msgid "Client info was updated successfully"
 msgstr ""
 
-#: projects/views.py:258
+#: projects/views.py:257
 msgid "Client was added successfully"
 msgstr ""
 
-#: projects/views.py:280
+#: projects/views.py:279
 msgid "Organization info was updated successfully"
 msgstr ""
 
-#: projects/views.py:287 projects/views.py:294
+#: projects/views.py:286 projects/views.py:293
 msgid "Organization was added successfully"
 msgstr ""
 
-#: projects/views.py:300
+#: projects/views.py:299
 msgid "Reminder was created successfully."
 msgstr ""
 
-#: projects/views.py:321
+#: projects/views.py:320
 msgid "Employee was created successfully."
 msgstr ""
 
-#: projects/views.py:330
+#: projects/views.py:329
 msgid "Employee info was updated successfully"
 msgstr ""
 
-#: projects/views.py:345
+#: projects/views.py:344
 msgid "Lookup was added successfully"
 msgstr ""
 
-#: projects/views.py:353
+#: projects/views.py:352
 msgid "Lookup was updated successfully"
 msgstr ""
 
-#: projects/views.py:368
+#: projects/views.py:367
 msgid "User was added successfully"
 msgstr ""
 
-#: projects/views.py:376
+#: projects/views.py:375
 msgid "User was updated successfully"
 msgstr ""

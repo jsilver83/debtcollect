@@ -214,7 +214,7 @@ class MyUserCreationForm(BaseCrispyForm, UserCreationForm):
 
     def save(self, commit=True):
         user = super(MyUserCreationForm, self).save(commit)
-        user.groups = self.cleaned_data['groups']
+        user.groups.set(self.cleaned_data['groups'])
         user.save()
         return user
 

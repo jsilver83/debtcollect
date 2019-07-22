@@ -27,10 +27,11 @@ urlpatterns = i18n_patterns(
     url(r'^admin/', admin.site.urls),
     url(r'^comments/', include('django_comments.urls')),
 
-    url(r'^$', views.InsuranceDebtListing.as_view(), name='home'),
+    url(r'^debts/$', views.InsuranceDebtListing.as_view(), name='home'),
     url(r'^employee-login/$', LoginView.as_view(form_class=MyAuthenticationForm), name='login'),
     url(r'^employee-logout/$', logout, {'next_page': 'login'}, name='logout'),
 
+    url(r'^$', views.ClientLoginView.as_view(), name='home'),
     url(r'^login/$', views.ClientLoginView.as_view(), name='client_login'),
     url(r'^logout/$', views.ClientLogout.as_view(), name='client_logout'),
     url(r'^client-area/$', views.ClientAreaView.as_view(), name='client_area'),

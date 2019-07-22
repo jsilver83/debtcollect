@@ -36,8 +36,15 @@
 
 						<div class="separator">
 							<div>
-								<h1><i class="fa fa-paw"></i> {% trans 'Gulf Debt Client Login' %}</h1>
-								<p>©{% now "Y" %} All Rights Reserved. Privacy and Terms</p>
+								<h4><i class="fa fa-paw"></i> {% trans 'Gulf Debt Client Login' %}</h4>
+								<h2>{% if LANGUAGE_CODE == 'ar' %}
+					<a class="btn btn-warning" href="/en{{ request.get_full_path|slice:'3:' }}">
+							<i class="fa fa-language"></i> English</a>
+				{% else %}
+					<a class="btn btn-warning" href="/ar{{ request.get_full_path|slice:'3:' }}">
+							<i class="fa fa-language"></i> عربي</a>
+				{% endif %}</h2>
+								<p style="direction: ltr">©{% now "Y" %} All Rights Reserved.</p>
 							</div>
 						</div>
 					</form>
