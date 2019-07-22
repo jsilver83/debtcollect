@@ -18,7 +18,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from django.contrib.auth.views import login, logout, LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from insurancedebt import views
 from insurancedebt.forms import MyAuthenticationForm
 
@@ -29,7 +29,7 @@ urlpatterns = i18n_patterns(
 
     url(r'^debts/$', views.InsuranceDebtListing.as_view(), name='home'),
     url(r'^employee-login/$', LoginView.as_view(form_class=MyAuthenticationForm), name='login'),
-    url(r'^employee-logout/$', logout, {'next_page': 'login'}, name='logout'),
+    url(r'^employee-logout/$', LogoutView.as_view(next_page='login'), name='logout'),
 
     url(r'^$', views.ClientLoginView.as_view(), name='home'),
     url(r'^login/$', views.ClientLoginView.as_view(), name='client_login'),
