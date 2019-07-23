@@ -83,7 +83,7 @@ class NewInsuranceDocumentView(SuccessMessageMixin, DebtCollectorMixin, BaseForm
     form_class = InsuranceDocumentForm
 
     def get_success_url(self):
-        return reverse_lazy('update_insurance_debt', args=(self.kwargs['insurance_debt_pk']))
+        return reverse_lazy('update_insurance_debt', kwargs={'pk': self.kwargs.get('insurance_debt_pk', 0)})
 
     def form_valid(self, form):
         instance = form.save(commit=False)
@@ -104,7 +104,7 @@ class NewScheduledPaymentView(SuccessMessageMixin, DebtCollectorMixin, BaseFormM
         return super().dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
-        return reverse_lazy('update_insurance_debt', args=(self.kwargs['insurance_debt_pk']))
+        return reverse_lazy('update_insurance_debt', kwargs={'pk': self.insurance_debt.pk})
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -127,7 +127,7 @@ class UpdateScheduledPaymentView(SuccessMessageMixin, DebtCollectorMixin, BaseFo
     form_class = ScheduledPaymentForm
 
     def get_success_url(self):
-        return reverse_lazy('update_insurance_debt', args=(self.object.insurance_debt.pk,))
+        return reverse_lazy('update_insurance_debt', kwargs={'pk': self.object.insurance_debt.pk})
 
 
 class ReceiveScheduledPaymentView(SuccessMessageMixin, DebtCollectorMixin, BaseFormMixin, UpdateView):
@@ -140,7 +140,7 @@ class ReceiveScheduledPaymentView(SuccessMessageMixin, DebtCollectorMixin, BaseF
         get_object_or_404(self.model, received_on__isnull=True, pk=self.kwargs.get('pk'))
 
     def get_success_url(self):
-        return reverse_lazy('update_insurance_debt', args=(self.object.insurance_debt.pk,))
+        return reverse_lazy('update_insurance_debt', kwargs={'pk': self.object.insurance_debt.pk})
 
     def form_valid(self, form):
         instance = form.save(commit=False)
