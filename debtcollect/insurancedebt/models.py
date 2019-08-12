@@ -108,6 +108,7 @@ class InsuranceDebt(models.Model):
 
     sub_contract = models.ForeignKey('InsuranceSubContract', null=True, blank=False, on_delete=models.SET_NULL,
                                      related_name='insurance_debts', verbose_name=_('Sub-Contract'))
+    legacy_system_no = models.SmallIntegerField(_('Legacy System No'), null=True, blank=True)
     ref_no = models.CharField(_('Insurance Company Reference No'), max_length=200, null=True, blank=True)
     type = models.CharField(_('Type'), max_length=100, null=True, blank=False,
                             choices=Types.choices(), default=Types.TRAFFIC)
@@ -156,6 +157,9 @@ class InsuranceDebt(models.Model):
         verbose_name = _('Insurance Debt')
         verbose_name_plural = _('Insurance Debts')
         ordering = ('-updated_on', 'created_on',)
+
+    def debt_no(self):
+        return self.legacy_system_no if self.legacy_system_no else self.pk
 
     def __str__(self):
         return '%s %s %s' % (self.driver_full_name, str(self.debt), self.type)
