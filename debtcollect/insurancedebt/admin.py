@@ -26,7 +26,8 @@ class InsuranceDebtResource(resources.ModelResource):
         # import_id_fields = ('id',)
         fields = ('id', 'sub_contract', 'type', 'type_justification', 'status', 'status_comments', 'debt',
                   'assignee', 'driver_government_id', 'driver_full_name', 'insurer_full_name', 'driver_mobile',
-                  'accident_location', 'accident_date', 'client_notes', 'notes', )
+                  'accident_location', 'accident_date', 'client_notes', 'notes',
+                  'legacy_system_no', 'ref_no', 'vehicle_plate_no', )
         skip_unchanged = True
         report_skipped = True
 
