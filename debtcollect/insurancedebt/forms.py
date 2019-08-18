@@ -1,7 +1,7 @@
 from captcha.fields import ReCaptchaField
 from captcha.widgets import ReCaptchaV2Checkbox
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
@@ -150,3 +150,9 @@ class ClientAreaForm(BaseCrispyForm, forms.Form):
             raise ValidationError(_('Kindly enter justification for your action/choice'))
 
         return cleaned_data
+
+
+class MyPasswordChangeForm(BaseCrispyForm, PasswordChangeForm):
+    def __init__(self, *args, **kwargs):
+        super(MyPasswordChangeForm, self).__init__(*args, **kwargs)
+        self.helper.add_input(Submit('submit', _('Submit')))

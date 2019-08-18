@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 16:26+0000\n"
-"PO-Revision-Date: 2019-07-22 19:32+0300\n"
+"POT-Creation-Date: 2019-08-18 09:09+0000\n"
+"PO-Revision-Date: 2019-08-18 12:16+0300\n"
 "Last-Translator: Abdullah Joud <abd.jod2004@gmail.com>\n"
 "Language-Team: ICTC\n"
 "Language: ar\n"
@@ -55,7 +55,7 @@ msgid "Closed"
 msgstr "مغلق"
 
 #: accounting/models.py:24 accounting/models.py:102 accounting/models.py:182
-#: insurancedebt/models.py:239
+#: insurancedebt/models.py:243
 #: insurancedebt/templates/insurancedebt/client_area.html:71
 #: projects/templates/accounting/approve_fund_request.html:12
 #: projects/templates/accounting/new_expense.html:12
@@ -63,7 +63,7 @@ msgstr "مغلق"
 msgid "Amount"
 msgstr "المبلغ"
 
-#: accounting/models.py:28 insurancedebt/forms.py:138
+#: accounting/models.py:28 insurancedebt/forms.py:141
 #: projects/templates/accounting/approve_fund_request.html:14
 #: projects/templates/accounting/new_expense.html:14
 msgid "Justification"
@@ -109,7 +109,7 @@ msgstr "تاريخ اﻻعتماد"
 
 #: accounting/models.py:43 accounting/models.py:111 accounting/models.py:201
 #: insurancedebt/models.py:29 insurancedebt/models.py:59
-#: insurancedebt/models.py:146 projects/models.py:112 projects/models.py:225
+#: insurancedebt/models.py:147 projects/models.py:112 projects/models.py:225
 #: projects/models.py:299 projects/models.py:443 projects/tables.py:53
 #: projects/templates/snippets/audit.html:9
 msgid "Created On"
@@ -117,23 +117,23 @@ msgstr "تاريخ الإنشاء"
 
 #: accounting/models.py:45 accounting/models.py:113 accounting/models.py:203
 #: insurancedebt/models.py:31 insurancedebt/models.py:61
-#: insurancedebt/models.py:148 projects/models.py:114 projects/models.py:227
+#: insurancedebt/models.py:149 projects/models.py:114 projects/models.py:227
 #: projects/models.py:301 projects/tables.py:51
 #: projects/templates/snippets/audit.html:15
 msgid "Created By"
 msgstr "تم الإنشاء بواسطة"
 
 #: accounting/models.py:47 accounting/models.py:115 accounting/models.py:205
-#: archive/models.py:25 archive/tables.py:72 insurancedebt/models.py:150
-#: insurancedebt/models.py:210 insurancedebt/models.py:258
+#: archive/models.py:25 archive/tables.py:72 insurancedebt/models.py:151
+#: insurancedebt/models.py:214 insurancedebt/models.py:262
 #: projects/models.py:116 projects/models.py:229 projects/models.py:303
 #: projects/tables.py:57 projects/templates/snippets/audit.html:24
 msgid "Updated On"
 msgstr "تاريخ التحديث"
 
 #: accounting/models.py:49 accounting/models.py:117 accounting/models.py:207
-#: archive/models.py:28 archive/tables.py:70 insurancedebt/models.py:152
-#: insurancedebt/models.py:213 insurancedebt/models.py:260
+#: archive/models.py:28 archive/tables.py:70 insurancedebt/models.py:153
+#: insurancedebt/models.py:217 insurancedebt/models.py:264
 #: projects/models.py:118 projects/models.py:231 projects/models.py:305
 #: projects/tables.py:55 projects/templates/snippets/audit.html:30
 msgid "Updated By"
@@ -161,7 +161,7 @@ msgid "Invoice Reference"
 msgstr "رقم الفاتورة"
 
 #: accounting/models.py:98 accounting/models.py:180 archive/forms.py:16
-#: archive/models.py:16 archive/models.py:50 insurancedebt/models.py:203
+#: archive/models.py:16 archive/models.py:50 insurancedebt/models.py:207
 #: projects/models.py:286 projects/models.py:384 projects/models.py:432
 #: projects/tables.py:95 projects/tables.py:144
 #: projects/templates/accounting/new_payment.html:12
@@ -176,7 +176,7 @@ msgstr "العنوان (الإنجليزية)"
 
 #: accounting/models.py:100 accounting/models.py:184 archive/forms.py:19
 #: archive/models.py:18 archive/models.py:51 archive/models.py:97
-#: insurancedebt/models.py:204 projects/models.py:288 projects/models.py:386
+#: insurancedebt/models.py:208 projects/models.py:288 projects/models.py:386
 #: projects/models.py:434 projects/tables.py:145
 #: projects/templates/accounting/new_payment.html:22
 #: projects/templates/tellme/tpl-overview.html:5
@@ -193,7 +193,7 @@ msgstr "الوصف (الإنجليزية)"
 msgid "Invoice Date"
 msgstr "تاريخ الفاتورة"
 
-#: accounting/models.py:105 insurancedebt/models.py:115 projects/models.py:290
+#: accounting/models.py:105 insurancedebt/models.py:116 projects/models.py:290
 #: projects/templates/accounting/new_payment.html:26
 msgid "Status"
 msgstr "الحالة"
@@ -318,13 +318,13 @@ msgid "INBOX"
 msgstr "صندوق الوارد"
 
 #: archive/filters.py:16 archive/forms.py:21 archive/models.py:20
-#: insurancedebt/models.py:112 insurancedebt/models.py:205
+#: insurancedebt/models.py:113 insurancedebt/models.py:209
 #: projects/models.py:219 projects/models.py:335 projects/models.py:350
 #: projects/models.py:358 projects/models.py:393
 msgid "Type"
 msgstr "النوع"
 
-#: archive/forms.py:13 archive/models.py:13 insurancedebt/models.py:202
+#: archive/forms.py:13 archive/models.py:13 insurancedebt/models.py:206
 msgid "Document Upload"
 msgstr "تحميل المستند"
 
@@ -360,11 +360,11 @@ msgstr "خارج اﻷرشبف مع موظف"
 msgid "Out With A Client"
 msgstr "خارج اﻷرشبف مع عميل"
 
-#: archive/models.py:21 archive/tables.py:68 insurancedebt/models.py:206
+#: archive/models.py:21 archive/tables.py:68 insurancedebt/models.py:210
 msgid "Uploaded On"
 msgstr "تم التحميل في"
 
-#: archive/models.py:24 archive/tables.py:66 insurancedebt/models.py:209
+#: archive/models.py:24 archive/tables.py:66 insurancedebt/models.py:213
 msgid "Uploaded By"
 msgstr "تم الرفع بواسطة"
 
@@ -458,67 +458,79 @@ msgid ""
 "details visit: http://sys.fhol.com.sa"
 msgstr ""
 
-#: insurancedebt/apps.py:7 insurancedebt/models.py:156
-#: insurancedebt/models.py:200 insurancedebt/models.py:238
+#: insurancedebt/apps.py:7 insurancedebt/models.py:157
+#: insurancedebt/models.py:204 insurancedebt/models.py:242
 msgid "Insurance Debt"
 msgstr "المطالبة"
 
-#: insurancedebt/forms.py:62 insurancedebt/forms.py:65
+#: insurancedebt/filters.py:8 insurancedebt/models.py:198
+#: insurancedebt/templates/insurancedebt/insurance_debt_form.html:20
+msgid "Debt No"
+msgstr "رقم المطالبة"
+
+#: insurancedebt/forms.py:65 insurancedebt/forms.py:68
 msgid "Entered amount is higher than the remaining amount of the debt"
 msgstr "المبلغ المدخل سيتجاوز إجمالي الدين"
 
-#: insurancedebt/forms.py:86 insurancedebt/forms.py:102
+#: insurancedebt/forms.py:89 insurancedebt/forms.py:105
 msgid "Confirmation Code"
 msgstr "رمز التحقق"
 
-#: insurancedebt/forms.py:90
+#: insurancedebt/forms.py:93
 msgid "Your Mobile"
 msgstr "الجوال"
 
-#: insurancedebt/forms.py:90 insurancedebt/models.py:133
+#: insurancedebt/forms.py:93 insurancedebt/models.py:134
 msgid "format: 05XXXXXXXX"
 msgstr "الصيغة: 05xxxxxxxx"
 
-#: insurancedebt/forms.py:94 insurancedebt/models.py:137
+#: insurancedebt/forms.py:97 insurancedebt/models.py:138
 msgid "You have entered an invalid mobile number"
 msgstr "رقم الجوال الذي أدخلته غير صالح"
 
-#: insurancedebt/forms.py:97
+#: insurancedebt/forms.py:100
 msgid "Request ID"
 msgstr "رقم المطالبة"
 
-#: insurancedebt/forms.py:112
+#: insurancedebt/forms.py:115
 msgid "Entered login data do NOT match with our records. Kindly try again!"
 msgstr ""
 "البيانات المدخلة غير صحيحة، حاول مرة أخرى أو تواصل مع الإدارة لحل المشكلة"
 
-#: insurancedebt/forms.py:130
+#: insurancedebt/forms.py:133
 msgid "I want to pay"
 msgstr "مستعد للدفغ"
 
-#: insurancedebt/forms.py:131
+#: insurancedebt/forms.py:134
 msgid "I want to pay with installments"
 msgstr "مستعد للدفع، لكن بالأقساط"
 
-#: insurancedebt/forms.py:132
+#: insurancedebt/forms.py:135
 msgid "I wont pay"
 msgstr "غير مستعد للدفع"
 
-#: insurancedebt/forms.py:133
+#: insurancedebt/forms.py:136
 msgid "This is the wrong person"
 msgstr "أنا لست الشخص المعني بهذه المطالبة"
 
-#: insurancedebt/forms.py:136
+#: insurancedebt/forms.py:139
 msgid "Your Action/Response"
 msgstr "ردك على المطالبة"
 
-#: insurancedebt/forms.py:139
+#: insurancedebt/forms.py:142
 msgid "Enter any justifications you think is appropriate for your choice"
 msgstr "الرجاء إدخال أى مبررات لخيارك أعلاه"
 
-#: insurancedebt/forms.py:147
+#: insurancedebt/forms.py:150
 msgid "Kindly enter justification for your action/choice"
 msgstr "يجب إدخال المبرر لخيارك"
+
+#: insurancedebt/forms.py:158
+#: insurancedebt/templates/insurancedebt/plain-form.html:40
+#: projects/base_forms.py:39 projects/forms.py:213 projects/forms.py:225
+#: projects/forms.py:235 projects/templates/tellme/tpl-overview.html:15
+msgid "Submit"
+msgstr "حفظ"
 
 #: insurancedebt/models.py:14
 msgid "Insurance Company"
@@ -625,125 +637,124 @@ msgid "Sub-Contract"
 msgstr "العقد الفرعي"
 
 #: insurancedebt/models.py:111
+msgid "Legacy System No"
+msgstr "رقم المطالبة بالنظام القديم"
+
+#: insurancedebt/models.py:112
 msgid "Insurance Company Reference No"
 msgstr "رقم مرجعي من شركة التأمين"
 
-#: insurancedebt/models.py:114
+#: insurancedebt/models.py:115
 msgid "Type Justification"
 msgstr "المبرر"
 
-#: insurancedebt/models.py:117 projects/models.py:292
+#: insurancedebt/models.py:118 projects/models.py:292
 msgid "Status Comments"
 msgstr "تعليقات الحالة"
 
-#: insurancedebt/models.py:118
+#: insurancedebt/models.py:119
 msgid "Debt Amount"
 msgstr "المبلغ"
 
-#: insurancedebt/models.py:123
+#: insurancedebt/models.py:124
 msgid "Assignee"
 msgstr "الموظف المكلف"
 
-#: insurancedebt/models.py:124
+#: insurancedebt/models.py:125
 msgid "Driver Government ID"
 msgstr "رقم هوية/إقامة السائق"
 
-#: insurancedebt/models.py:128
+#: insurancedebt/models.py:129
 msgid "You have entered an invalid Government ID"
 msgstr "الرقم الحكومي غير صالح"
 
-#: insurancedebt/models.py:130
+#: insurancedebt/models.py:131
 msgid "Driver Full Name"
 msgstr "اسم السائق الكامل"
 
-#: insurancedebt/models.py:131
+#: insurancedebt/models.py:132
 msgid "Insurer Full Name"
 msgstr "اسم المؤمن الكامل"
 
-#: insurancedebt/models.py:132
+#: insurancedebt/models.py:133
 msgid "Driver Mobile"
 msgstr "الجوال"
 
-#: insurancedebt/models.py:140
+#: insurancedebt/models.py:141
 msgid "Vehicle Plate NO"
 msgstr "رقم اللوحة"
 
-#: insurancedebt/models.py:141
+#: insurancedebt/models.py:142
 msgid "Accident Location"
 msgstr "مكان الحادث"
 
-#: insurancedebt/models.py:142
+#: insurancedebt/models.py:143
 msgid "Accident Date"
 msgstr "تاريخ الحادث"
 
-#: insurancedebt/models.py:143
+#: insurancedebt/models.py:144
 msgid "Client Notes"
 msgstr "ملاحظات العميل"
 
-#: insurancedebt/models.py:144
+#: insurancedebt/models.py:145
 msgid "Notes"
 msgstr "ملاحظات"
 
-#: insurancedebt/models.py:157
+#: insurancedebt/models.py:158
 msgid "Insurance Debts"
 msgstr "المطالبات"
 
-#: insurancedebt/models.py:194
-#: insurancedebt/templates/insurancedebt/insurance_debt_form.html:20
-msgid "Debt No"
-msgstr "رقم المطالبة"
-
-#: insurancedebt/models.py:216
+#: insurancedebt/models.py:220
 msgid "Insurance Document"
 msgstr "مستند التأمين"
 
-#: insurancedebt/models.py:217
+#: insurancedebt/models.py:221
 msgid "Insurance Documents"
 msgstr "مستندات التأمين"
 
-#: insurancedebt/models.py:232
+#: insurancedebt/models.py:236
 msgid "Bank transfer to Gulf Debt account"
 msgstr "حوالة بنكية لحساب شركة الخليج للتحصيل"
 
-#: insurancedebt/models.py:233
+#: insurancedebt/models.py:237
 msgid "Bank transfer to the insurance company account"
 msgstr "حوالة بنكية لحساب شركة التأمين"
 
-#: insurancedebt/models.py:242
+#: insurancedebt/models.py:246
 #: insurancedebt/templates/insurancedebt/client_area.html:72
 msgid "Scheduled Date"
 msgstr "تاريخ الجدولة"
 
-#: insurancedebt/models.py:244
+#: insurancedebt/models.py:248
 msgid "Scheduled On"
 msgstr "تاريخ الجدولة"
 
-#: insurancedebt/models.py:246
+#: insurancedebt/models.py:250
 msgid "Scheduled By"
 msgstr "تمت الجدولة بواسطة"
 
-#: insurancedebt/models.py:249
+#: insurancedebt/models.py:253
 #: insurancedebt/templates/insurancedebt/client_area.html:74
 msgid "Received On"
 msgstr "تاريخ الاستلام"
 
-#: insurancedebt/models.py:251
+#: insurancedebt/models.py:255
 msgid "Received By"
 msgstr "استلمت بواسطة"
 
-#: insurancedebt/models.py:253
+#: insurancedebt/models.py:257
 msgid "Payment Methods"
 msgstr "طرق الدفع"
 
-#: insurancedebt/models.py:256
+#: insurancedebt/models.py:260
 msgid "Proof Of Payment"
 msgstr "إثبات الدفع"
 
-#: insurancedebt/models.py:264
+#: insurancedebt/models.py:268
 msgid "Scheduled Payment"
 msgstr "الدفعة المجدولة"
 
-#: insurancedebt/models.py:265
+#: insurancedebt/models.py:269
 #: insurancedebt/templates/insurancedebt/client_area.html:62
 #: insurancedebt/templates/insurancedebt/insurance_debt_form.html:63
 msgid "Scheduled Payments"
@@ -836,7 +847,7 @@ msgid "Gulf Debt Client Login"
 msgstr "دخول العميل | شركة الخليج للتحصيل"
 
 #: insurancedebt/templates/insurancedebt/insurance_debt_form.html:14
-#: insurancedebt/views.py:197
+#: insurancedebt/views.py:200
 msgid "Insurance Debt Details"
 msgstr "تفاصيل المطالبة"
 
@@ -868,11 +879,17 @@ msgstr "قائمة المطالبات"
 msgid "New Insurance Debt"
 msgstr "مطالبة جديدة"
 
-#: insurancedebt/templates/insurancedebt/plain-form.html:40
-#: projects/base_forms.py:39 projects/forms.py:213 projects/forms.py:225
-#: projects/forms.py:235 projects/templates/tellme/tpl-overview.html:15
-msgid "Submit"
-msgstr "حفظ"
+#: insurancedebt/templates/insurancedebt/password_change_done.html:6
+msgid "Home"
+msgstr "الرئيسية"
+
+#: insurancedebt/templates/insurancedebt/password_change_done.html:7
+msgid "Password change"
+msgstr "تغيير كلمة المرور"
+
+#: insurancedebt/templates/insurancedebt/password_change_done.html:14
+msgid "Your password was changed."
+msgstr "تم تغيير كلمة المرور الخاصة بك"
 
 #: insurancedebt/views.py:54
 msgid "Insurance Debt was created successfully"
@@ -898,28 +915,28 @@ msgstr "تم تعديل الدفعة المجدولة بنجاح"
 msgid "Scheduled payment was received successfully"
 msgstr "تم استلام الدفعة المجدولة بنجاح"
 
-#: insurancedebt/views.py:151
+#: insurancedebt/views.py:154
 msgid "Comment was posted successfully"
 msgstr "تم إرسال التعليق بنجاح"
 
-#: insurancedebt/views.py:159
+#: insurancedebt/views.py:162
 msgid "Successful login"
 msgstr "دخول ناجح للنظام"
 
-#: insurancedebt/views.py:173
+#: insurancedebt/views.py:176
 msgid "You submitted your action/choice successfully"
 msgstr "تم استلام ردكم بنجاح"
 
-#: insurancedebt/views.py:185
+#: insurancedebt/views.py:188
 msgid "Login first please"
 msgstr "الرجاء تسجيل الدخول "
 
-#: insurancedebt/views.py:217
+#: insurancedebt/views.py:220
 #, python-format
 msgid "The client chose this: [%s]"
 msgstr "رد العميل: [%s]"
 
-#: insurancedebt/views.py:235
+#: insurancedebt/views.py:238
 msgid "Logged out successfully"
 msgstr "تم تسجيل الخروج بنجاح"
 
@@ -1480,9 +1497,13 @@ msgstr "شركات التأمين"
 msgid "Users"
 msgstr "المستخدمين"
 
-#: projects/templates/sidebar.html:101
+#: projects/templates/sidebar.html:99
 msgid "Admin Panel"
 msgstr "لوحة الإدارة"
+
+#: projects/templates/sidebar.html:113
+msgid "Change Password"
+msgstr "تغيير كلمة المرور"
 
 #: projects/templates/snippets/audit.html:5
 msgid "Audit Data"
@@ -1673,9 +1694,6 @@ msgstr "تم إضافة المستخدم بنجاح"
 msgid "User was updated successfully"
 msgstr "تم تحديث بيانات المستخدم بنجاح"
 
-#~ msgid "Lawyer System"
-#~ msgstr "نظام المحاماة"
-
 #~ msgid "Law Firm"
 #~ msgstr "محاماة"
 
@@ -1705,9 +1723,6 @@ msgstr "تم تحديث بيانات المستخدم بنجاح"
 
 #~ msgid "Username"
 #~ msgstr "اسم المستخدم"
-
-#~ msgid "Password"
-#~ msgstr "كلمة المرور"
 
 #~ msgid "Create Account"
 #~ msgstr "إنشاء مستخدم"

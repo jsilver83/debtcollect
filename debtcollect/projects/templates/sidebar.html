@@ -94,13 +94,11 @@
 							<i class="fa fa-clone"></i>{% trans 'Lookups Listing' %}
 						</a>
 					</li>
-				{% endif %}
-				{% if debt_admin %}
-				<li>
-					<a href="{% url 'admin:index' %}">
-						<i class="fa fa-area-chart"></i>{% trans 'Admin Panel' %}
-					</a>
-				</li>
+					<li>
+						<a href="{% url 'admin:index' %}">
+							<i class="fa fa-area-chart"></i>{% trans 'Admin Panel' %}
+						</a>
+					</li>
 				{% endif %}
 				<li>
 					{% if LANGUAGE_CODE == 'ar' %}
@@ -111,6 +109,8 @@
 							<i class="fa fa-language"></i> عربي</a>
 					{% endif %}
 				</li>
+				<li><br></li>
+				<li><a href="{% url 'change_password' %}"><i class="fa fa-edit"></i>{% trans 'Change Password' %}</a></li>
 				<li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i>{% trans 'Logout' %}</a></li>
 			</ul>
 		</div>
