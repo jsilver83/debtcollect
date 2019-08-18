@@ -69,6 +69,8 @@ class InsuranceSubContract(models.Model):
     def __str__(self):
         if self.contract:
             return '%s %%%s' % (self.contract.insurance_company, str(self.agreed_cut),)
+        else:
+            return 'INVALID'
 
 
 class InsuranceDebt(models.Model):
