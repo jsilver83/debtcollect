@@ -36,7 +36,7 @@ class InsuranceDebtResource(resources.ModelResource):
 
 
 class InsuranceDebtAdmin(ImportExportMixin, NumericFilterModelAdmin):
-    list_display = ('id', 'sub_contract', 'type', 'status', 'debt', 'assignee', 'driver_government_id',
+    list_display = ('debt_no', 'sub_contract', 'type', 'status', 'debt', 'assignee', 'driver_government_id',
                     'insurer_full_name', 'driver_full_name', 'driver_mobile', 'created_on', 'updated_on', 'updated_by')
     list_editable = ('type', 'status', 'assignee')
     date_hierarchy = 'created_on'
