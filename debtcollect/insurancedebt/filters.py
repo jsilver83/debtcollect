@@ -15,6 +15,7 @@ class InsuranceDebtFilter(filters.FilterSet):
             'status': ['exact'],
             'driver_government_id': ['icontains'],
             'driver_mobile': ['icontains'],
+            'ref_no': ['exact'],
         }
 
     def custom_debt_no_filter(self, queryset, name, value):
