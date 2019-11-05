@@ -16,7 +16,7 @@ class InsuranceDocumentInline(admin.TabularInline):
 
 class ScheduledPaymentInline(admin.TabularInline):
     model = ScheduledPayment
-    fields = ('amount', 'scheduled_date', 'created_on', 'created_by', 'received_on', 'received_by')
+    fields = ('amount', 'scheduled_date', 'created_on', 'created_by', 'received_on', 'received_by', 'proof_of_payment', )
     readonly_fields = ('created_on', )
 
 

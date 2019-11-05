@@ -191,10 +191,9 @@ class InsuranceDebt(models.Model):
     def can_change_scheduled_payment(self, payment, new_amount):
         scheduled_payments = self.scheduled_payments.exclude(pk=payment.pk)
         if scheduled_payments:
-            return (self.debt -
-                    Money(scheduled_payments.aggregate(Sum('amount')).get('amount__sum'), self.debt.currency)) < new_amount
+            return (new_amount + Money(scheduled_payments.aggregate(Sum('amount')).get('amount__sum'), self.debt.currency)) <= self.debt
         else:
-            return self.debt
+            return True
 
 
 InsuranceDebt._meta.get_field('id').verbose_name = _('Debt No')

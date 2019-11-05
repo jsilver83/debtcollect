@@ -137,7 +137,7 @@ class ReceiveScheduledPaymentView(SuccessMessageMixin, DebtCollectorMixin, BaseF
     form_class = ScheduledPaymentReceiveForm
 
     def get_object(self, queryset=None):
-        get_object_or_404(self.model, received_on__isnull=True, pk=self.kwargs.get('pk'))
+        return get_object_or_404(self.model, received_on__isnull=True, pk=self.kwargs.get('pk'))
 
     def get_success_url(self):
         return reverse_lazy('update_insurance_debt', kwargs={'pk': self.object.insurance_debt.pk})

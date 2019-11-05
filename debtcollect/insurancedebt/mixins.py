@@ -7,14 +7,19 @@ from debtcollect.utils import UserGroups
 class DebtCollectMixin:
     employee = None
 
-    def get(self, request, *args, **kwargs):
-        self.employee, created = Employee.objects.get_or_create(user=self.request.user)
-        if created:
-            self.employee.name_ar = '%s %s' % (self.request.user.first_name, self.request.user.last_name)
-            self.employee.name_en = '%s %s' % (self.request.user.first_name, self.request.user.last_name)
-            self.employee.save()
+    def set_variables(self):
+        try:
+            self.employee, created = Employee.objects.get_or_create(user=self.request.user)
+            if created:
+                self.employee.name_ar = '%s %s' % (self.request.user.first_name, self.request.user.last_name)
+                self.employee.name_en = '%s %s' % (self.request.user.first_name, self.request.user.last_name)
+                self.employee.save()
+        except:
+            pass
 
-        return super().get(request, *args, **kwargs)
+    def dispatch(self, request, *args, **kwargs):
+        self.set_variables()
+        return super().dispatch(request, *args, **kwargs)
 
 
 class DebtCollectorMixin(DebtCollectMixin, LoginRequiredMixin, UserPassesTestMixin):

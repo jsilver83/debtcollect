@@ -9,11 +9,11 @@ from django.urls import path, reverse_lazy
 from insurancedebt import views
 from insurancedebt.forms import MyAuthenticationForm, MyPasswordChangeForm
 
+
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('comments/', include('django_comments.urls')),
 
-    path('debts/', views.InsuranceDebtListing.as_view(), name='home'),
     path('employee-login/', LoginView.as_view(form_class=MyAuthenticationForm), name='login'),
     path('employee-logout/', LogoutView.as_view(next_page='login'), name='logout'),
     path(
@@ -35,6 +35,7 @@ urlpatterns = i18n_patterns(
     path('client-area/', views.ClientAreaView.as_view(), name='client_area'),
 
     path('insurance/', include('insurancedebt.urls')),
+    path('debts/', include('insurancedebt.urls')),
 
     path('projects/', include('projects.urls')),
 

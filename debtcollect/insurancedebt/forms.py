@@ -42,7 +42,7 @@ class InsuranceDocumentForm(BaseUpdatedByForm, forms.ModelForm):
 class ScheduledPaymentForm(BaseUpdatedByForm, forms.ModelForm):
     class Meta:
         model = ScheduledPayment
-        fields = ['amount', 'scheduled_date']
+        fields = ['amount', 'scheduled_date', 'received_on', 'received_by', 'proof_of_payment', ]
 
     def __init__(self, *args, **kwargs):
         self.insurance_debt = None
@@ -54,14 +54,25 @@ class ScheduledPaymentForm(BaseUpdatedByForm, forms.ModelForm):
         if self.instance.pk:
             self.insurance_debt = self.instance.insurance_debt
             if self.instance.received_on:
-                self.fields['amount'].widget.attrs.update({'disabled': True})
-                self.fields['scheduled_date'].widget.attrs.update({'disabled': True})
+                for field in self.fields:
+                    self.fields[field].widget.attrs.update({'disabled': True})
+
+                # disable form submission since it removes the submit button
+                self.helper.inputs = None
+            else:
+                del self.fields['received_on']
+                del self.fields['received_by']
+                del self.fields['proof_of_payment']
+        else:
+            del self.fields['received_on']
+            del self.fields['received_by']
+            del self.fields['proof_of_payment']
 
     def clean_amount(self):
         amount = self.cleaned_data.get('amount')
 
         if self.instance.pk:
-            if self.insurance_debt.can_change_scheduled_payment(self.instance, amount):
+            if not self.insurance_debt.can_change_scheduled_payment(self.instance, amount):
                 raise ValidationError(_('Entered amount is higher than the remaining amount of the debt'))
         else:
             if amount > self.insurance_debt.get_remaining_unscheduled_debt():
@@ -86,7 +97,15 @@ class MyAuthenticationForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(MyAuthenticationForm, self).__init__(*args, **kwargs)
         if not settings.DISABLE_CAPTCHA:
-            self.fields['captcha'] = ReCaptchaField(widget=ReCaptchaV2Checkbox, label=_('Confirmation Code'))
+            self.fields['captcha'] = ReCaptchaField(widget=ReCaptchaV2Checkbox(
+                attrs={
+                    'data-theme': 'light',
+                    'data-size': 'normal',
+                },
+                api_params={
+                    'hl': 'ar',
+                },
+            ), label=_('Confirmation Code'))
 
 
 class ClientLoginForm(BaseCrispyForm, forms.Form):
@@ -102,7 +121,15 @@ class ClientLoginForm(BaseCrispyForm, forms.Form):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         if not settings.DISABLE_CAPTCHA:
-            self.fields['captcha'] = ReCaptchaField(widget=ReCaptchaV2Checkbox, label=_('Confirmation Code'))
+            self.fields['captcha'] = ReCaptchaField(widget=ReCaptchaV2Checkbox(
+                attrs={
+                    'data-theme': 'light',
+                    'data-size': 'normal',
+                },
+                api_params={
+                    'hl': 'ar',
+                },
+            ), label=_('Confirmation Code'))
 
     def clean(self):
         cleaned_data = super(ClientLoginForm, self).clean()

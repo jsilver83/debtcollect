@@ -72,7 +72,7 @@
 							<a href="{% url 'new_scheduled_payment' object.pk %}" class="btn btn-success">
 								<i class="fa fa-send"></i> {% trans 'New Scheduled Payment' %}
 							</a>
-							{% if tables.0.rows %}
+							{% if tables.1.rows %}
 								{% render_table tables.1 %}
 							{% endif %}
 							<hr>
